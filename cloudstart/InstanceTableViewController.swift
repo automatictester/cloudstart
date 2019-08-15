@@ -1,6 +1,6 @@
 import UIKit
 
-class InstancesTableViewController: UITableViewController {
+class InstanceTableViewController: UITableViewController {
     
     var instances: Instances = InstanceReader.get()
     
@@ -44,9 +44,12 @@ class InstancesTableViewController: UITableViewController {
         return cell!
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         // TODO: implement logic
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        self.performSegue(withIdentifier: "doLogout", sender: self)
     }
 }
