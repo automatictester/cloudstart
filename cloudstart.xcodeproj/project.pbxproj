@@ -17,6 +17,7 @@
 		3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4D867922FC9A1D009FC750 /* InstanceReader.swift */; };
 		3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7B822FC9085005F7BC1 /* Instance.swift */; };
 		3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7BA22FC9132005F7BC1 /* Instances.swift */; };
+		3FF67346230805210010B1B3 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67344230805210010B1B3 /* User.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3F4D867922FC9A1D009FC750 /* InstanceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceReader.swift; sourceTree = "<group>"; };
 		3FE5D7B822FC9085005F7BC1 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		3FE5D7BA22FC9132005F7BC1 /* Instances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instances.swift; sourceTree = "<group>"; };
+		3FF67345230805210010B1B3 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				3F4D867922FC9A1D009FC750 /* InstanceReader.swift */,
 				3F00675A2305545C00EEC4E1 /* LoginViewController.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
+				3FF67344230805210010B1B3 /* User.xcdatamodeld */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
 				3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */,
 				3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */,
+				3FF67346230805210010B1B3 /* User.xcdatamodeld in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */,
 			);
@@ -356,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3FF67344230805210010B1B3 /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FF67345230805210010B1B3 /* User.xcdatamodel */,
+			);
+			currentVersion = 3FF67345230805210010B1B3 /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F41B1A522FC534F00EE4AD4 /* Project object */;
 }

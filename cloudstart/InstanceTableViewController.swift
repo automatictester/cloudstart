@@ -9,7 +9,6 @@ class InstanceTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
-        
     }
     
     @objc func refreshInstanceList() {
