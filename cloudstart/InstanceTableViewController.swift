@@ -2,6 +2,8 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    
     var instances: Instances = InstanceReader.get()
     
     override func viewDidLoad() {
@@ -9,6 +11,15 @@ class InstanceTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
+        logoutButton.target = self
+        logoutButton.action = #selector(logoutTouch)
+    }
+    
+    @objc func logoutTouch(sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        appDelegate.clear()
+        
+        self.performSegue(withIdentifier: "doLogout", sender: self)
     }
     
     @objc func refreshInstanceList() {
@@ -46,9 +57,5 @@ class InstanceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         // TODO: implement logic
-    }
-    
-    @IBAction func logout(_ sender: Any) {
-        self.performSegue(withIdentifier: "doLogout", sender: self)
     }
 }
