@@ -70,7 +70,6 @@
                         <viewLayoutGuide key="safeArea" id="ZM2-K8-ZsX"/>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="Jrc-95-tsX" id="I9A-jd-HGK"/>
                         <outlet property="passwordTextField" destination="Ims-tm-IeW" id="qs0-mC-2If"/>
                         <outlet property="userTextField" destination="pCP-HP-EMV" id="XiN-hx-2ot"/>
                         <segue destination="MLa-c6-qzx" kind="show" identifier="doLogin" id="AhF-n4-Jtz"/>
