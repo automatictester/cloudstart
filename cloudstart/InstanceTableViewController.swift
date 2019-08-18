@@ -44,8 +44,8 @@ class InstanceTableViewController: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
         }
         
-        cell!.textLabel!.text = instances.get(index: indexPath.row).name
-        cell!.detailTextLabel!.text = instances.get(index: indexPath.row).status
+        cell!.textLabel!.text = instances.get(index: indexPath.row).id
+        cell!.detailTextLabel!.text = "\(instances.get(index: indexPath.row).name) - \(instances.get(index: indexPath.row).size) - \(instances.get(index: indexPath.row).status)"
         if (instances.get(index: indexPath.row).status == "Terminated") {
             cell!.textLabel?.textColor = UIColor.lightGray
             cell!.detailTextLabel?.textColor = UIColor.lightGray
@@ -54,8 +54,47 @@ class InstanceTableViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        // TODO: implement logic
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let instanceId = self.tableView.cellForRow(at: indexPath)?.textLabel?.text
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if(instances.get(instanceId: instanceId!)?.status == "Stopped") {
+            let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            actionSheetController.addAction(startAction)
+        }
+        
+        if(instances.get(instanceId: instanceId!)?.status == "Running") {
+            let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            let stopAction: UIAlertAction = UIAlertAction(title: "Stop", style: .default) { action -> Void in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            actionSheetController.addAction(rebootAction)
+            actionSheetController.addAction(stopAction)
+        }
+        
+        if(["Running", "Stopped"].contains(instances.get(instanceId: instanceId!)?.status)) {
+            let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .default) { action -> Void in
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            actionSheetController.addAction(terminateAction)
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        actionSheetController.addAction(cancelAction)
+        
+        actionSheetController.popoverPresentationController?.sourceView = tableView
+        
+    
+        present(actionSheetController, animated: true) {
+            print(self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
+        }
     }
 }
