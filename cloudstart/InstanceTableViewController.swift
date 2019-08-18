@@ -61,6 +61,7 @@ class InstanceTableViewController: UITableViewController {
         
         if(instances.get(instanceId: instanceId!)?.status == "Stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
+                print("starting")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(startAction)
@@ -68,9 +69,11 @@ class InstanceTableViewController: UITableViewController {
         
         if(instances.get(instanceId: instanceId!)?.status == "Running") {
             let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
+                print("rebooting")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             let stopAction: UIAlertAction = UIAlertAction(title: "Stop", style: .default) { action -> Void in
+                print("stopping")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(rebootAction)
@@ -79,7 +82,19 @@ class InstanceTableViewController: UITableViewController {
         
         if(["Running", "Stopped"].contains(instances.get(instanceId: instanceId!)?.status)) {
             let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .default) { action -> Void in
-                tableView.deselectRow(at: indexPath, animated: true)
+                let alertController = UIAlertController(title: "\(self.instances.get(index: indexPath.row).name)",
+                    message: "Terminate instance \(self.instances.get(index: indexPath.row).id)?", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction!) in
+                    print("terminating")
+                })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
+                    print("not terminating")
+                })
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: {
+                    self.tableView.deselectRow(at: indexPath, animated: true)
+                })
             }
             actionSheetController.addAction(terminateAction)
         }
