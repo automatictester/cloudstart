@@ -81,10 +81,10 @@ class InstanceTableViewController: UITableViewController {
         }
         
         if(["Running", "Stopped"].contains(instances.get(instanceId: instanceId!)?.status)) {
-            let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .default) { action -> Void in
+            let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
                 let alertController = UIAlertController(title: "\(self.instances.get(index: indexPath.row).name)",
                     message: "Terminate instance \(self.instances.get(index: indexPath.row).id)?", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction!) in
+                let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
                     print("terminating")
                 })
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
@@ -102,7 +102,6 @@ class InstanceTableViewController: UITableViewController {
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
         actionSheetController.addAction(cancelAction)
         
         actionSheetController.popoverPresentationController?.sourceView = tableView
