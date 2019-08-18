@@ -26,7 +26,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
         } else {
-            
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
             appDelegate.save(name: userTextField.text ?? "", password: passwordTextField.text ?? "")
             

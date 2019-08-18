@@ -92,7 +92,6 @@ class InstanceTableViewController: UITableViewController {
         
         actionSheetController.popoverPresentationController?.sourceView = tableView
         
-    
         present(actionSheetController, animated: true) {
             print(self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
         }
