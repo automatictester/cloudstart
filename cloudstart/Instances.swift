@@ -11,6 +11,15 @@ class Instances {
         return instances[index]
     }
     
+    func get(instanceId: String) -> Instance? {
+        for instance in instances {
+            if(instance.id == instanceId) {
+                return instance
+            }
+        }
+        return nil
+    }
+    
     func size() -> Int {
         return instances.count
     }
