@@ -19,15 +19,12 @@ class InstanceTableViewController: UITableViewController {
     
     @objc func logoutTouch(sender: UIButton) {
         AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, error: Error?) in
-            AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: nil, completionHandler: {
-                (provider: AWSSignInProvider, error: Error?) in
-                if (error != nil) {
-                    print("Error occurred: \(String(describing: error))")
-                } else {
-                    print("Sign-in successful.")
-                    
-                }
-            })
+            let config = AWSAuthUIConfiguration()
+            config.enableUserPoolsUI = true
+            config.disableSignUpButton = true
+            config.backgroundColor = UIColor.white
+            
+            AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: config, completionHandler: { _,_  in })
         })
     }
     
