@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F00675B2305545C00EEC4E1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675A2305545C00EEC4E1 /* LoginViewController.swift */; };
 		3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */; };
+		3F16247A230C5B73009B282B /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F162479230C5B73009B282B /* awsconfiguration.json */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
@@ -18,13 +18,12 @@
 		3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */; };
 		3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7B822FC9085005F7BC1 /* Instance.swift */; };
 		3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7BA22FC9132005F7BC1 /* Instances.swift */; };
-		3FF67346230805210010B1B3 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FF67344230805210010B1B3 /* User.xcdatamodeld */; };
 		67A23C884A0394B065560487 /* Pods_cloudstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F00675A2305545C00EEC4E1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
+		3F162479230C5B73009B282B /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,7 +35,6 @@
 		3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		3FE5D7B822FC9085005F7BC1 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		3FE5D7BA22FC9132005F7BC1 /* Instances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instances.swift; sourceTree = "<group>"; };
-		3FF67345230805210010B1B3 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.release.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.release.xcconfig"; sourceTree = "<group>"; };
 		CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.debug.xcconfig"; sourceTree = "<group>"; };
 		D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,9 +82,10 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
+				3F162479230C5B73009B282B /* awsconfiguration.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
-				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
+				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
 				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
@@ -94,9 +93,7 @@
 				3FE5D7BA22FC9132005F7BC1 /* Instances.swift */,
 				3F4D867922FC9A1D009FC750 /* InstanceReader.swift */,
 				3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */,
-				3F00675A2305545C00EEC4E1 /* LoginViewController.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
-				3FF67344230805210010B1B3 /* User.xcdatamodeld */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -169,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F16247A230C5B73009B282B /* awsconfiguration.json in Resources */,
 				3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */,
 				3F4D867822FC9929009FC750 /* logo.png in Resources */,
 				3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */,
@@ -225,12 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F00675B2305545C00EEC4E1 /* LoginViewController.swift in Sources */,
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
 				3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */,
 				3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */,
 				3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */,
-				3FF67346230805210010B1B3 /* User.xcdatamodeld in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */,
 			);
@@ -434,19 +430,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		3FF67344230805210010B1B3 /* User.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3FF67345230805210010B1B3 /* User.xcdatamodel */,
-			);
-			currentVersion = 3FF67345230805210010B1B3 /* User.xcdatamodel */;
-			path = User.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 3F41B1A522FC534F00EE4AD4 /* Project object */;
 }

@@ -1,3 +1,5 @@
+import AWSAuthCore
+import AWSAuthUI
 import UIKit
 
 class InstanceTableViewController: UITableViewController {
@@ -16,14 +18,20 @@ class InstanceTableViewController: UITableViewController {
     }
     
     @objc func logoutTouch(sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        appDelegate.clear()
-        
-        self.performSegue(withIdentifier: "doLogout", sender: self)
+        AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, error: Error?) in
+            AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: nil, completionHandler: {
+                (provider: AWSSignInProvider, error: Error?) in
+                if (error != nil) {
+                    print("Error occurred: \(String(describing: error))")
+                } else {
+                    print("Sign-in successful.")
+                    
+                }
+            })
+        })
     }
     
     @objc func refreshInstanceList() {
-        // TODO: implement logic
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }

@@ -1,14 +1,15 @@
+import AWSMobileClient
 import UIKit
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var items: [NSManagedObject] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        return true
+        return AWSMobileClient
+            .sharedInstance()
+            .interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -31,45 +32,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "User")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    func save(name: String, password: String) {
-        let managedContext = persistentContainer.viewContext
-        managedContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)
-        let item = NSManagedObject(entity: entity!, insertInto: managedContext)
-        item.setValue(name, forKey: "name")
-        item.setValue(password, forKey: "password")
-        
-        do {
-            try managedContext.save()
-            items.append(item)
-        } catch let err as NSError {
-            print("Failed to save an item", err)
-        }
-    }
-    
-    func load() {
-        let managedContext = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
-        do {
-            items = try managedContext.fetch(fetchRequest)
-        } catch let err as NSError {
-            print("Failed to fetch items", err)
-        }
-    }
-    
-    func clear() {
-        self.save(name: "", password: "")
     }
 }

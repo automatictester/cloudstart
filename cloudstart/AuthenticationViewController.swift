@@ -1,20 +1,28 @@
-import UIKit
-import CoreData
+import AWSAuthCore
+import AWSAuthUI
 
 class AuthenticationViewController: UIViewController {
-
-    override func viewDidAppear(_ animated: Bool) {
-        if (hasValidCredentials()) {
-            self.performSegue(withIdentifier: "doShowInstanceTable", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "doShowLogin", sender: self)
-        }
-    }
     
-    func hasValidCredentials() -> Bool {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return false}
-        appDelegate.load()
-        // TODO: this obviously cannot stay like this once we have AWS SDK in place
-        return (appDelegate.items.count == 1) && (appDelegate.items[0].value(forKey: "name") as? String != "")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if (!AWSSignInManager.sharedInstance().isLoggedIn) {
+            let config = AWSAuthUIConfiguration()
+            config.enableUserPoolsUI = true
+            config.disableSignUpButton = true
+            config.backgroundColor = UIColor.white
+            
+            AWSAuthUIViewController.presentViewController(
+                with: self.navigationController!,
+                configuration: config, completionHandler: { (provider: AWSSignInProvider, error: Error?) in
+                    if (error == nil) {
+                        self.performSegue(withIdentifier: "showInstanceTable", sender: self)
+                    } else {
+                        print(error?.localizedDescription as Any)
+                    }
+            })
+        } else {
+            self.performSegue(withIdentifier: "showInstanceTable", sender: self)
+        }
     }
 }
