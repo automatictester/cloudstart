@@ -15,6 +15,9 @@
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4D867922FC9A1D009FC750 /* InstanceReader.swift */; };
+		3FDA5E5E230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */; };
+		3FDA5E5F230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */; };
+		3FDA5E60230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */; };
 		3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */; };
 		3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7B822FC9085005F7BC1 /* Instance.swift */; };
 		3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7BA22FC9132005F7BC1 /* Instances.swift */; };
@@ -32,6 +35,13 @@
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F4D867922FC9A1D009FC750 /* InstanceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceReader.swift; sourceTree = "<group>"; };
+		3F63E97B230EF15500184041 /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
+		3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_CloudStartPoCClient.m; sourceTree = "<group>"; };
+		3FDA5E59230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_Error.h; sourceTree = "<group>"; };
+		3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_Result.m; sourceTree = "<group>"; };
+		3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_Error.m; sourceTree = "<group>"; };
+		3FDA5E5C230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_Result.h; sourceTree = "<group>"; };
+		3FDA5E5D230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_CloudStartPoCClient.h; sourceTree = "<group>"; };
 		3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		3FE5D7B822FC9085005F7BC1 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		3FE5D7BA22FC9132005F7BC1 /* Instances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instances.swift; sourceTree = "<group>"; };
@@ -82,6 +92,13 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
+				3F63E97B230EF15500184041 /* Bridging_Header.h */,
+				3FDA5E5D230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.h */,
+				3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */,
+				3FDA5E59230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.h */,
+				3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */,
+				3FDA5E5C230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.h */,
+				3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */,
 				3F162479230C5B73009B282B /* awsconfiguration.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
@@ -227,6 +244,9 @@
 				3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */,
 				3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */,
 				3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */,
+				3FDA5E60230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Error.m in Sources */,
+				3FDA5E5E230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m in Sources */,
+				3FDA5E5F230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.m in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */,
 			);
@@ -293,6 +313,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -311,6 +332,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -353,6 +375,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -365,6 +388,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -384,6 +408,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.automatictester.cloudstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/Bridging_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -403,6 +428,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.automatictester.cloudstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/Bridging_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
