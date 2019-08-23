@@ -4,8 +4,6 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    
     var instances: Instances = InstanceReader.get()
     
     override func viewDidLoad() {
@@ -13,19 +11,6 @@ class InstanceTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
-        logoutButton.target = self
-        logoutButton.action = #selector(logoutTouch)
-    }
-    
-    @objc func logoutTouch(sender: UIButton) {
-        AWSSignInManager.sharedInstance().logout(completionHandler: {(result: Any?, error: Error?) in
-            let config = AWSAuthUIConfiguration()
-            config.enableUserPoolsUI = true
-            config.disableSignUpButton = true
-            config.backgroundColor = UIColor.white
-            
-            AWSAuthUIViewController.presentViewController(with: self.navigationController!, configuration: config, completionHandler: { _,_  in })
-        })
     }
     
     @objc func refreshInstanceList() {
