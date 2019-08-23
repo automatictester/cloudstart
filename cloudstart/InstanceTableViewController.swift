@@ -29,6 +29,10 @@ class InstanceTableViewController: UITableViewController {
     }
     
     @objc func refreshInstanceList() {
+        let invoker = ApiInvoker()
+        invoker.authenticate()
+        invoker.doInvokeAPI()
+        
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }

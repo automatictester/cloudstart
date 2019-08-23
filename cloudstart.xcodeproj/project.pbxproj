@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */; };
-		3F16247A230C5B73009B282B /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F162479230C5B73009B282B /* awsconfiguration.json */; };
+		3F0EEF57231088A900BFC51D /* ApiInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EEF56231088A900BFC51D /* ApiInvoker.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4D867922FC9A1D009FC750 /* InstanceReader.swift */; };
-		3FDA5E5E230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */; };
-		3FDA5E5F230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */; };
-		3FDA5E60230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */; };
+		3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF1231034A4008891E2 /* awsconfiguration.json */; };
+		3FD1FDF7231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF3231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.m */; };
+		3FD1FDF8231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF5231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.m */; };
 		3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */; };
 		3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7B822FC9085005F7BC1 /* Instance.swift */; };
 		3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D7BA22FC9132005F7BC1 /* Instances.swift */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
-		3F162479230C5B73009B282B /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3F0EEF56231088A900BFC51D /* ApiInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInvoker.swift; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -35,13 +35,12 @@
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F4D867922FC9A1D009FC750 /* InstanceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceReader.swift; sourceTree = "<group>"; };
-		3F63E97B230EF15500184041 /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
-		3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_CloudStartPoCClient.m; sourceTree = "<group>"; };
-		3FDA5E59230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_Error.h; sourceTree = "<group>"; };
-		3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_Result.m; sourceTree = "<group>"; };
-		3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_HISVZWQOXC_Error.m; sourceTree = "<group>"; };
-		3FDA5E5C230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_Result.h; sourceTree = "<group>"; };
-		3FDA5E5D230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_HISVZWQOXC_CloudStartPoCClient.h; sourceTree = "<group>"; };
+		3FD1FDF1231034A4008891E2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3FD1FDF3231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_M7D0OMWZFJ_InstancesGet.m; sourceTree = "<group>"; };
+		3FD1FDF4231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_M7D0OMWZFJ_InstancesGet.h; sourceTree = "<group>"; };
+		3FD1FDF5231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAPI_M7D0OMWZFJ_CloudStartClient.m; sourceTree = "<group>"; };
+		3FD1FDF6231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAPI_M7D0OMWZFJ_CloudStartClient.h; sourceTree = "<group>"; };
+		3FD1FDF9231034C1008891E2 /* Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
 		3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		3FE5D7B822FC9085005F7BC1 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		3FE5D7BA22FC9132005F7BC1 /* Instances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instances.swift; sourceTree = "<group>"; };
@@ -92,14 +91,12 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
-				3F63E97B230EF15500184041 /* Bridging_Header.h */,
-				3FDA5E5D230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.h */,
-				3FDA5E58230F2600001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m */,
-				3FDA5E59230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.h */,
-				3FDA5E5B230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Error.m */,
-				3FDA5E5C230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.h */,
-				3FDA5E5A230F2600001F8F73 /* AWSAPI_HISVZWQOXC_Result.m */,
-				3F162479230C5B73009B282B /* awsconfiguration.json */,
+				3FD1FDF9231034C1008891E2 /* Bridging_Header.h */,
+				3FD1FDF6231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.h */,
+				3FD1FDF5231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.m */,
+				3FD1FDF4231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.h */,
+				3FD1FDF3231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.m */,
+				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
 				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
@@ -110,6 +107,7 @@
 				3FE5D7BA22FC9132005F7BC1 /* Instances.swift */,
 				3F4D867922FC9A1D009FC750 /* InstanceReader.swift */,
 				3FE3BC7C23098D6D00FC8315 /* AuthenticationViewController.swift */,
+				3F0EEF56231088A900BFC51D /* ApiInvoker.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
 			);
 			path = cloudstart;
@@ -183,7 +181,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F16247A230C5B73009B282B /* awsconfiguration.json in Resources */,
+				3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */,
 				3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */,
 				3F4D867822FC9929009FC750 /* logo.png in Resources */,
 				3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */,
@@ -241,12 +239,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
+				3F0EEF57231088A900BFC51D /* ApiInvoker.swift in Sources */,
 				3FE5D7B922FC9085005F7BC1 /* Instance.swift in Sources */,
+				3FD1FDF7231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_InstancesGet.m in Sources */,
+				3FD1FDF8231034B1008891E2 /* AWSAPI_M7D0OMWZFJ_CloudStartClient.m in Sources */,
 				3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */,
 				3FE3BC7D23098D6D00FC8315 /* AuthenticationViewController.swift in Sources */,
-				3FDA5E60230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Error.m in Sources */,
-				3FDA5E5E230F2601001F8F73 /* AWSAPI_HISVZWQOXC_CloudStartPoCClient.m in Sources */,
-				3FDA5E5F230F2601001F8F73 /* AWSAPI_HISVZWQOXC_Result.m in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3FE5D7BB22FC9132005F7BC1 /* Instances.swift in Sources */,
 			);

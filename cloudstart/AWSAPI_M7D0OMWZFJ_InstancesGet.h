@@ -14,14 +14,16 @@
  */
  
 
-#import "AWSAPI_HISVZWQOXC_Error.h"
+#import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
 
-@implementation AWSAPI_HISVZWQOXC_Error
+ 
+@interface AWSAPI_M7D0OMWZFJ_InstancesGet : AWSModel
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"message": @"message"
-             };
-}
+@property (nonatomic, strong, nonnull) NSString *body;
+
+
+@property (nonatomic, strong, nonnull) NSNumber *statusCode;
+
 
 @end

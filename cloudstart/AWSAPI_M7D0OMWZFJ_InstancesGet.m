@@ -14,16 +14,15 @@
  */
  
 
-#import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+#import "AWSAPI_M7D0OMWZFJ_InstancesGet.h"
 
- 
-@interface AWSAPI_HISVZWQOXC_Result : AWSModel
+@implementation AWSAPI_M7D0OMWZFJ_InstancesGet
 
-@property (nonatomic, strong, nonnull) NSNumber *statusCode;
-
-
-@property (nonatomic, strong, nonnull) NSString *body;
-
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"body": @"body",
+             @"statusCode": @"statusCode"
+             };
+}
 
 @end

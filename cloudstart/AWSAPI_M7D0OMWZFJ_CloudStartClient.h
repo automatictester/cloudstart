@@ -17,8 +17,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSAPIGateway/AWSAPIGateway.h>
 
-#import "AWSAPI_HISVZWQOXC_Error.h"
-#import "AWSAPI_HISVZWQOXC_Result.h"
+#import "AWSAPI_M7D0OMWZFJ_InstancesGet.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The service client object.
  */
-@interface AWSAPI_HISVZWQOXC_CloudStartPoCClient: AWSAPIGatewayClient
+@interface AWSAPI_M7D0OMWZFJ_CloudStartClient: AWSAPIGatewayClient
 
 /**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
@@ -59,13 +58,13 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = AWSAPI_HISVZWQOXC_CloudStartPoCClient.defaultClient()
+     let serviceClient = AWSAPI_M7D0OMWZFJ_CloudStartClient.defaultClient()
 
  *Objective-C*
 
-     AWSAPI_HISVZWQOXC_CloudStartPoCClient *serviceClient = [AWSAPI_HISVZWQOXC_CloudStartPoCClient defaultClient];
+     AWSAPI_M7D0OMWZFJ_CloudStartClient *serviceClient = [AWSAPI_M7D0OMWZFJ_CloudStartClient defaultClient];
 
- Alternatively, this configuration could also be set in the `info.plist` file of your app under `AWS` dictionary with a configuration dictionary by name `AWSAPI_HISVZWQOXC_CloudStartPoCClient`.
+ Alternatively, this configuration could also be set in the `info.plist` file of your app under `AWS` dictionary with a configuration dictionary by name `AWSAPI_M7D0OMWZFJ_CloudStartClient`.
 
  @return The default service client.
  */
@@ -81,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSAPI_HISVZWQOXC_CloudStartPoCClient.registerClientWithConfiguration(configuration, forKey: "USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient")
+         AWSAPI_M7D0OMWZFJ_CloudStartClient.registerClientWithConfiguration(configuration, forKey: "USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient")
 
          return true
      }
@@ -94,7 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [AWSAPI_HISVZWQOXC_CloudStartPoCClient registerClientWithConfiguration:configuration forKey:@"USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient"];
+         [AWSAPI_M7D0OMWZFJ_CloudStartClient registerClientWithConfiguration:configuration forKey:@"USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient"];
 
          return YES;
      }
@@ -103,11 +102,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = AWSAPI_HISVZWQOXC_CloudStartPoCClient(forKey: "USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient")
+     let serviceClient = AWSAPI_M7D0OMWZFJ_CloudStartClient(forKey: "USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient")
 
  *Objective-C*
 
-     AWSAPI_HISVZWQOXC_CloudStartPoCClient *serviceClient = [AWSAPI_HISVZWQOXC_CloudStartPoCClient clientForKey:@"USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient"];
+     AWSAPI_M7D0OMWZFJ_CloudStartClient *serviceClient = [AWSAPI_M7D0OMWZFJ_CloudStartClient clientForKey:@"USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient"];
 
  @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
 
@@ -126,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSAPI_HISVZWQOXC_CloudStartPoCClient.registerClientWithConfiguration(configuration, forKey: "USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient")
+         AWSAPI_M7D0OMWZFJ_CloudStartClient.registerClientWithConfiguration(configuration, forKey: "USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient")
 
          return true
      }
@@ -139,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [AWSAPI_HISVZWQOXC_CloudStartPoCClient registerClientWithConfiguration:configuration forKey:@"USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient"];
+         [AWSAPI_M7D0OMWZFJ_CloudStartClient registerClientWithConfiguration:configuration forKey:@"USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient"];
 
          return YES;
      }
@@ -148,11 +147,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = AWSAPI_HISVZWQOXC_CloudStartPoCClient(forKey: "USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient")
+     let serviceClient = AWSAPI_M7D0OMWZFJ_CloudStartClient(forKey: "USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient")
 
  *Objective-C*
 
-     AWSAPI_HISVZWQOXC_CloudStartPoCClient *serviceClient = [AWSAPI_HISVZWQOXC_CloudStartPoCClient clientForKey:@"USWest2AWSAPI_HISVZWQOXC_CloudStartPoCClient"];
+     AWSAPI_M7D0OMWZFJ_CloudStartClient *serviceClient = [AWSAPI_M7D0OMWZFJ_CloudStartClient clientForKey:@"USWest2AWSAPI_M7D0OMWZFJ_CloudStartClient"];
 
  @param key A string to identify the service client.
 
@@ -173,9 +172,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  
  
- return type: AWSAPI_HISVZWQOXC_Result *
+ return type: AWSAPI_M7D0OMWZFJ_InstancesGet *
  */
-- (AWSTask *)rootGet;
+- (AWSTask *)instancesGet;
 
 @end
 

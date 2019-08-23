@@ -19,10 +19,10 @@ PODS:
     - AWSCognitoIdentityProvider (= 2.10.2)
 
 DEPENDENCIES:
-  - AWSAPIGateway
-  - AWSAuthUI
-  - AWSMobileClient
-  - AWSUserPoolsSignIn
+  - AWSAPIGateway (= 2.10.2)
+  - AWSAuthUI (= 2.10.2)
+  - AWSMobileClient (= 2.10.2)
+  - AWSUserPoolsSignIn (= 2.10.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,6 +45,6 @@ SPEC CHECKSUMS:
   AWSMobileClient: 659f78d2a653fb423977b373f1b1f002eac65594
   AWSUserPoolsSignIn: dab457e9db6bedcbf30c759f2cb1c42049041fb2
 
-PODFILE CHECKSUM: 80ca8ac9dc7d6642140744b28ff9a7631ed6bec3
+PODFILE CHECKSUM: c7f2a0e0d58348486631db79af84072356df2e01
 
 COCOAPODS: 1.7.5

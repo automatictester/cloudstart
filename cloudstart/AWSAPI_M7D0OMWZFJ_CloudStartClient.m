@@ -15,13 +15,12 @@
  
 
 
-#import "AWSAPI_HISVZWQOXC_CloudStartPoCClient.h"
+#import "AWSAPI_M7D0OMWZFJ_CloudStartClient.h"
 #import <AWSCore/AWSCore.h>
 #import <AWSCore/AWSSignature.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
-#import "AWSAPI_HISVZWQOXC_Error.h"
-#import "AWSAPI_HISVZWQOXC_Result.h"
+#import "AWSAPI_M7D0OMWZFJ_InstancesGet.h"
 
 @interface AWSAPIGatewayClient()
 
@@ -45,7 +44,7 @@
 
 @end
 
-@interface AWSAPI_HISVZWQOXC_CloudStartPoCClient()
+@interface AWSAPI_M7D0OMWZFJ_CloudStartClient()
 
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
@@ -57,9 +56,9 @@
 
 @end
 
-@implementation AWSAPI_HISVZWQOXC_CloudStartPoCClient
+@implementation AWSAPI_M7D0OMWZFJ_CloudStartClient
 
-static NSString *const AWSInfoClientKey = @"AWSAPI_HISVZWQOXC_CloudStartPoCClient";
+static NSString *const AWSInfoClientKey = @"AWSAPI_M7D0OMWZFJ_CloudStartClient";
 
 @synthesize configuration = _configuration;
 
@@ -78,10 +77,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                            credentialsProvider:nil];
     }
 
-    static AWSAPI_HISVZWQOXC_CloudStartPoCClient *_defaultClient = nil;
+    static AWSAPI_M7D0OMWZFJ_CloudStartClient *_defaultClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultClient = [[AWSAPI_HISVZWQOXC_CloudStartPoCClient alloc] initWithConfiguration:serviceConfiguration];
+        _defaultClient = [[AWSAPI_M7D0OMWZFJ_CloudStartClient alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultClient;
@@ -92,13 +91,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-    [_serviceClients setObject:[[AWSAPI_HISVZWQOXC_CloudStartPoCClient alloc] initWithConfiguration:configuration]
+    [_serviceClients setObject:[[AWSAPI_M7D0OMWZFJ_CloudStartClient alloc] initWithConfiguration:configuration]
                         forKey:key];
 }
 
 + (instancetype)clientForKey:(NSString *)key {
     @synchronized(self) {
-        AWSAPI_HISVZWQOXC_CloudStartPoCClient *serviceClient = [_serviceClients objectForKey:key];
+        AWSAPI_M7D0OMWZFJ_CloudStartClient *serviceClient = [_serviceClients objectForKey:key];
         if (serviceClient) {
             return serviceClient;
         }
@@ -108,7 +107,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
-            [AWSAPI_HISVZWQOXC_CloudStartPoCClient registerClientWithConfiguration:serviceConfiguration
+            [AWSAPI_M7D0OMWZFJ_CloudStartClient registerClientWithConfiguration:serviceConfiguration
                                                     forKey:key];
         }
 
@@ -131,7 +130,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        NSString *URLString = @"https://hisvzwqoxc.execute-api.eu-west-2.amazonaws.com/cs-poc";
+        NSString *URLString = @"https://m7d0omwzfj.execute-api.eu-west-2.amazonaws.com/dev";
         if ([URLString hasSuffix:@"/"]) {
             URLString = [URLString substringToIndex:[URLString length] - 1];
         }
@@ -149,7 +148,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (AWSTask *)rootGet {
+- (AWSTask *)instancesGet {
     NSDictionary *headerParameters = @{
                                        @"Content-Type": @"application/json",
                                        @"Accept": @"application/json",
@@ -163,12 +162,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                      };
     
     return [self invokeHTTPRequest:@"GET"
-                         URLString:@"/"
+                         URLString:@"/instances"
                     pathParameters:pathParameters
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:[AWSAPI_HISVZWQOXC_Result class]];
+                     responseClass:[AWSAPI_M7D0OMWZFJ_InstancesGet class]];
 }
 
 
