@@ -5,19 +5,18 @@ import UIKit
 class InstanceTableViewController: UITableViewController {
     
     var instances: Instances = InstanceReader.get()
+    let invoker = ApiInvoker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        invoker.authenticate()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
     }
     
     @objc func refreshInstanceList() {
-        let invoker = ApiInvoker()
-        invoker.authenticate()
-        invoker.doInvokeAPI()
-        
+        invoker.doInvokeAPI()        
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }
