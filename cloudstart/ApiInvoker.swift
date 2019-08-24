@@ -10,10 +10,8 @@ class ApiInvoker {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: \(error.localizedDescription)")
-            } else if let userState = userState {
-                let username = AWSMobileClient.sharedInstance().username!
-                let userState = userState.rawValue
-                print("Username: \(username), state: \(userState)")
+            } else if userState != nil {
+                print("AWSMobileClient initialized successfully")
             }
         }
     }
