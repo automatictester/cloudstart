@@ -14,14 +14,17 @@
  */
  
 
-#import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
 #import "AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item.h"
 
- 
-@interface AWSAPI_M7D0OMWZFJ_InstancesGet : AWSModel
+@implementation AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item
 
-@property (nonatomic, strong, nonnull) NSArray *instances;
-
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"instanceId": @"instanceId",
+             @"state": @"state",
+             @"instanceType": @"instanceType",
+             @"name": @"name"
+             };
+}
 
 @end

@@ -27,7 +27,12 @@ class ApiInvoker {
             } else if let result = task.result {
                 if result is AWSAPI_M7D0OMWZFJ_InstancesGet {
                     let res = result as! AWSAPI_M7D0OMWZFJ_InstancesGet
-                    print(String(format:"%@ %@", res.body, res.statusCode))
+                    let xxx = res.instances as! [AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item]
+                    
+                    print(String(format:"%@", xxx[0].name))
+                    print(String(format:"%@", xxx[1].name))
+                    print(String(format:"%@", xxx[2].name))
+                    
                 } else if result is NSDictionary {
                     let res = result as! NSDictionary
                     print("NSDictionary: \(res)")

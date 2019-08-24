@@ -20,9 +20,12 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"body": @"body",
-             @"statusCode": @"statusCode"
+             @"instances": @"instances"
              };
+}
+
++ (NSValueTransformer *)instancesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item class]];
 }
 
 @end

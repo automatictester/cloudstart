@@ -16,12 +16,20 @@
 
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
-#import "AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item.h"
 
  
-@interface AWSAPI_M7D0OMWZFJ_InstancesGet : AWSModel
+@interface AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item : AWSModel
 
-@property (nonatomic, strong, nonnull) NSArray *instances;
+@property (nonatomic, strong, nonnull) NSString *instanceId;
+
+
+@property (nonatomic, strong, nonnull) NSString *state;
+
+
+@property (nonatomic, strong, nonnull) NSString *instanceType;
+
+
+@property (nonatomic, strong, nonnull) NSString *name;
 
 
 @end
