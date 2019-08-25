@@ -14,17 +14,18 @@
  */
  
 
-#import "AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item.h"
+#import "DescribeInstancesResult.h"
 
-@implementation AWSAPI_M7D0OMWZFJ_InstancesGet_instances_item
+@implementation DescribeInstancesResult
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"instanceId": @"instanceId",
-             @"state": @"state",
-             @"instanceType": @"instanceType",
-             @"name": @"name"
+             @"instances": @"instances"
              };
+}
+
++ (NSValueTransformer *)instancesJSONTransformer {
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[Ec2Instance class]];
 }
 
 @end

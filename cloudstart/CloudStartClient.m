@@ -15,12 +15,12 @@
  
 
 
-#import "AWSAPI_M7D0OMWZFJ_CloudStartClient.h"
+#import "CloudStartClient.h"
 #import <AWSCore/AWSCore.h>
 #import <AWSCore/AWSSignature.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
-#import "AWSAPI_M7D0OMWZFJ_InstancesGet.h"
+#import "DescribeInstancesResult.h"
 
 @interface AWSAPIGatewayClient()
 
@@ -44,7 +44,7 @@
 
 @end
 
-@interface AWSAPI_M7D0OMWZFJ_CloudStartClient()
+@interface CloudStartClient()
 
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
@@ -56,9 +56,9 @@
 
 @end
 
-@implementation AWSAPI_M7D0OMWZFJ_CloudStartClient
+@implementation CloudStartClient
 
-static NSString *const AWSInfoClientKey = @"AWSAPI_M7D0OMWZFJ_CloudStartClient";
+static NSString *const AWSInfoClientKey = @"CloudStartClient";
 
 @synthesize configuration = _configuration;
 
@@ -77,10 +77,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                            credentialsProvider:nil];
     }
 
-    static AWSAPI_M7D0OMWZFJ_CloudStartClient *_defaultClient = nil;
+    static CloudStartClient *_defaultClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultClient = [[AWSAPI_M7D0OMWZFJ_CloudStartClient alloc] initWithConfiguration:serviceConfiguration];
+        _defaultClient = [[CloudStartClient alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultClient;
@@ -91,13 +91,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-    [_serviceClients setObject:[[AWSAPI_M7D0OMWZFJ_CloudStartClient alloc] initWithConfiguration:configuration]
+    [_serviceClients setObject:[[CloudStartClient alloc] initWithConfiguration:configuration]
                         forKey:key];
 }
 
 + (instancetype)clientForKey:(NSString *)key {
     @synchronized(self) {
-        AWSAPI_M7D0OMWZFJ_CloudStartClient *serviceClient = [_serviceClients objectForKey:key];
+        CloudStartClient *serviceClient = [_serviceClients objectForKey:key];
         if (serviceClient) {
             return serviceClient;
         }
@@ -107,7 +107,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
-            [AWSAPI_M7D0OMWZFJ_CloudStartClient registerClientWithConfiguration:serviceConfiguration
+            [CloudStartClient registerClientWithConfiguration:serviceConfiguration
                                                     forKey:key];
         }
 
@@ -167,7 +167,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:[AWSAPI_M7D0OMWZFJ_InstancesGet class]];
+                     responseClass:[DescribeInstancesResult class]];
 }
 
 

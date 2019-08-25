@@ -4,7 +4,7 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    var instances: Instances = InstanceReader.get()
+    var instances: [Ec2Instance] = InstanceReader.get()
     let invoker = ApiInvoker()
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class InstanceTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instances.size()
+        return instances.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -37,9 +37,9 @@ class InstanceTableViewController: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
         }
         
-        cell!.textLabel!.text = instances.get(index: indexPath.row).id
-        cell!.detailTextLabel!.text = "\(instances.get(index: indexPath.row).name) - \(instances.get(index: indexPath.row).size) - \(instances.get(index: indexPath.row).status)"
-        if (instances.get(index: indexPath.row).status == "Terminated") {
+        cell!.textLabel!.text = instances[indexPath.row].instanceId
+        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
+        if (instances[indexPath.row].state == "Terminated") {
             cell!.textLabel?.textColor = UIColor.lightGray
             cell!.detailTextLabel?.textColor = UIColor.lightGray
         }
@@ -47,12 +47,10 @@ class InstanceTableViewController: UITableViewController {
         return cell!
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let instanceId = self.tableView.cellForRow(at: indexPath)?.textLabel?.text
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        if(instances.get(instanceId: instanceId!)?.status == "Stopped") {
+        if(instances[indexPath.row].state == "stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
                 print("starting")
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -60,7 +58,7 @@ class InstanceTableViewController: UITableViewController {
             actionSheetController.addAction(startAction)
         }
         
-        if(instances.get(instanceId: instanceId!)?.status == "Running") {
+        if(instances[indexPath.row].state == "running") {
             let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
                 print("rebooting")
                 tableView.deselectRow(at: indexPath, animated: true)
@@ -73,10 +71,10 @@ class InstanceTableViewController: UITableViewController {
             actionSheetController.addAction(stopAction)
         }
         
-        if(["Running", "Stopped"].contains(instances.get(instanceId: instanceId!)?.status)) {
+        if(["running", "stopped"].contains(instances[indexPath.row].state)) {
             let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
-                let alertController = UIAlertController(title: "\(self.instances.get(index: indexPath.row).name)",
-                    message: "Terminate instance \(self.instances.get(index: indexPath.row).id)?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "\(self.instances[indexPath.row].name)",
+                    message: "Terminate instance \(self.instances[indexPath.row].instanceId)?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
                     print("terminating")
                 })

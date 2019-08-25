@@ -17,7 +17,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSAPIGateway/AWSAPIGateway.h>
 
-#import "AWSAPI_M7D0OMWZFJ_InstancesGet.h"
+#import "DescribeInstancesResult.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The service client object.
  */
-@interface AWSAPI_M7D0OMWZFJ_CloudStartClient: AWSAPIGatewayClient
+@interface CloudStartClient: AWSAPIGatewayClient
 
 /**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
