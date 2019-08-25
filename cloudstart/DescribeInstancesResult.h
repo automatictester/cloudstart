@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
-#import "Ec2Instance.h"
+#import "Instance.h"
 
  
 @interface DescribeInstancesResult : AWSModel

@@ -1,6 +1,6 @@
 import AWSMobileClient
 
-class ApiInvoker {
+class ApiGateway {
     
     func authenticate() {
         let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
@@ -24,8 +24,8 @@ class ApiInvoker {
             } else if let rawDescribeInstancesResult = task.result {
                 if rawDescribeInstancesResult is DescribeInstancesResult {
                     let describeInstancesResult = rawDescribeInstancesResult as! DescribeInstancesResult
-                    let instances = describeInstancesResult.instances as! [Ec2Instance]
-                    var notificationData = [String:[Ec2Instance]]()
+                    let instances = describeInstancesResult.instances as! [Instance]
+                    var notificationData = [String:[Instance]]()
                     notificationData["instances"] = instances
                     NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
                 } else if rawDescribeInstancesResult is NSDictionary {

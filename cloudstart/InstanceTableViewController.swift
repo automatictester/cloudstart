@@ -4,15 +4,15 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    let invoker = ApiInvoker()
-    var instances = [Ec2Instance]()
+    let apiGateway = ApiGateway()
+    var instances = [Instance]()
     var fakeCell = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdated), name: Notification.Name("InstanceListUpdated"), object: nil)
-        invoker.authenticate()
-        invoker.invokeGetInstancesApi()
+        apiGateway.authenticate()
+        apiGateway.invokeGetInstancesApi()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
@@ -21,7 +21,7 @@ class InstanceTableViewController: UITableViewController {
     @objc func instanceListUpdated(_ instanceListUpdatedNotification: Notification) {
         print("Instance list updated")
         let notificationData = instanceListUpdatedNotification.userInfo
-        instances = notificationData!["instances"] as! [Ec2Instance]
+        instances = notificationData!["instances"] as! [Instance]
         DispatchQueue.main.async {
             self.fakeCell = false
             self.tableView.reloadData()
@@ -29,7 +29,7 @@ class InstanceTableViewController: UITableViewController {
     }
     
     @objc func refreshInstanceList() {
-        invoker.invokeGetInstancesApi()
+        apiGateway.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }
     

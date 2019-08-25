@@ -14,17 +14,22 @@
  */
  
 
-#import "Ec2Instance.h"
+#import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
 
-@implementation Ec2Instance
+ 
+@interface Instance : AWSModel
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"instanceId": @"instanceId",
-             @"state": @"state",
-             @"instanceType": @"instanceType",
-             @"name": @"name"
-             };
-}
+@property (nonatomic, strong, nonnull) NSString *instanceId;
+
+
+@property (nonatomic, strong, nonnull) NSString *state;
+
+
+@property (nonatomic, strong, nonnull) NSString *instanceType;
+
+
+@property (nonatomic, strong, nonnull) NSString *name;
+
 
 @end

@@ -25,7 +25,7 @@
 }
 
 + (NSValueTransformer *)instancesJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[Ec2Instance class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[Instance class]];
 }
 
 @end
