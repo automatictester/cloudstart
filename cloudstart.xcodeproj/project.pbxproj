@@ -14,7 +14,6 @@
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
-		3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4D867922FC9A1D009FC750 /* InstanceReader.swift */; };
 		3FB16CEF2311B908003F82A6 /* Ec2Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CE92311B907003F82A6 /* Ec2Instance.m */; };
 		3FB16CF02311B908003F82A6 /* DescribeInstancesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CED2311B907003F82A6 /* DescribeInstancesResult.m */; };
 		3FB16CF12311B908003F82A6 /* CloudStartClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CEE2311B908003F82A6 /* CloudStartClient.m */; };
@@ -32,7 +31,6 @@
 		3F41B1BA22FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		3F4D867922FC9A1D009FC750 /* InstanceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceReader.swift; sourceTree = "<group>"; };
 		3FB16CE82311B900003F82A6 /* Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
 		3FB16CE92311B907003F82A6 /* Ec2Instance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ec2Instance.m; sourceTree = "<group>"; };
 		3FB16CEA2311B907003F82A6 /* CloudStartClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudStartClient.h; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
-				3F4D867922FC9A1D009FC750 /* InstanceReader.swift */,
 				3F0EEF56231088A900BFC51D /* ApiInvoker.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
 			);
@@ -236,7 +233,6 @@
 			files = (
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
 				3F0EEF57231088A900BFC51D /* ApiInvoker.swift in Sources */,
-				3F4D867A22FC9A1D009FC750 /* InstanceReader.swift in Sources */,
 				3FB16CEF2311B908003F82A6 /* Ec2Instance.m in Sources */,
 				3FB16CF12311B908003F82A6 /* CloudStartClient.m in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,

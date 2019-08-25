@@ -4,20 +4,30 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    var instances: [Ec2Instance] = InstanceReader.get()
     let invoker = ApiInvoker()
+    var instances = [Ec2Instance]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdated), name: Notification.Name("InstanceListUpdated"), object: nil)
         invoker.authenticate()
+        invoker.invokeGetInstancesApi()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
     }
     
+    @objc func instanceListUpdated(_ instanceListUpdatedNotification: Notification) {
+        print("Instance list updated")
+        let notificationData = instanceListUpdatedNotification.userInfo
+        instances = notificationData!["instances"] as! [Ec2Instance]
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     @objc func refreshInstanceList() {
-        invoker.doInvokeAPI()        
-        tableView.reloadData()
+        invoker.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }
     

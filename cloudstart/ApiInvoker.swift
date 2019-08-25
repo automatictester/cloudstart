@@ -16,24 +16,21 @@ class ApiInvoker {
         }
     }
     
-    func doInvokeAPI() {
+    func invokeGetInstancesApi() {
         let invocationClient = CloudStartClient(forKey: "")
-        
         invocationClient.instancesGet().continueWith {(task: AWSTask) -> AnyObject? in
             if let error = task.error {
                 print("Error: \(error)")
-            } else if let result = task.result {
-                if result is DescribeInstancesResult {
-                    let res = result as! DescribeInstancesResult
-                    let xxx = res.instances as! [Ec2Instance]
-                    
-                    print(String(format:"%@", xxx[0].name))
-                    print(String(format:"%@", xxx[1].name))
-                    print(String(format:"%@", xxx[2].name))
-                    
-                } else if result is NSDictionary {
-                    let res = result as! NSDictionary
-                    print("NSDictionary: \(res)")
+            } else if let rawDescribeInstancesResult = task.result {
+                if rawDescribeInstancesResult is DescribeInstancesResult {
+                    let describeInstancesResult = rawDescribeInstancesResult as! DescribeInstancesResult
+                    let instances = describeInstancesResult.instances as! [Ec2Instance]
+                    var notificationData = [String:[Ec2Instance]]()
+                    notificationData["instances"] = instances
+                    NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
+                } else if rawDescribeInstancesResult is NSDictionary {
+                    let genericResult = rawDescribeInstancesResult as! NSDictionary
+                    print("NSDictionary: \(genericResult)")
                 }
             }
             return nil
