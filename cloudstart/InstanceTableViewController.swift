@@ -6,6 +6,7 @@ class InstanceTableViewController: UITableViewController {
     
     let invoker = ApiInvoker()
     var instances = [Ec2Instance]()
+    var fakeCell = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class InstanceTableViewController: UITableViewController {
         let notificationData = instanceListUpdatedNotification.userInfo
         instances = notificationData!["instances"] as! [Ec2Instance]
         DispatchQueue.main.async {
+            self.fakeCell = false
             self.tableView.reloadData()
         }
     }
@@ -31,34 +33,52 @@ class InstanceTableViewController: UITableViewController {
         refreshControl?.endRefreshing()
     }
     
+    // set number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // set number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return instances.count
+        if (fakeCell) {
+            return 1
+        } else {
+            return instances.count
+        }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    // populate cells
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
         
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
         }
         
-        cell!.textLabel!.text = instances[indexPath.row].instanceId
-        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
-        if (instances[indexPath.row].state == "Terminated") {
-            cell!.textLabel?.textColor = UIColor.lightGray
-            cell!.detailTextLabel?.textColor = UIColor.lightGray
+        if (fakeCell) {
+            cell!.textLabel!.text = " "
+            cell!.detailTextLabel!.text = " "
+            cell!.selectionStyle = UITableViewCell.SelectionStyle.none
+        } else {
+            cell!.selectionStyle = UITableViewCell.SelectionStyle.default
+            cell!.textLabel!.text = instances[indexPath.row].instanceId
+            cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
+            if (instances[indexPath.row].state == "terminated") {
+                cell!.textLabel?.textColor = UIColor.lightGray
+                cell!.detailTextLabel?.textColor = UIColor.lightGray
+            }
         }
         
         return cell!
     }
     
+    // handle cell touch
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        if (fakeCell) {
+            return
+        }
         
         if(instances[indexPath.row].state == "stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
