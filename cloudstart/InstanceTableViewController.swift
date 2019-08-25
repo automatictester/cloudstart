@@ -10,24 +10,46 @@ class InstanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerForInstanceListUpdatedNotification()
+        requestInitialTableLoad()
+        enableTableRefresh()
+    }
+    
+    func registerForInstanceListUpdatedNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdated), name: Notification.Name("InstanceListUpdated"), object: nil)
+    }
+    
+    func requestInitialTableLoad() {
         apiGateway.authenticate()
         apiGateway.invokeGetInstancesApi()
+    }
+    
+    func enableTableRefresh() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
     }
     
-    @objc func instanceListUpdated(_ instanceListUpdatedNotification: Notification) {
-        print("Instance list updated")
-        let notificationData = instanceListUpdatedNotification.userInfo
+    // handle notification
+    @objc func instanceListUpdated(notification: Notification) {
+        refreshData(notification)
+        refreshTable()
+    }
+    
+    func refreshData(_ notification: Notification) {
+        print("Data refreshed")
+        let notificationData = notification.userInfo
         instances = notificationData!["instances"] as! [Instance]
+    }
+    
+    func refreshTable() {
         DispatchQueue.main.async {
             self.fakeCell = false
             self.tableView.reloadData()
         }
     }
     
+    // handle table refresh (pull down)
     @objc func refreshInstanceList() {
         apiGateway.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
@@ -40,11 +62,7 @@ class InstanceTableViewController: UITableViewController {
     
     // set number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (fakeCell) {
-            return 1
-        } else {
-            return instances.count
-        }
+        return fakeCell ? 1 : instances.count
     }
     
     // populate cells
