@@ -6,80 +6,77 @@ import UIKit
 class InstanceTableViewController: UITableViewController {
     
     let apiGateway = ApiGateway()
+    
     var instances = [Instance]() {
         didSet {
-            delete()
-            for i in instances {
-                save(i)
-            }
-            print("Saved")
+            flushCoreData()
+            syncCoreData()
         }
     }
     
-    var items: [NSManagedObject] = []
-    
-    lazy var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "LocalDataStore")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("Error loading persistent container: \(error), \(error.userInfo)")
             }
         })
         return container
     }()
     
-    func save(_ instance: Instance) {
-        let managedContext = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "LocalDataStore", in: managedContext)
-        let newItem = NSManagedObject(entity: entity!, insertInto: managedContext)
-        newItem.setValue(instance.instanceId, forKey: "instanceId")
-        newItem.setValue(instance.instanceType, forKey: "instanceType")
-        newItem.setValue(instance.state, forKey: "state")
-        newItem.setValue(instance.name, forKey: "name")
-        
+    func syncCoreData() {
+        let context = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "LocalDataStore", in: context)
+        var instanceCount = 0
+        for instance in instances {
+            let newCoreDataItem = NSManagedObject(entity: entity!, insertInto: context)
+            newCoreDataItem.setValue(instance.instanceId, forKey: "instanceId")
+            newCoreDataItem.setValue(instance.instanceType, forKey: "instanceType")
+            newCoreDataItem.setValue(instance.state, forKey: "state")
+            newCoreDataItem.setValue(instance.name, forKey: "name")
+            instanceCount += 1
+        }
         do {
-            try managedContext.save()            
+            try context.save()
+            print("CoreData updated. Size: \(instanceCount)")
         } catch let err as NSError {
-            print("Failed to save an item", err)
+            print("CoreData update failed", err)
         }
     }
     
-    func delete() {
-        let managedContext = persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "LocalDataStore")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        do
-        {
-            try managedContext.execute(deleteRequest)
-            try managedContext.save()
-        }
-        catch
-        {
-            print ("There was an error")
+    func flushCoreData() {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "LocalDataStore")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(batchDeleteRequest)
+            try context.save()
+        } catch {
+            print ("CoreData flush failed")
         }
     }
     
-    func load() {
-        let managedContext = persistentContainer.viewContext
+    func loadCoreData() {
+        let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocalDataStore")
         do {
-            items = try managedContext.fetch(fetchRequest)
+            var items: [NSManagedObject] = []
+            items = try context.fetch(fetchRequest)
             for item in items {
                 print(item.value(forKey: "instanceId") as! String)
             }
+            print("CoreData loaded: \(items.count)")
         } catch let err as NSError {
-            print("Failed to fetch items", err)
+            print("CoreData load failed", err)
         }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForInstanceListUpdatedNotification()
         requestInitialTableLoad()
         enableTableRefresh()
-        load()
-        print("CoreData: \(items.count)")
+        loadCoreData()
     }
     
     func registerForInstanceListUpdatedNotification() {
