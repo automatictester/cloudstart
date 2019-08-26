@@ -6,13 +6,7 @@ import UIKit
 class InstanceTableViewController: UITableViewController {
     
     let apiGateway = ApiGateway()
-    
-    var instances = [Instance]() {
-        didSet {
-            flushCoreData()
-            syncCoreData()
-        }
-    }
+    var instances = [Instance]()
     
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "LocalDataStore")
@@ -60,15 +54,26 @@ class InstanceTableViewController: UITableViewController {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocalDataStore")
         do {
-            var items: [NSManagedObject] = []
-            items = try context.fetch(fetchRequest)
-            for item in items {
-                print(item.value(forKey: "instanceId") as! String)
-            }
-            print("CoreData loaded: \(items.count)")
+            let coreDataItems = try context.fetch(fetchRequest)
+            instances = fromNSManagedObjectToInstanceArray(coreDataItems)
+            refreshTable()
+            print("CoreData loaded: \(coreDataItems.count)")
         } catch let err as NSError {
             print("CoreData load failed", err)
         }
+    }
+    
+    func fromNSManagedObjectToInstanceArray(_ objects: [NSManagedObject]) -> [Instance] {
+        var instances = [Instance]()
+        for object in objects {
+            let instance = Instance()
+            instance?.instanceId = object.value(forKey: "instanceId") as! String
+            instance?.instanceType = object.value(forKey: "instanceType") as! String
+            instance?.name = object.value(forKey: "name") as! String
+            instance?.state = object.value(forKey: "state") as! String
+            instances.append(instance!)
+        }
+        return instances
     }
     
     override func viewDidLoad() {
@@ -104,6 +109,8 @@ class InstanceTableViewController: UITableViewController {
         print("Data refreshed")
         let notificationData = notification.userInfo
         instances = notificationData!["instances"] as! [Instance]
+        flushCoreData()
+        syncCoreData()
     }
     
     func refreshTable() {
