@@ -18,23 +18,21 @@ class InstanceTableViewController: UITableViewController {
         return container
     }()
     
-    func syncCoreData() {
+    func saveCoreData() {
         let context = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "LocalDataStore", in: context)
-        var instanceCount = 0
         for instance in instances {
             let newCoreDataItem = NSManagedObject(entity: entity!, insertInto: context)
             newCoreDataItem.setValue(instance.instanceId, forKey: "instanceId")
             newCoreDataItem.setValue(instance.instanceType, forKey: "instanceType")
             newCoreDataItem.setValue(instance.state, forKey: "state")
             newCoreDataItem.setValue(instance.name, forKey: "name")
-            instanceCount += 1
         }
         do {
             try context.save()
-            print("CoreData updated. Size: \(instanceCount)")
+            print("CoreData saved: \(instances.count)")
         } catch let err as NSError {
-            print("CoreData update failed", err)
+            print("CoreData save failed", err)
         }
     }
     
@@ -45,8 +43,9 @@ class InstanceTableViewController: UITableViewController {
         do {
             try context.execute(batchDeleteRequest)
             try context.save()
+            print("CoreData flushed")
         } catch {
-            print ("CoreData flush failed")
+            print("CoreData flush failed")
         }
     }
     
@@ -55,7 +54,8 @@ class InstanceTableViewController: UITableViewController {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocalDataStore")
         do {
             let coreDataItems = try context.fetch(fetchRequest)
-            instances = fromNSManagedObjectToInstanceArray(coreDataItems)
+            let tempInstances = fromNSManagedObjectToInstanceArray(coreDataItems)
+            instances = tempInstances.sorted(by: { $0.instanceId > $1.instanceId })
             refreshTable()
             print("CoreData loaded: \(coreDataItems.count)")
         } catch let err as NSError {
@@ -106,11 +106,12 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func refreshData(_ notification: Notification) {
-        print("Data refreshed")
         let notificationData = notification.userInfo
-        instances = notificationData!["instances"] as! [Instance]
+        let tempInstances = notificationData!["instances"] as! [Instance]
+        print("New data received: \(tempInstances.count)")
+        instances = tempInstances.sorted(by: { $0.instanceId > $1.instanceId })
         flushCoreData()
-        syncCoreData()
+        saveCoreData()
     }
     
     func refreshTable() {
