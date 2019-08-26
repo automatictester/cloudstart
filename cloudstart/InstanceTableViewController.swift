@@ -1,18 +1,85 @@
 import AWSAuthCore
 import AWSAuthUI
+import CoreData
 import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
     let apiGateway = ApiGateway()
-    var instances = [Instance]()
-    var fakeCell = true
+    var instances = [Instance]() {
+        didSet {
+            delete()
+            for i in instances {
+                save(i)
+            }
+            print("Saved")
+        }
+    }
+    
+    var items: [NSManagedObject] = []
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "LocalDataStore")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    func save(_ instance: Instance) {
+        let managedContext = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "LocalDataStore", in: managedContext)
+        let newItem = NSManagedObject(entity: entity!, insertInto: managedContext)
+        newItem.setValue(instance.instanceId, forKey: "instanceId")
+        newItem.setValue(instance.instanceType, forKey: "instanceType")
+        newItem.setValue(instance.state, forKey: "state")
+        newItem.setValue(instance.name, forKey: "name")
+        
+        do {
+            try managedContext.save()            
+        } catch let err as NSError {
+            print("Failed to save an item", err)
+        }
+    }
+    
+    func delete() {
+        let managedContext = persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "LocalDataStore")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        }
+        catch
+        {
+            print ("There was an error")
+        }
+    }
+    
+    func load() {
+        let managedContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "LocalDataStore")
+        do {
+            items = try managedContext.fetch(fetchRequest)
+            for item in items {
+                print(item.value(forKey: "instanceId") as! String)
+            }
+        } catch let err as NSError {
+            print("Failed to fetch items", err)
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForInstanceListUpdatedNotification()
         requestInitialTableLoad()
         enableTableRefresh()
+        load()
+        print("CoreData: \(items.count)")
     }
     
     func registerForInstanceListUpdatedNotification() {
@@ -44,7 +111,6 @@ class InstanceTableViewController: UITableViewController {
     
     func refreshTable() {
         DispatchQueue.main.async {
-            self.fakeCell = false
             self.tableView.reloadData()
         }
     }
@@ -62,7 +128,7 @@ class InstanceTableViewController: UITableViewController {
     
     // set number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fakeCell ? 1 : instances.count
+        return instances.count
     }
     
     // populate cells
@@ -73,18 +139,12 @@ class InstanceTableViewController: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
         }
         
-        if (fakeCell) {
-            cell!.textLabel!.text = " "
-            cell!.detailTextLabel!.text = " "
-            cell!.selectionStyle = UITableViewCell.SelectionStyle.none
-        } else {
-            cell!.selectionStyle = UITableViewCell.SelectionStyle.default
-            cell!.textLabel!.text = instances[indexPath.row].instanceId
-            cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
-            if (instances[indexPath.row].state == "terminated") {
-                cell!.textLabel?.textColor = UIColor.lightGray
-                cell!.detailTextLabel?.textColor = UIColor.lightGray
-            }
+        cell!.selectionStyle = UITableViewCell.SelectionStyle.default
+        cell!.textLabel!.text = instances[indexPath.row].instanceId
+        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
+        if (instances[indexPath.row].state == "terminated") {
+            cell!.textLabel?.textColor = UIColor.lightGray
+            cell!.detailTextLabel?.textColor = UIColor.lightGray
         }
         
         return cell!
@@ -93,10 +153,6 @@ class InstanceTableViewController: UITableViewController {
     // handle cell touch
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        if (fakeCell) {
-            return
-        }
         
         if(instances[indexPath.row].state == "stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
