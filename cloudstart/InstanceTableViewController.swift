@@ -156,12 +156,14 @@ class InstanceTableViewController: UITableViewController {
     }
     
     // handle cell touch
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let instanceId = instances[indexPath.row].instanceId
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         if(instances[indexPath.row].state == "stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
                 print("starting")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "start")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(startAction)
@@ -170,10 +172,12 @@ class InstanceTableViewController: UITableViewController {
         if(instances[indexPath.row].state == "running") {
             let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
                 print("rebooting")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "reboot")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             let stopAction: UIAlertAction = UIAlertAction(title: "Stop", style: .default) { action -> Void in
                 print("stopping")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "stop")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(rebootAction)
@@ -186,6 +190,7 @@ class InstanceTableViewController: UITableViewController {
                     message: "Terminate instance \(self.instances[indexPath.row].instanceId)?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
                     print("terminating")
+                    self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "terminate")
                 })
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
                     print("not terminating")

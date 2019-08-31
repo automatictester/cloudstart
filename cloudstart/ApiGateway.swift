@@ -16,6 +16,26 @@ class ApiGateway {
         }
     }
     
+    func invokeChangeInstanceStateApi(instanceId: String, action: String) {
+        let invocationClient = CloudStartClient(forKey: "")
+        let request = ChangeInstanceStateRequest()
+        request?.action = action
+        invocationClient.instancesInstanceIdPatch(instanceId, body: request!).continueWith {(task: AWSTask) -> AnyObject? in
+            if let error = task.error {
+                print("Error: \(error)")
+            } else if let rawChangeInstanceStateResponse = task.result {
+                if rawChangeInstanceStateResponse is ChangeInstanceStateResponse {
+                    let response = rawChangeInstanceStateResponse as! ChangeInstanceStateResponse
+                    print("instanceId: \(response.instanceId), action: \(response.action), status: \(response.status), message: \(response.message)")
+                } else if rawChangeInstanceStateResponse is NSDictionary {
+                    let genericResult = rawChangeInstanceStateResponse as! NSDictionary
+                    print("NSDictionary: \(genericResult)")
+                }
+            }
+            return nil
+        }
+    }
+    
     func invokeGetInstancesApi() {
         let invocationClient = CloudStartClient(forKey: "")
         invocationClient.instancesGet().continueWith {(task: AWSTask) -> AnyObject? in
