@@ -21,6 +21,8 @@
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
 #import "DescribeInstancesResult.h"
+#import "ChangeInstanceStateRequest.h"
+#import "ChangeInstanceStateResponse.h"
 
 @interface AWSAPIGatewayClient()
 
@@ -168,6 +170,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   headerParameters:headerParameters
                               body:nil
                      responseClass:[DescribeInstancesResult class]];
+}
+
+- (AWSTask *)instancesInstanceIdPatch:(NSString *)instanceId body:(ChangeInstanceStateRequest *)body {
+    NSDictionary *headerParameters = @{
+                                       @"Content-Type": @"application/json",
+                                       @"Accept": @"application/json",
+                                       
+                                       };
+    NSDictionary *queryParameters = @{
+                                      
+                                      };
+    NSDictionary *pathParameters = @{
+                                     @"instanceId": instanceId,
+                                     
+                                     };
+    
+    return [self invokeHTTPRequest:@"PATCH"
+                         URLString:@"/instances/{instanceId}"
+                    pathParameters:pathParameters
+                   queryParameters:queryParameters
+                  headerParameters:headerParameters
+                              body:body
+                     responseClass:[ChangeInstanceStateResponse class]];
 }
 
 
