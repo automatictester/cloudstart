@@ -27,6 +27,7 @@ class ApiGateway {
                 if rawChangeInstanceStateResponse is ChangeInstanceStateResponse {
                     let response = rawChangeInstanceStateResponse as! ChangeInstanceStateResponse
                     print("instanceId: \(response.instanceId), action: \(response.action), status: \(response.status), message: \(response.message)")
+                    NotificationCenter.default.post(name: Notification.Name("InstanceStateChanged"), object: nil)
                 } else if rawChangeInstanceStateResponse is NSDictionary {
                     let genericResult = rawChangeInstanceStateResponse as! NSDictionary
                     print("NSDictionary: \(genericResult)")

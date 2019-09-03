@@ -79,6 +79,7 @@ class InstanceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForInstanceListUpdatedNotification()
+        registerForInstanceStateChangedNotification()
         requestInitialTableLoad()
         enableTableRefresh()
         loadCoreData()
@@ -86,6 +87,10 @@ class InstanceTableViewController: UITableViewController {
     
     func registerForInstanceListUpdatedNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdated), name: Notification.Name("InstanceListUpdated"), object: nil)
+    }
+    
+    func registerForInstanceStateChangedNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(instanceStateChanged), name: Notification.Name("InstanceStateChanged"), object: nil)
     }
     
     func requestInitialTableLoad() {
@@ -103,6 +108,11 @@ class InstanceTableViewController: UITableViewController {
     @objc func instanceListUpdated(notification: Notification) {
         refreshData(notification)
         refreshTable()
+    }
+    
+    // handle notification
+    @objc func instanceStateChanged(notification: Notification) {
+        apiGateway.invokeGetInstancesApi()
     }
     
     func refreshData(_ notification: Notification) {
