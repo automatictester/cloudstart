@@ -190,8 +190,14 @@ class InstanceTableViewController: UITableViewController {
                 self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "stop")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
-            actionSheetController.addAction(rebootAction)
+            let updateDnsAction: UIAlertAction = UIAlertAction(title: "Update DNS", style: .default) { action -> Void in
+                print("updating dns")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "update-dns")
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+            actionSheetController.addAction(updateDnsAction)
             actionSheetController.addAction(stopAction)
+            actionSheetController.addAction(rebootAction)
         }
         
         if(["running", "stopped"].contains(instances[indexPath.row].state)) {
