@@ -67,10 +67,10 @@ class InstanceTableViewController: UITableViewController {
         var instances = [Instance]()
         for object in objects {
             let instance = Instance()
-            instance?.instanceId = object.value(forKey: "instanceId") as! String
-            instance?.instanceType = object.value(forKey: "instanceType") as! String
-            instance?.name = object.value(forKey: "name") as! String
-            instance?.state = object.value(forKey: "state") as! String
+            instance?.instanceId = (object.value(forKey: "instanceId")! as! String)
+            instance?.instanceType = (object.value(forKey: "instanceType") as! String)
+            instance?.name = (object.value(forKey: "name") as! String)
+            instance?.state = (object.value(forKey: "state") as! String)
             instances.append(instance!)
         }
         return instances
@@ -156,7 +156,7 @@ class InstanceTableViewController: UITableViewController {
         
         cell!.selectionStyle = UITableViewCell.SelectionStyle.default
         cell!.textLabel!.text = instances[indexPath.row].instanceId
-        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name) - \(instances[indexPath.row].instanceType) - \(instances[indexPath.row].state)"
+        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name!) - \(instances[indexPath.row].instanceType!) - \(instances[indexPath.row].state!)"
         if (instances[indexPath.row].state == "terminated") {
             cell!.textLabel?.textColor = UIColor.lightGray
             cell!.detailTextLabel?.textColor = UIColor.lightGray
@@ -173,7 +173,7 @@ class InstanceTableViewController: UITableViewController {
         if(instances[indexPath.row].state == "stopped") {
             let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
                 print("starting")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "start")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "start")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(startAction)
@@ -182,17 +182,17 @@ class InstanceTableViewController: UITableViewController {
         if(instances[indexPath.row].state == "running") {
             let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
                 print("rebooting")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "reboot")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "reboot")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             let stopAction: UIAlertAction = UIAlertAction(title: "Stop", style: .default) { action -> Void in
                 print("stopping")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "stop")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "stop")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             let updateDnsAction: UIAlertAction = UIAlertAction(title: "Update DNS", style: .default) { action -> Void in
                 print("updating dns")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "update-dns")
+                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "update-dns")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
             actionSheetController.addAction(updateDnsAction)
@@ -202,11 +202,11 @@ class InstanceTableViewController: UITableViewController {
         
         if(["running", "stopped"].contains(instances[indexPath.row].state)) {
             let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
-                let alertController = UIAlertController(title: "\(self.instances[indexPath.row].name)",
-                    message: "Terminate instance \(self.instances[indexPath.row].instanceId)?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "\(self.instances[indexPath.row].name!)",
+                    message: "Terminate instance \(self.instances[indexPath.row].instanceId!)?", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
                     print("terminating")
-                    self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: "terminate")
+                    self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "terminate")
                 })
                 let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
                     print("not terminating")

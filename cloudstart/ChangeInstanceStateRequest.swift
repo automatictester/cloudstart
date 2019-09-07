@@ -1,5 +1,5 @@
 /*
- Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License").
  You may not use this file except in compliance with the License.
@@ -12,24 +12,21 @@
  express or implied. See the License for the specific language governing
  permissions and limitations under the License.
  */
- 
-
-#import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
-
- 
-@interface ChangeInstanceStateResponse : AWSModel
-
-@property (nonatomic, strong, nonnull) NSString *instanceId;
 
 
-@property (nonatomic, strong, nonnull) NSString *action;
+import Foundation
+import AWSCore
 
 
-@property (nonatomic, strong, nonnull) NSString *message;
-
-
-@property (nonatomic, strong, nonnull) NSString *status;
-
-
-@end
+@objcMembers
+public class ChangeInstanceStateRequest : AWSModel {
+    
+    var action: String!
+    
+   	public override static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]!{
+		var params:[AnyHashable : Any] = [:]
+		params["action"] = "action"
+		
+        return params
+	}
+}

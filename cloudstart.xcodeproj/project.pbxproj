@@ -12,17 +12,17 @@
 		3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */; };
 		3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */; };
 		3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */; };
-		3F354D83231AD87600AA57AD /* ChangeInstanceStateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F354D80231AD87600AA57AD /* ChangeInstanceStateRequest.m */; };
-		3F354D84231AD87600AA57AD /* ChangeInstanceStateResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F354D82231AD87600AA57AD /* ChangeInstanceStateResponse.m */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
-		3FB16CEF2311B908003F82A6 /* Instance.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CE92311B907003F82A6 /* Instance.m */; };
-		3FB16CF02311B908003F82A6 /* DescribeInstancesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CED2311B907003F82A6 /* DescribeInstancesResult.m */; };
-		3FB16CF12311B908003F82A6 /* CloudStartClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB16CEE2311B908003F82A6 /* CloudStartClient.m */; };
 		3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF1231034A4008891E2 /* awsconfiguration.json */; };
+		3FF6A73B232407A5008E1455 /* CloudStartClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A736232407A4008E1455 /* CloudStartClient.swift */; };
+		3FF6A73C232407A5008E1455 /* ChangeInstanceStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A737232407A4008E1455 /* ChangeInstanceStateResponse.swift */; };
+		3FF6A73D232407A5008E1455 /* DescribeInstancesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A738232407A5008E1455 /* DescribeInstancesResult.swift */; };
+		3FF6A73E232407A5008E1455 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A739232407A5008E1455 /* Instance.swift */; };
+		3FF6A73F232407A5008E1455 /* ChangeInstanceStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A73A232407A5008E1455 /* ChangeInstanceStateRequest.swift */; };
 		67A23C884A0394B065560487 /* Pods_cloudstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +32,6 @@
 		3F288CA82314473800DFD4D2 /* LocalDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDataStore.xcdatamodel; sourceTree = "<group>"; };
 		3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3F354D7F231AD87500AA57AD /* ChangeInstanceStateResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeInstanceStateResponse.h; sourceTree = "<group>"; };
-		3F354D80231AD87600AA57AD /* ChangeInstanceStateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeInstanceStateRequest.m; sourceTree = "<group>"; };
-		3F354D81231AD87600AA57AD /* ChangeInstanceStateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeInstanceStateRequest.h; sourceTree = "<group>"; };
-		3F354D82231AD87600AA57AD /* ChangeInstanceStateResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeInstanceStateResponse.m; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,13 +40,13 @@
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3FB16CE82311B900003F82A6 /* Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
-		3FB16CE92311B907003F82A6 /* Instance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instance.m; sourceTree = "<group>"; };
-		3FB16CEA2311B907003F82A6 /* CloudStartClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudStartClient.h; sourceTree = "<group>"; };
-		3FB16CEB2311B907003F82A6 /* Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instance.h; sourceTree = "<group>"; };
-		3FB16CEC2311B907003F82A6 /* DescribeInstancesResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescribeInstancesResult.h; sourceTree = "<group>"; };
-		3FB16CED2311B907003F82A6 /* DescribeInstancesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescribeInstancesResult.m; sourceTree = "<group>"; };
-		3FB16CEE2311B908003F82A6 /* CloudStartClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudStartClient.m; sourceTree = "<group>"; };
 		3FD1FDF1231034A4008891E2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3FF6A73523240791008E1455 /* AWSApiGatewayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSApiGatewayBridge.h; sourceTree = "<group>"; };
+		3FF6A736232407A4008E1455 /* CloudStartClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStartClient.swift; sourceTree = "<group>"; };
+		3FF6A737232407A4008E1455 /* ChangeInstanceStateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeInstanceStateResponse.swift; sourceTree = "<group>"; };
+		3FF6A738232407A5008E1455 /* DescribeInstancesResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeInstancesResult.swift; sourceTree = "<group>"; };
+		3FF6A739232407A5008E1455 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		3FF6A73A232407A5008E1455 /* ChangeInstanceStateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeInstanceStateRequest.swift; sourceTree = "<group>"; };
 		49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.release.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.release.xcconfig"; sourceTree = "<group>"; };
 		CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.debug.xcconfig"; sourceTree = "<group>"; };
 		D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,17 +94,13 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
+				3FF6A73523240791008E1455 /* AWSApiGatewayBridge.h */,
 				3FB16CE82311B900003F82A6 /* Bridging_Header.h */,
-				3FB16CEA2311B907003F82A6 /* CloudStartClient.h */,
-				3FB16CEE2311B908003F82A6 /* CloudStartClient.m */,
-				3FB16CEB2311B907003F82A6 /* Instance.h */,
-				3FB16CE92311B907003F82A6 /* Instance.m */,
-				3FB16CEC2311B907003F82A6 /* DescribeInstancesResult.h */,
-				3FB16CED2311B907003F82A6 /* DescribeInstancesResult.m */,
-				3F354D81231AD87600AA57AD /* ChangeInstanceStateRequest.h */,
-				3F354D80231AD87600AA57AD /* ChangeInstanceStateRequest.m */,
-				3F354D7F231AD87500AA57AD /* ChangeInstanceStateResponse.h */,
-				3F354D82231AD87600AA57AD /* ChangeInstanceStateResponse.m */,
+				3FF6A73A232407A5008E1455 /* ChangeInstanceStateRequest.swift */,
+				3FF6A737232407A4008E1455 /* ChangeInstanceStateResponse.swift */,
+				3FF6A736232407A4008E1455 /* CloudStartClient.swift */,
+				3FF6A738232407A5008E1455 /* DescribeInstancesResult.swift */,
+				3FF6A739232407A5008E1455 /* Instance.swift */,
 				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
@@ -250,17 +242,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF6A73F232407A5008E1455 /* ChangeInstanceStateRequest.swift in Sources */,
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
 				3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */,
-				3F354D84231AD87600AA57AD /* ChangeInstanceStateResponse.m in Sources */,
 				3F0EEF57231088A900BFC51D /* ApiGateway.swift in Sources */,
-				3FB16CEF2311B908003F82A6 /* Instance.m in Sources */,
-				3FB16CF12311B908003F82A6 /* CloudStartClient.m in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
-				3FB16CF02311B908003F82A6 /* DescribeInstancesResult.m in Sources */,
-				3F354D83231AD87600AA57AD /* ChangeInstanceStateRequest.m in Sources */,
+				3FF6A73D232407A5008E1455 /* DescribeInstancesResult.swift in Sources */,
+				3FF6A73E232407A5008E1455 /* Instance.swift in Sources */,
+				3FF6A73B232407A5008E1455 /* CloudStartClient.swift in Sources */,
 				3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */,
+				3FF6A73C232407A5008E1455 /* ChangeInstanceStateResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
