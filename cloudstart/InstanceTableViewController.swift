@@ -148,17 +148,24 @@ class InstanceTableViewController: UITableViewController {
     // populate cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
+        let instanceId = instances[indexPath.row].instanceId!
+        let instanceName = instances[indexPath.row].name!
+        let instanceType = instances[indexPath.row].instanceType!
+        let instanceState = instances[indexPath.row].state!
         
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")
         }
         
         cell!.selectionStyle = UITableViewCell.SelectionStyle.default
-        cell!.textLabel!.text = instances[indexPath.row].instanceId
-        cell!.detailTextLabel!.text = "\(instances[indexPath.row].name!) - \(instances[indexPath.row].instanceType!) - \(instances[indexPath.row].state!)"
-        if (instances[indexPath.row].state == "terminated") {
+        cell!.textLabel!.text = instanceId
+        cell!.detailTextLabel!.text = "\(instanceName) - \(instanceType) - \(instanceState)"
+        if (instanceState == "terminated") {
             cell!.textLabel?.textColor = UIColor.lightGray
             cell!.detailTextLabel?.textColor = UIColor.lightGray
+        } else {
+            cell!.textLabel?.textColor = UIColor.black
+            cell!.detailTextLabel?.textColor = UIColor.black
         }
         
         return cell!
