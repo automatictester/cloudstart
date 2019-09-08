@@ -75,6 +75,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3F358E172324F27600E2CE1C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */,
+				3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */,
+				3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3F358E182324F29D00E2CE1C /* AwsSdk */ = {
+			isa = PBXGroup;
+			children = (
+				3FF6A73523240791008E1455 /* AWSApiGatewayBridge.h */,
+				3FB16CE82311B900003F82A6 /* Bridging_Header.h */,
+				3FF6A73A232407A5008E1455 /* ChangeInstanceStateRequest.swift */,
+				3FF6A737232407A4008E1455 /* ChangeInstanceStateResponse.swift */,
+				3FF6A736232407A4008E1455 /* CloudStartClient.swift */,
+				3FF6A738232407A5008E1455 /* DescribeInstancesResult.swift */,
+				3FF6A739232407A5008E1455 /* Instance.swift */,
+			);
+			path = AwsSdk;
+			sourceTree = "<group>";
+		};
 		3F41B1A422FC534F00EE4AD4 = {
 			isa = PBXGroup;
 			children = (
@@ -96,13 +120,8 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
-				3FF6A73523240791008E1455 /* AWSApiGatewayBridge.h */,
-				3FB16CE82311B900003F82A6 /* Bridging_Header.h */,
-				3FF6A73A232407A5008E1455 /* ChangeInstanceStateRequest.swift */,
-				3FF6A737232407A4008E1455 /* ChangeInstanceStateResponse.swift */,
-				3FF6A736232407A4008E1455 /* CloudStartClient.swift */,
-				3FF6A738232407A5008E1455 /* DescribeInstancesResult.swift */,
-				3FF6A739232407A5008E1455 /* Instance.swift */,
+				3F358E182324F29D00E2CE1C /* AwsSdk */,
+				3F358E172324F27600E2CE1C /* CoreData */,
 				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
@@ -113,9 +132,6 @@
 				3F0EEF56231088A900BFC51D /* ApiGateway.swift */,
 				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
-				3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */,
-				3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */,
-				3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -416,7 +432,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.automatictester.cloudstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/Bridging_Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/AwsSdk/Bridging_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -436,7 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.automatictester.cloudstart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/Bridging_Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/irek/git/cloudstart/cloudstart/AwsSdk/Bridging_Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
