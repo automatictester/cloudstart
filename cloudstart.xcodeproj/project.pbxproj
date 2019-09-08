@@ -12,6 +12,7 @@
 		3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */; };
 		3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */; };
 		3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */; };
+		3F358E162324DCFA00E2CE1C /* ActionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E152324DCFA00E2CE1C /* ActionFactory.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		3F288CA82314473800DFD4D2 /* LocalDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDataStore.xcdatamodel; sourceTree = "<group>"; };
 		3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F358E152324DCFA00E2CE1C /* ActionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactory.swift; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
 				3F0EEF56231088A900BFC51D /* ApiGateway.swift */,
+				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
 				3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */,
 				3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */,
@@ -246,6 +249,7 @@
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
 				3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */,
 				3F0EEF57231088A900BFC51D /* ApiGateway.swift in Sources */,
+				3F358E162324DCFA00E2CE1C /* ActionFactory.swift in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
 				3FF6A73D232407A5008E1455 /* DescribeInstancesResult.swift in Sources */,

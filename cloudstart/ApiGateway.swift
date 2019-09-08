@@ -2,7 +2,7 @@ import AWSMobileClient
 
 class ApiGateway {
     
-    func authenticate() {
+    static func authenticate() {
         let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
         let serviceConfiguration = AWSServiceConfiguration(region: AWSRegionType.EUWest2, credentialsProvider: credentialsProvider)
         CloudStartClient.registerClient(withConfiguration: serviceConfiguration!, forKey: "")
@@ -16,7 +16,7 @@ class ApiGateway {
         }
     }
     
-    func invokeChangeInstanceStateApi(instanceId: String, action: String) {
+    static func invokeChangeInstanceStateApi(instanceId: String, action: String) {
         let invocationClient = CloudStartClient.client(forKey: "")
         let request = ChangeInstanceStateRequest()
         request?.action = action
@@ -31,7 +31,7 @@ class ApiGateway {
         }
     }
     
-    func invokeGetInstancesApi() {
+    static func invokeGetInstancesApi() {
         let invocationClient = CloudStartClient.client(forKey: "")
         invocationClient.instancesGet().continueWith {(task: AWSTask) -> AnyObject? in
             if let error = task.error {

@@ -5,7 +5,6 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    let apiGateway = ApiGateway()
     var instances = [Instance]()
     
     var persistentContainer: NSPersistentContainer = {
@@ -94,8 +93,8 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func requestInitialTableLoad() {
-        apiGateway.authenticate()
-        apiGateway.invokeGetInstancesApi()
+        ApiGateway.authenticate()
+        ApiGateway.invokeGetInstancesApi()
     }
     
     func enableTableRefresh() {
@@ -112,7 +111,7 @@ class InstanceTableViewController: UITableViewController {
     
     // handle notification
     @objc func instanceStateChanged(notification: Notification) {
-        apiGateway.invokeGetInstancesApi()
+        ApiGateway.invokeGetInstancesApi()
     }
     
     func refreshData(_ notification: Notification) {
@@ -132,7 +131,7 @@ class InstanceTableViewController: UITableViewController {
     
     // handle table refresh (pull down)
     @objc func refreshInstanceList() {
-        apiGateway.invokeGetInstancesApi()
+        ApiGateway.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }
     
@@ -167,66 +166,34 @@ class InstanceTableViewController: UITableViewController {
     
     // handle cell touch
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let instanceId = instances[indexPath.row].instanceId
+        let instanceId = instances[indexPath.row].instanceId!
+        let instanceName = instances[indexPath.row].name!
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionFactory = ActionFactory(tableView: tableView, viewController: self)
         
         if(instances[indexPath.row].state == "stopped") {
-            let startAction: UIAlertAction = UIAlertAction(title: "Start", style: .default) { action -> Void in
-                print("starting")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "start")
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
+            let startAction = actionFactory.getStartInstanceAction(instanceId: instanceId, indexPath: indexPath)
             actionSheetController.addAction(startAction)
         }
         
         if(instances[indexPath.row].state == "running") {
-            let rebootAction: UIAlertAction = UIAlertAction(title: "Reboot", style: .default) { action -> Void in
-                print("rebooting")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "reboot")
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            let stopAction: UIAlertAction = UIAlertAction(title: "Stop", style: .default) { action -> Void in
-                print("stopping")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "stop")
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            let updateDnsAction: UIAlertAction = UIAlertAction(title: "Update DNS", style: .default) { action -> Void in
-                print("updating dns")
-                self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "update-dns")
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
+            let rebootAction = actionFactory.getRebootInstanceAction(instanceId: instanceId, indexPath: indexPath)
+            let stopAction = actionFactory.getStopInstanceAction(instanceId: instanceId, indexPath: indexPath)
+            let updateDnsAction = actionFactory.getUpdateDnsAction(instanceId: instanceId, indexPath: indexPath)
             actionSheetController.addAction(updateDnsAction)
             actionSheetController.addAction(stopAction)
             actionSheetController.addAction(rebootAction)
         }
         
         if(["running", "stopped"].contains(instances[indexPath.row].state)) {
-            let terminateAction: UIAlertAction = UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
-                let alertController = UIAlertController(title: "\(self.instances[indexPath.row].name!)",
-                    message: "Terminate instance \(self.instances[indexPath.row].instanceId!)?", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
-                    print("terminating")
-                    self.apiGateway.invokeChangeInstanceStateApi(instanceId: instanceId!, action: "terminate")
-                })
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
-                    print("not terminating")
-                })
-                alertController.addAction(okAction)
-                alertController.addAction(cancelAction)
-                self.present(alertController, animated: true, completion: {
-                    self.tableView.deselectRow(at: indexPath, animated: true)
-                })
-            }
+            let terminateAction = actionFactory.getTerminateInstanceAction(instanceId: instanceId, indexPath: indexPath, instanceName: instanceName)
             actionSheetController.addAction(terminateAction)
         }
         
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
+        let cancelAction = actionFactory.getCancel(indexPath)
         actionSheetController.addAction(cancelAction)
         
         actionSheetController.popoverPresentationController?.sourceView = tableView
-        
         present(actionSheetController, animated: true) {
             print(self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
         }
