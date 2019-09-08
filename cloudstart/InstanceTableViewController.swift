@@ -166,35 +166,20 @@ class InstanceTableViewController: UITableViewController {
     
     // handle cell touch
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let instanceId = instances[indexPath.row].instanceId!
-        let instanceName = instances[indexPath.row].name!
-        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let actionFactory = ActionFactory(tableView: tableView, viewController: self)
         
-        if(instances[indexPath.row].state == "stopped") {
-            let startAction = actionFactory.getStartInstanceAction(instanceId: instanceId, indexPath: indexPath)
-            actionSheetController.addAction(startAction)
-        }
+        let stoppedStateHandler = StoppedStateHandler(actionFactory: actionFactory, alertController: alertController)
+        let runningStateHandler = RunningStateHandler(actionFactory: actionFactory, alertController: alertController)
+        let defaultHandler = DefaultHandler(actionFactory: actionFactory, alertController: alertController)
         
-        if(instances[indexPath.row].state == "running") {
-            let rebootAction = actionFactory.getRebootInstanceAction(instanceId: instanceId, indexPath: indexPath)
-            let stopAction = actionFactory.getStopInstanceAction(instanceId: instanceId, indexPath: indexPath)
-            let updateDnsAction = actionFactory.getUpdateDnsAction(instanceId: instanceId, indexPath: indexPath)
-            actionSheetController.addAction(updateDnsAction)
-            actionSheetController.addAction(stopAction)
-            actionSheetController.addAction(rebootAction)
-        }
+        stoppedStateHandler.setNextHandler(runningStateHandler)
+        runningStateHandler.setNextHandler(defaultHandler)
         
-        if(["running", "stopped"].contains(instances[indexPath.row].state)) {
-            let terminateAction = actionFactory.getTerminateInstanceAction(instanceId: instanceId, indexPath: indexPath, instanceName: instanceName)
-            actionSheetController.addAction(terminateAction)
-        }
+        stoppedStateHandler.processHandler(instance: instances[indexPath.row], indexPath: indexPath)
         
-        let cancelAction = actionFactory.getCancel(indexPath)
-        actionSheetController.addAction(cancelAction)
-        
-        actionSheetController.popoverPresentationController?.sourceView = tableView
-        present(actionSheetController, animated: true) {
+        alertController.popoverPresentationController?.sourceView = tableView
+        present(alertController, animated: true) {
             print(self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
         }
     }
