@@ -173,18 +173,8 @@ class InstanceTableViewController: UITableViewController {
     
     // handle cell touch
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let actionFactory = ActionFactory(tableView: tableView, viewController: self)
-        
-        let stoppedStateHandler = StoppedStateHandler(actionFactory: actionFactory, alertController: alertController)
-        let runningStateHandler = RunningStateHandler(actionFactory: actionFactory, alertController: alertController)
-        let defaultHandler = DefaultHandler(actionFactory: actionFactory, alertController: alertController)
-        
-        stoppedStateHandler.setNextHandler(runningStateHandler)
-        runningStateHandler.setNextHandler(defaultHandler)
-        
-        stoppedStateHandler.processHandler(instance: instances[indexPath.row], indexPath: indexPath)
-        
+        let alertControllerFactory = AlertControllerFactory(tableView: tableView, viewController: self)
+        let alertController = alertControllerFactory.getInstance(instance: instances[indexPath.row], indexPath: indexPath)
         alertController.popoverPresentationController?.sourceView = tableView
         present(alertController, animated: true) {
             print(self.tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")

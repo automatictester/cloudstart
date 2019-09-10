@@ -1,14 +1,14 @@
-class ActionFactory {
+public class ActionFactory {
     
-    let tableView: UITableView
-    let viewController: UIViewController
+    private let tableView: UITableView
+    private let viewController: UIViewController
     
-    init(tableView: UITableView, viewController: UIViewController) {
+    public init(tableView: UITableView, viewController: UIViewController) {
         self.tableView = tableView
         self.viewController = viewController
     }
     
-    func getStartInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
+    public func getStartInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Start", style: .default) { action -> Void in
             print("starting")
             self.invokeApi(instanceId: instanceId, action: "start")
@@ -16,7 +16,7 @@ class ActionFactory {
         }
     }
     
-    func getRebootInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
+    public func getRebootInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Reboot", style: .default) { action -> Void in
             print("rebooting")
             self.invokeApi(instanceId: instanceId, action: "reboot")
@@ -24,7 +24,7 @@ class ActionFactory {
         }
     }
     
-    func getStopInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
+    public func getStopInstanceAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Stop", style: .default) { action -> Void in
             print("stopping")
             self.invokeApi(instanceId: instanceId, action: "stop")
@@ -32,7 +32,7 @@ class ActionFactory {
         }
     }
     
-    func getTerminateInstanceAction(instanceId: String, indexPath: IndexPath, instanceName: String) -> UIAlertAction {
+    public func getTerminateInstanceAction(instanceId: String, indexPath: IndexPath, instanceName: String) -> UIAlertAction {
         return UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
             let alertController = UIAlertController(title: "\(instanceName)",
                 message: "Terminate instance \(instanceId)?", preferredStyle: .alert)
@@ -51,7 +51,7 @@ class ActionFactory {
         }
     }
     
-    func getUpdateDnsAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
+    public func getUpdateDnsAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Update DNS", style: .default) { action -> Void in
             print("updating dns")
             self.invokeApi(instanceId: instanceId, action: "update-dns")
@@ -59,7 +59,7 @@ class ActionFactory {
         }
     }
     
-    func getCancel(_ indexPath: IndexPath) -> UIAlertAction {
+    public func getCancel(_ indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             self.deselectRow(indexPath)
         }

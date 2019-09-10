@@ -1,6 +1,6 @@
 class StateHandler {
     
-    var nextHandler: StateHandler?
+    private var nextHandler: StateHandler?
     var alertController: UIAlertController
     var actionFactory: ActionFactory
     

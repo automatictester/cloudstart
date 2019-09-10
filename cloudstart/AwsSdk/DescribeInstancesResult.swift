@@ -21,10 +21,10 @@ import AWSCore
 @objcMembers
 public class Instance : AWSModel {
     
-    var instanceId: String!
-    var state: String!
-    var instanceType: String!
-    var name: String!
+    public var instanceId: String!
+    public var state: String!
+    public var instanceType: String!
+    public var name: String!
     
    	public override static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]!{
 		var params:[AnyHashable : Any] = [:]
