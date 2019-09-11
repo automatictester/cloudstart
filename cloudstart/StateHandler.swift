@@ -22,10 +22,10 @@ class StateHandler {
     }
     
     func expectedState() -> String? {
-        preconditionFailure("This method must be overriden")
+        preconditionFailure("This method must be overridden")
     }
     
     func handleHere(instance: Instance, indexPath: IndexPath) {
-        preconditionFailure("This method must be overriden")
+        preconditionFailure("This method must be overridden")
     }
 }

@@ -5,7 +5,10 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
+    @IBOutlet weak var status: UIBarButtonItem!
+    
     var instances = [Instance]()
+    var lastUpdatedDate: Date?
     
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "LocalDataStore")
@@ -77,6 +80,7 @@ class InstanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStatusFont()
         registerForInstanceListUpdatedNotification()
         registerForInstanceStateChangedNotification()
         requestInitialTableLoad()
@@ -93,6 +97,7 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func requestInitialTableLoad() {
+        updateStatusBeforeRefresh()
         ApiGateway.authenticate()
         ApiGateway.invokeGetInstancesApi()
     }
@@ -101,6 +106,13 @@ class InstanceTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshInstanceList), for: .valueChanged)
         self.refreshControl = refreshControl
+    }
+    
+    func setStatusFont() {
+        status.setTitleTextAttributes(
+            [NSAttributedString.Key.font : UIFont(name: "Helvetica", size: 14)!],
+            for: .normal
+        )
     }
     
     // handle notification
@@ -127,10 +139,30 @@ class InstanceTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        updateStatusAfterRefresh()
+    }
+    
+    func updateStatusBeforeRefresh() {
+        updateStatus("Updating...")
+    }
+    
+    func updateStatus(_ text: String) {
+        DispatchQueue.main.async {
+            self.status.title = text
+        }
+    }
+    
+    func updateStatusAfterRefresh() {
+        lastUpdatedDate = Date.init()
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let text = "Last updated: \(dateFormatterGet.string(from: self.lastUpdatedDate!))"
+        updateStatus(text)
     }
     
     // handle table refresh (pull down)
     @objc func refreshInstanceList() {
+        updateStatusBeforeRefresh()
         ApiGateway.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }

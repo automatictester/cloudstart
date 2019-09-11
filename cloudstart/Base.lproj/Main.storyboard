@@ -25,6 +25,17 @@
                                 <navigationItem title="Amazon EC2 Instances" id="nLO-Hx-uBD"/>
                             </items>
                         </navigationBar>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dLm-CP-6qW">
+                            <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="OhW-gA-I88"/>
+                                <barButtonItem id="Q5V-bp-tVf"/>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="H6K-oo-jYp"/>
+                            </items>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="instance" id="BUz-EG-0be">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -53,6 +64,9 @@
                             </fragment>
                         </attributedString>
                     </refreshControl>
+                    <connections>
+                        <outlet property="status" destination="Q5V-bp-tVf" id="bic-2S-Hhj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdQ-57-RvN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
