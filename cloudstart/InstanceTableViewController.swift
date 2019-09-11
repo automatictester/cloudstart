@@ -119,6 +119,7 @@ class InstanceTableViewController: UITableViewController {
     @objc func instanceListUpdated(notification: Notification) {
         refreshData(notification)
         refreshTable()
+        updateStatusAfterRefresh()
     }
     
     // handle notification
@@ -139,7 +140,6 @@ class InstanceTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        updateStatusAfterRefresh()
     }
     
     func updateStatusBeforeRefresh() {
