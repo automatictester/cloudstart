@@ -4,16 +4,14 @@ import XCTest
 class AlertControllerFactoryTest: XCTestCase {
     
     let alertControllerFactory = AlertControllerFactory(tableView: UITableView(), viewController: UIViewController())
-    let instance = Instance()!
-
-    override func setUp() {
-        instance.instanceId = "i-05b7b3d9384e62120"
-        instance.instanceType = "t3.medium"
-        instance.name = "My Instance"
-    }
+    let instanceId = "i-05b7b3d9384e62120"
+    let instanceType = "t3.medium"
+    let instanceName = "My Instance"
     
     func testStopped() {
-        instance.state = "stopped"
+        let state = "stopped"
+        let instance = Instance(instanceId: instanceId, instanceType: instanceType, state: state, name: instanceName)
+        
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
         XCTAssert(alertController.actions.count == 3)
@@ -23,7 +21,9 @@ class AlertControllerFactoryTest: XCTestCase {
     }
     
     func testRunning() {
-        instance.state = "running"
+        let state = "running"
+        let instance = Instance(instanceId: instanceId, instanceType: instanceType, state: state, name: instanceName)
+        
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
         XCTAssert(alertController.actions.count == 5)
@@ -35,7 +35,9 @@ class AlertControllerFactoryTest: XCTestCase {
     }
     
     func testPending() {
-        instance.state = "pending"
+        let state = "pending"
+        let instance = Instance(instanceId: instanceId, instanceType: instanceType, state: state, name: instanceName)
+        
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
         XCTAssert(alertController.actions.count == 1)

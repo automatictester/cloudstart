@@ -1,5 +1,4 @@
 import AWSAuthCore
-import AWSAuthUI
 import CoreData
 import UIKit
 
@@ -68,12 +67,12 @@ class InstanceTableViewController: UITableViewController {
     func fromNSManagedObjectToInstanceArray(_ objects: [NSManagedObject]) -> [Instance] {
         var instances = [Instance]()
         for object in objects {
-            let instance = Instance()
-            instance?.instanceId = (object.value(forKey: "instanceId")! as! String)
-            instance?.instanceType = (object.value(forKey: "instanceType") as! String)
-            instance?.name = (object.value(forKey: "name") as! String)
-            instance?.state = (object.value(forKey: "state") as! String)
-            instances.append(instance!)
+            let instanceId = (object.value(forKey: "instanceId")! as! String)
+            let instanceType = (object.value(forKey: "instanceType") as! String)
+            let name = (object.value(forKey: "name") as! String)
+            let state = (object.value(forKey: "state") as! String)
+            let instance = Instance(instanceId: instanceId, instanceType: instanceType, state: state, name: name)
+            instances.append(instance)
         }
         return instances
     }
@@ -98,8 +97,8 @@ class InstanceTableViewController: UITableViewController {
     
     func requestInitialTableLoad() {
         updateStatusBeforeRefresh()
-        ApiGateway.authenticate()
-        ApiGateway.invokeGetInstancesApi()
+        AwsLambda.authenticate()
+        AwsLambda.invokeGetInstancesApi()
     }
     
     func enableTableRefresh() {
@@ -124,7 +123,7 @@ class InstanceTableViewController: UITableViewController {
     
     // handle notification
     @objc func instanceStateChanged(notification: Notification) {
-        ApiGateway.invokeGetInstancesApi()
+        AwsLambda.invokeGetInstancesApi()
     }
     
     func refreshData(_ notification: Notification) {
@@ -163,7 +162,7 @@ class InstanceTableViewController: UITableViewController {
     // handle table refresh (pull down)
     @objc func refreshInstanceList() {
         updateStatusBeforeRefresh()
-        ApiGateway.invokeGetInstancesApi()
+        AwsLambda.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }
     

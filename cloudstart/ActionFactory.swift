@@ -1,3 +1,5 @@
+import UIKit
+
 public class ActionFactory {
     
     private let tableView: UITableView
@@ -66,7 +68,7 @@ public class ActionFactory {
     }
     
     private func invokeApi(instanceId: String, action: String) {
-        ApiGateway.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
+        AwsLambda.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
     }
     
     private func deselectRow(_ at: IndexPath) {
