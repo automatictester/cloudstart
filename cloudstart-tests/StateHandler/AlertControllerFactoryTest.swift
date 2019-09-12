@@ -26,12 +26,11 @@ class AlertControllerFactoryTest: XCTestCase {
         
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
-        XCTAssert(alertController.actions.count == 5)
-        XCTAssert(alertController.actions[0].title == "Update DNS")
-        XCTAssert(alertController.actions[1].title == "Stop")
-        XCTAssert(alertController.actions[2].title == "Reboot")
-        XCTAssert(alertController.actions[3].title == "Terminate")
-        XCTAssert(alertController.actions[4].title == "Cancel")
+        XCTAssert(alertController.actions.count == 4)
+        XCTAssert(alertController.actions[0].title == "Stop")
+        XCTAssert(alertController.actions[1].title == "Reboot")
+        XCTAssert(alertController.actions[2].title == "Terminate")
+        XCTAssert(alertController.actions[3].title == "Cancel")
     }
     
     func testPending() {

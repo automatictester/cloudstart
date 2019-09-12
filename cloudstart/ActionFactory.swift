@@ -53,14 +53,6 @@ public class ActionFactory {
         }
     }
     
-    public func getUpdateDnsAction(instanceId: String, indexPath: IndexPath) -> UIAlertAction {
-        return UIAlertAction(title: "Update DNS", style: .default) { action -> Void in
-            print("updating dns")
-            self.invokeApi(instanceId: instanceId, action: "update-dns")
-            self.deselectRow(indexPath)
-        }
-    }
-    
     public func getCancel(_ indexPath: IndexPath) -> UIAlertAction {
         return UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             self.deselectRow(indexPath)

@@ -31,11 +31,6 @@ class ActionFactoryTest: XCTestCase {
         XCTAssert(action.title == "Terminate")
     }
     
-    func testGetUpdateDnsAction() {
-        let action = actionFactory!.getUpdateDnsAction(instanceId: "i-05b7b3d9384e62120", indexPath: IndexPath.init())
-        XCTAssert(action.title == "Update DNS")
-    }
-    
     func testGetCancel() {
         let action = actionFactory!.getCancel(IndexPath.init())
         XCTAssert(action.title == "Cancel")
