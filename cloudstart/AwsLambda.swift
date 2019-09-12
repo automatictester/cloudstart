@@ -34,11 +34,12 @@ class AwsLambda {
                         print("Error: \(error)")
                     }
                     return nil
-                }
-                
-                
-                if let response = task.result as? NSDictionary {
-                    print("instanceId: \(response.value(forKey: "instanceId")!), action: \(response.value(forKey: "action")!), status: \(response.value(forKey: "status")!), message: \(response.value(forKey: "message")!)")
+                } else if let response = task.result as? NSDictionary {
+                    let instanceId = response.value(forKey: "instanceId")!
+                    let action = response.value(forKey: "action")!
+                    let status = response.value(forKey: "status")!
+                    let message = response.value(forKey: "message")!
+                    print("instanceId: \(instanceId), action: \(action), status: \(status), message: \(message)")
                     NotificationCenter.default.post(name: Notification.Name("InstanceStateChanged"), object: nil)
                 }
                 return nil
@@ -51,6 +52,7 @@ class AwsLambda {
         
         lambdaInvoker.invokeFunction("instancesGet", jsonObject: [:])
             .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
+                var instanceList = [Instance]()
                 if let error = task.error as NSError? {
                     if (error.domain == AWSLambdaInvokerErrorDomain) && (AWSLambdaInvokerErrorType.functionError == AWSLambdaInvokerErrorType(rawValue: error.code)) {
                         print("Function error: \(error.userInfo[AWSLambdaInvokerFunctionErrorKey]!)")
@@ -58,9 +60,7 @@ class AwsLambda {
                         print("Error: \(error)")
                     }
                     return nil
-                }
-                var instanceList = [Instance]()
-                if let jsonResponse = task.result as? NSDictionary {
+                } else if let jsonResponse = task.result as? NSDictionary {
                     if let instances = jsonResponse.allValues[0] as? NSArray {
                         for i in instances {
                             if let instance = i as? NSDictionary {
@@ -77,11 +77,10 @@ class AwsLambda {
                             }
                         }
                     }
-                }
-                var notificationData = [String:[Instance]]()
-                notificationData["instances"] = instanceList
-                NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
-                
+                    var notificationData = [String:[Instance]]()
+                    notificationData["instances"] = instanceList
+                    NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
+                }                
                 return nil
             }
         )
