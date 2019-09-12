@@ -52,7 +52,6 @@ class AwsLambda {
         
         lambdaInvoker.invokeFunction("instancesGet", jsonObject: [:])
             .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
-                var instanceList = [Instance]()
                 if let error = task.error as NSError? {
                     if (error.domain == AWSLambdaInvokerErrorDomain) && (AWSLambdaInvokerErrorType.functionError == AWSLambdaInvokerErrorType(rawValue: error.code)) {
                         print("Function error: \(error.userInfo[AWSLambdaInvokerFunctionErrorKey]!)")
@@ -60,27 +59,12 @@ class AwsLambda {
                         print("Error: \(error)")
                     }
                     return nil
-                } else if let jsonResponse = task.result as? NSDictionary {
-                    if let instances = jsonResponse.allValues[0] as? NSArray {
-                        for i in instances {
-                            if let instance = i as? NSDictionary {
-                                let instanceId = instance.value(forKey: "instanceId") as! String
-                                let instanceType = instance.value(forKey: "instanceType") as! String
-                                let state = instance.value(forKey: "state") as! String
-                                let name = instance.value(forKey: "name") as! String
-                                let x = Instance(instanceId: instanceId, instanceType: instanceType, state: state, name: name)
-                                x.instanceId = instanceId
-                                x.instanceType = instanceType
-                                x.name = name
-                                x.state = state
-                                instanceList.append(x)
-                            }
-                        }
-                    }
+                } else if let response = task.result as? NSDictionary {
+                    let instances  = ResponseToInstanceArray.convert(response)
                     var notificationData = [String:[Instance]]()
-                    notificationData["instances"] = instanceList
+                    notificationData["instances"] = instances
                     NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
-                }                
+                }
                 return nil
             }
         )
