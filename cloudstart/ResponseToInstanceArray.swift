@@ -1,6 +1,6 @@
 import Foundation
 
-class ResponseToInstanceArray {
+public class ResponseToInstanceArray {
     
     public static func convert(_ response: NSDictionary) -> [Instance] {
         var instanceArray = [Instance]()

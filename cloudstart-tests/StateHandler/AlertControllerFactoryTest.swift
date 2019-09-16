@@ -14,10 +14,10 @@ class AlertControllerFactoryTest: XCTestCase {
         
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
-        XCTAssert(alertController.actions.count == 3)
-        XCTAssert(alertController.actions[0].title == "Start")
-        XCTAssert(alertController.actions[1].title == "Terminate")
-        XCTAssert(alertController.actions[2].title == "Cancel")
+        XCTAssertEqual(alertController.actions.count, 3)
+        XCTAssertEqual(alertController.actions[0].title, "Start")
+        XCTAssertEqual(alertController.actions[1].title, "Terminate")
+        XCTAssertEqual(alertController.actions[2].title, "Cancel")
     }
     
     func testRunning() {
@@ -26,11 +26,11 @@ class AlertControllerFactoryTest: XCTestCase {
         
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
-        XCTAssert(alertController.actions.count == 4)
-        XCTAssert(alertController.actions[0].title == "Stop")
-        XCTAssert(alertController.actions[1].title == "Reboot")
-        XCTAssert(alertController.actions[2].title == "Terminate")
-        XCTAssert(alertController.actions[3].title == "Cancel")
+        XCTAssertEqual(alertController.actions.count, 4)
+        XCTAssertEqual(alertController.actions[0].title, "Stop")
+        XCTAssertEqual(alertController.actions[1].title, "Reboot")
+        XCTAssertEqual(alertController.actions[2].title, "Terminate")
+        XCTAssertEqual(alertController.actions[3].title, "Cancel")
     }
     
     func testPending() {
@@ -39,7 +39,7 @@ class AlertControllerFactoryTest: XCTestCase {
         
         let alertController = alertControllerFactory.getInstance(instance: instance, indexPath: IndexPath.init())
         
-        XCTAssert(alertController.actions.count == 1)
-        XCTAssert(alertController.actions[0].title == "Cancel")
+        XCTAssertEqual(alertController.actions.count, 1)
+        XCTAssertEqual(alertController.actions[0].title, "Cancel")
     }
 }

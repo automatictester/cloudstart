@@ -18,6 +18,7 @@
 		3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1D232504E000E2CE1C /* DefaultHandler.swift */; };
 		3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */; };
 		3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */; };
+		3F3C1F21232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		3F358E1D232504E000E2CE1C /* DefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHandler.swift; sourceTree = "<group>"; };
 		3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStateHandler.swift; sourceTree = "<group>"; };
 		3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "awsconfiguration-template.json"; sourceTree = "<group>"; };
+		3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToInstanceArrayTest.swift; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,13 +157,13 @@
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
 				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
 				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
-				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 				3FF6A738232407A5008E1455 /* Instance.swift */,
 				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
 				3F0EEF56231088A900BFC51D /* AwsLambda.swift */,
 				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
 				3FE3D995232A9D92003E76AE /* ResponseToInstanceArray.swift */,
+				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -170,8 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				3F6E595823278F0500503261 /* ActionFactoryTest.swift */,
-				3F6E595A23278F0500503261 /* Info.plist */,
 				3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */,
+				3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */,
+				3F6E595A23278F0500503261 /* Info.plist */,
 			);
 			path = "cloudstart-tests";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */,
+				3F3C1F21232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift in Sources */,
 				3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
