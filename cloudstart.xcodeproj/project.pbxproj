@@ -17,6 +17,7 @@
 		3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */; };
 		3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1D232504E000E2CE1C /* DefaultHandler.swift */; };
 		3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */; };
+		3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoppedStateHandler.swift; sourceTree = "<group>"; };
 		3F358E1D232504E000E2CE1C /* DefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHandler.swift; sourceTree = "<group>"; };
 		3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStateHandler.swift; sourceTree = "<group>"; };
+		3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "awsconfiguration-template.json"; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				3F358E212325106200E2CE1C /* StateHandler */,
 				3F358E172324F27600E2CE1C /* CoreData */,
 				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
+				3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */,
 				3F4D867722FC9929009FC750 /* logo.png */,
 				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
 				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
@@ -264,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */,
 				3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */,
 				3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */,
 				3F4D867822FC9929009FC750 /* logo.png in Resources */,
