@@ -62,9 +62,7 @@ struct AwsLambda {
                     }
                     return nil
                 } else if let response = task.result as? NSDictionary {
-                    let instances  = response.toInstanceArray()
-                    var notificationData = [String:[Instance]]()
-                    notificationData["instances"] = instances
+                    let notificationData = ["instances": response.toInstanceArray()]
                     NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
                 }
                 return nil
