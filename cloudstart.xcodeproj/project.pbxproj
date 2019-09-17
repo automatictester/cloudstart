@@ -18,7 +18,7 @@
 		3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1D232504E000E2CE1C /* DefaultHandler.swift */; };
 		3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */; };
 		3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */; };
-		3F3C1F21232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */; };
+		3F3C1F21232FCB77007CA4F7 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
@@ -28,7 +28,7 @@
 		3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59662327A15E00503261 /* AlertControllerFactory.swift */; };
 		3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */; };
 		3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF1231034A4008891E2 /* awsconfiguration.json */; };
-		3FE3D996232A9D92003E76AE /* ResponseToInstanceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D995232A9D92003E76AE /* ResponseToInstanceArray.swift */; };
+		3FE3D996232A9D92003E76AE /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */; };
 		3FF6A73D232407A5008E1455 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A738232407A5008E1455 /* Instance.swift */; };
 		67A23C884A0394B065560487 /* Pods_cloudstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +55,7 @@
 		3F358E1D232504E000E2CE1C /* DefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHandler.swift; sourceTree = "<group>"; };
 		3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStateHandler.swift; sourceTree = "<group>"; };
 		3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "awsconfiguration-template.json"; sourceTree = "<group>"; };
-		3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToInstanceArrayTest.swift; sourceTree = "<group>"; };
+		3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		3F6E59662327A15E00503261 /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertControllerFactoryTest.swift; path = StateHandler/AlertControllerFactoryTest.swift; sourceTree = "<group>"; };
 		3FD1FDF1231034A4008891E2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
-		3FE3D995232A9D92003E76AE /* ResponseToInstanceArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseToInstanceArray.swift; sourceTree = "<group>"; };
+		3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		3FF6A738232407A5008E1455 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.release.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.release.xcconfig"; sourceTree = "<group>"; };
 		CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				3F0EEF56231088A900BFC51D /* AwsLambda.swift */,
 				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
-				3FE3D995232A9D92003E76AE /* ResponseToInstanceArray.swift */,
+				3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 			);
 			path = cloudstart;
@@ -173,7 +173,7 @@
 			children = (
 				3F6E595823278F0500503261 /* ActionFactoryTest.swift */,
 				3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */,
-				3F3C1F20232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift */,
+				3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */,
 				3F6E595A23278F0500503261 /* Info.plist */,
 			);
 			path = "cloudstart-tests";
@@ -347,7 +347,7 @@
 				3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */,
 				3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */,
 				3FF6A73D232407A5008E1455 /* Instance.swift in Sources */,
-				3FE3D996232A9D92003E76AE /* ResponseToInstanceArray.swift in Sources */,
+				3FE3D996232A9D92003E76AE /* NSDictionaryExtension.swift in Sources */,
 				3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */,
-				3F3C1F21232FCB77007CA4F7 /* ResponseToInstanceArrayTest.swift in Sources */,
+				3F3C1F21232FCB77007CA4F7 /* NSDictionaryExtension.swift in Sources */,
 				3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
