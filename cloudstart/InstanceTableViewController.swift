@@ -7,7 +7,6 @@ class InstanceTableViewController: UITableViewController {
     @IBOutlet weak var status: UIBarButtonItem!
     
     var instances = [Instance]()
-    var lastUpdatedDate: Date?
     
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "LocalDataStore")
@@ -24,16 +23,16 @@ class InstanceTableViewController: UITableViewController {
         let entity = NSEntityDescription.entity(forEntityName: "LocalDataStore", in: context)
         for instance in instances {
             let newCoreDataItem = NSManagedObject(entity: entity!, insertInto: context)
-            newCoreDataItem.setValue(instance.instanceId, forKey: "instanceId")
-            newCoreDataItem.setValue(instance.instanceType, forKey: "instanceType")
-            newCoreDataItem.setValue(instance.state, forKey: "state")
-            newCoreDataItem.setValue(instance.name, forKey: "name")
+            newCoreDataItem.setValue(instance.getInstanceId(), forKey: "instanceId")
+            newCoreDataItem.setValue(instance.getInstanceType(), forKey: "instanceType")
+            newCoreDataItem.setValue(instance.getState(), forKey: "state")
+            newCoreDataItem.setValue(instance.getName(), forKey: "name")
         }
         do {
             try context.save()
             print("CoreData saved: \(instances.count)")
-        } catch let err as NSError {
-            print("CoreData save failed", err)
+        } catch {
+            print("CoreData save failed: \(error.localizedDescription)")
         }
     }
     
@@ -46,7 +45,7 @@ class InstanceTableViewController: UITableViewController {
             try context.save()
             print("CoreData flushed")
         } catch {
-            print("CoreData flush failed")
+            print("CoreData flush failed: \(error.localizedDescription)")
         }
     }
     
@@ -56,18 +55,18 @@ class InstanceTableViewController: UITableViewController {
         do {
             let coreDataItems = try context.fetch(fetchRequest)
             let tempInstances = fromNSManagedObjectToInstanceArray(coreDataItems)
-            instances = tempInstances.sorted(by: { $0.instanceId > $1.instanceId })
+            instances = tempInstances.sorted(by: { $0.getInstanceId() > $1.getInstanceId() })
             refreshTable()
             print("CoreData loaded: \(coreDataItems.count)")
-        } catch let err as NSError {
-            print("CoreData load failed", err)
+        } catch {
+            print("CoreData load failed: \(error.localizedDescription)")
         }
     }
     
     func fromNSManagedObjectToInstanceArray(_ objects: [NSManagedObject]) -> [Instance] {
         var instances = [Instance]()
         for object in objects {
-            let instanceId = (object.value(forKey: "instanceId")! as! String)
+            let instanceId = (object.value(forKey: "instanceId") as! String)
             let instanceType = (object.value(forKey: "instanceType") as! String)
             let name = (object.value(forKey: "name") as! String)
             let state = (object.value(forKey: "state") as! String)
@@ -127,10 +126,10 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func refreshData(_ notification: Notification) {
-        let notificationData = notification.userInfo
-        let tempInstances = notificationData!["instances"] as! [Instance]
+        let notificationData = notification.userInfo!
+        let tempInstances = notificationData["instances"] as! [Instance]
         print("New data received: \(tempInstances.count)")
-        instances = tempInstances.sorted(by: { $0.instanceId > $1.instanceId })
+        instances = tempInstances.sorted(by: { $0.getInstanceId() > $1.getInstanceId() })
         flushCoreData()
         saveCoreData()
     }
@@ -152,10 +151,10 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func updateStatusAfterRefresh() {
-        lastUpdatedDate = Date.init()
+        let lastUpdatedDate = Date.init()
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let text = "Last updated: \(dateFormatterGet.string(from: self.lastUpdatedDate!))"
+        let text = "Last updated: \(dateFormatterGet.string(from: lastUpdatedDate))"
         updateStatus(text)
     }
     
@@ -179,10 +178,10 @@ class InstanceTableViewController: UITableViewController {
     // populate cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
-        let instanceId = instances[indexPath.row].instanceId!
-        let instanceName = instances[indexPath.row].name!
-        let instanceType = instances[indexPath.row].instanceType!
-        let instanceState = instances[indexPath.row].state!
+        let instanceId = instances[indexPath.row].getInstanceId()
+        let instanceName = instances[indexPath.row].getName()
+        let instanceType = instances[indexPath.row].getInstanceType()
+        let instanceState = instances[indexPath.row].getState()
         
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellIdentifier")

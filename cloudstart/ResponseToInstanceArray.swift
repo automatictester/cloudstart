@@ -1,10 +1,10 @@
 import Foundation
 
-public class ResponseToInstanceArray {
+public extension NSDictionary {
     
-    public static func convert(_ response: NSDictionary) -> [Instance] {
+    func toInstanceArray() -> [Instance] {
         var instanceArray = [Instance]()
-        if let instances = response.allValues[0] as? NSArray {
+        if let instances = self.allValues[0] as? NSArray {
             for instance in instances {
                 if let instanceAsDict = instance as? NSDictionary {
                     let instanceId = instanceAsDict.value(forKey: "instanceId") as! String

@@ -17,7 +17,7 @@ class StateHandler {
     
     func processHandler(instance: Instance, indexPath: IndexPath) {
         let expectedState = self.expectedState()
-        if (instance.state == expectedState || expectedState == nil) {
+        if (instance.getState() == expectedState || expectedState == nil) {
             handleHere(instance: instance, indexPath: indexPath)
         }
         nextHandler?.processHandler(instance: instance, indexPath: indexPath)

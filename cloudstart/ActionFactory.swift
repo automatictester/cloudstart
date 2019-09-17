@@ -1,6 +1,6 @@
 import UIKit
 
-public class ActionFactory {
+public struct ActionFactory {
     
     private let tableView: UITableView
     private let viewController: UIViewController
@@ -38,11 +38,11 @@ public class ActionFactory {
         return UIAlertAction(title: "Terminate", style: .destructive) { action -> Void in
             let alertController = UIAlertController(title: "\(instanceName)",
                 message: "Terminate instance \(instanceId)?", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction!) in
+            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: {(action: UIAlertAction) in
                 print("terminating")
                 self.invokeApi(instanceId: instanceId, action: "terminate")
             })
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction!) in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
                 print("not terminating")
             })
             alertController.addAction(okAction)

@@ -7,8 +7,8 @@ class StoppedStateHandler : StateHandler {
     }
     
     override func handleHere(instance: Instance, indexPath: IndexPath) {
-        let instanceId = instance.instanceId!
-        let instanceName = instance.name!
+        let instanceId = instance.getInstanceId()
+        let instanceName = instance.getName()
         
         let startAction = actionFactory.getStartInstanceAction(instanceId: instanceId, indexPath: indexPath)
         let terminateAction = actionFactory.getTerminateInstanceAction(instanceId: instanceId, indexPath: indexPath, instanceName: instanceName)

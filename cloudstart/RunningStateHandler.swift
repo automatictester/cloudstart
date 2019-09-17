@@ -7,8 +7,8 @@ class RunningStateHandler : StateHandler {
     }
     
     override func handleHere(instance: Instance, indexPath: IndexPath) {
-        let instanceId = instance.instanceId!
-        let instanceName = instance.name!
+        let instanceId = instance.getInstanceId()
+        let instanceName = instance.getName()
         
         let rebootAction = actionFactory.getRebootInstanceAction(instanceId: instanceId, indexPath: indexPath)
         let stopAction = actionFactory.getStopInstanceAction(instanceId: instanceId, indexPath: indexPath)

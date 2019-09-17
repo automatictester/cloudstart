@@ -1,18 +1,20 @@
 import AWSLambda
 import AWSMobileClient
 
-class AwsLambda {
+struct AwsLambda {
+    
+    private init() {}
     
     static func authenticate() {
         let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
         let serviceConfiguration = AWSServiceConfiguration(region: AWSRegionType.EUWest2, credentialsProvider: credentialsProvider)
-        AWSServiceManager.default()?.defaultServiceConfiguration = serviceConfiguration
+        AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
         
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: \(error.localizedDescription)")
-            } else if userState != nil {
-                print("AWSMobileClient initialized successfully")
+            } else if let state = userState {
+                print("AWSMobileClient initialized successfully. User state: \(state)")
             }
         }
     }
@@ -60,7 +62,7 @@ class AwsLambda {
                     }
                     return nil
                 } else if let response = task.result as? NSDictionary {
-                    let instances  = ResponseToInstanceArray.convert(response)
+                    let instances  = response.toInstanceArray()
                     var notificationData = [String:[Instance]]()
                     notificationData["instances"] = instances
                     NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
