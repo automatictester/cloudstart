@@ -19,6 +19,8 @@ public class AlertControllerFactory {
         
         stoppedStateHandler.processHandler(instance: instance, indexPath: indexPath)
         
+        alertController.view.accessibilityIdentifier = "instanceActions"
+        
         return alertController
     }
 }

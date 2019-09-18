@@ -39,6 +39,16 @@
                ReferencedContainer = "container:cloudstart.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F15968E23326D58000277C4"
+               BuildableName = "cloudstart-ui-tests.xctest"
+               BlueprintName = "cloudstart-ui-tests"
+               ReferencedContainer = "container:cloudstart.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

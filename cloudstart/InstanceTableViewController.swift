@@ -84,6 +84,7 @@ class InstanceTableViewController: UITableViewController {
         requestInitialTableLoad()
         enableTableRefresh()
         loadCoreData()
+        self.tableView.accessibilityIdentifier = "instanceTable"
     }
     
     func registerForInstanceListUpdatedNotification() {
@@ -197,6 +198,7 @@ class InstanceTableViewController: UITableViewController {
             cell!.textLabel?.textColor = UIColor.black
             cell!.detailTextLabel?.textColor = UIColor.black
         }
+        cell!.accessibilityIdentifier = instanceId
         
         return cell!
     }

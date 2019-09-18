@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */; };
 		3F0EEF57231088A900BFC51D /* AwsLambda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EEF56231088A900BFC51D /* AwsLambda.swift */; };
+		3F27A3C923328A53004D8595 /* InstanceListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3C823328A53004D8595 /* InstanceListTest.swift */; };
+		3F27A3CB23328FA4004D8595 /* InstanceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CA23328FA4004D8595 /* InstanceTable.swift */; };
+		3F27A3CD23329057004D8595 /* InstanceActionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CC23329057004D8595 /* InstanceActionsTest.swift */; };
+		3F27A3CF23329AAF004D8595 /* InstanceActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CE23329AAF004D8595 /* InstanceActions.swift */; };
 		3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CA72314473800DFD4D2 /* LocalDataStore.xcdatamodeld */; };
 		3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */; };
 		3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */; };
@@ -34,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3F15969423326D58000277C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F41B1A522FC534F00EE4AD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F41B1AC22FC534F00EE4AD4;
+			remoteInfo = cloudstart;
+		};
 		3F6E595B23278F0500503261 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F41B1A522FC534F00EE4AD4 /* Project object */;
@@ -46,6 +57,12 @@
 /* Begin PBXFileReference section */
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
 		3F0EEF56231088A900BFC51D /* AwsLambda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambda.swift; sourceTree = "<group>"; };
+		3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-ui-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F15969323326D58000277C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F27A3C823328A53004D8595 /* InstanceListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceListTest.swift; sourceTree = "<group>"; };
+		3F27A3CA23328FA4004D8595 /* InstanceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTable.swift; sourceTree = "<group>"; };
+		3F27A3CC23329057004D8595 /* InstanceActionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceActionsTest.swift; sourceTree = "<group>"; };
+		3F27A3CE23329AAF004D8595 /* InstanceActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceActions.swift; sourceTree = "<group>"; };
 		3F288CA82314473800DFD4D2 /* LocalDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDataStore.xcdatamodel; sourceTree = "<group>"; };
 		3F288CAA2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F288CAB2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LocalDataStore+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -77,6 +94,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F15968C23326D58000277C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F41B1AA22FC534F00EE4AD4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,6 +126,18 @@
 				49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3F15969023326D58000277C4 /* cloudstart-ui-tests */ = {
+			isa = PBXGroup;
+			children = (
+				3F27A3CA23328FA4004D8595 /* InstanceTable.swift */,
+				3F27A3CE23329AAF004D8595 /* InstanceActions.swift */,
+				3F27A3C823328A53004D8595 /* InstanceListTest.swift */,
+				3F27A3CC23329057004D8595 /* InstanceActionsTest.swift */,
+				3F15969323326D58000277C4 /* Info.plist */,
+			);
+			path = "cloudstart-ui-tests";
 			sourceTree = "<group>";
 		};
 		3F358E172324F27600E2CE1C /* CoreData */ = {
@@ -131,6 +167,7 @@
 			children = (
 				3F41B1AF22FC534F00EE4AD4 /* cloudstart */,
 				3F6E595723278F0500503261 /* cloudstart-tests */,
+				3F15969023326D58000277C4 /* cloudstart-ui-tests */,
 				3F41B1AE22FC534F00EE4AD4 /* Products */,
 				3C2ECB87094024A9F89D170E /* Pods */,
 				C5731022B6A627CE92275168 /* Frameworks */,
@@ -142,6 +179,7 @@
 			children = (
 				3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */,
 				3F6E595623278F0500503261 /* cloudstart-tests.xctest */,
+				3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +228,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F15968E23326D58000277C4 /* cloudstart-ui-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F15969823326D58000277C4 /* Build configuration list for PBXNativeTarget "cloudstart-ui-tests" */;
+			buildPhases = (
+				3F15968B23326D58000277C4 /* Sources */,
+				3F15968C23326D58000277C4 /* Frameworks */,
+				3F15968D23326D58000277C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F15969523326D58000277C4 /* PBXTargetDependency */,
+			);
+			name = "cloudstart-ui-tests";
+			productName = "cloudstart-ui-tests";
+			productReference = 3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3F41B1AC22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F41B1BF22FC534F00EE4AD4 /* Build configuration list for PBXNativeTarget "cloudstart" */;
@@ -237,6 +293,10 @@
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Ireneusz Pastusiak";
 				TargetAttributes = {
+					3F15968E23326D58000277C4 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 3F41B1AC22FC534F00EE4AD4;
+					};
 					3F41B1AC22FC534F00EE4AD4 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -261,11 +321,19 @@
 			targets = (
 				3F41B1AC22FC534F00EE4AD4 /* cloudstart */,
 				3F6E595523278F0500503261 /* cloudstart-tests */,
+				3F15968E23326D58000277C4 /* cloudstart-ui-tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F15968D23326D58000277C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F41B1AB22FC534F00EE4AD4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +399,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F15968B23326D58000277C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F27A3C923328A53004D8595 /* InstanceListTest.swift in Sources */,
+				3F27A3CB23328FA4004D8595 /* InstanceTable.swift in Sources */,
+				3F27A3CF23329AAF004D8595 /* InstanceActions.swift in Sources */,
+				3F27A3CD23329057004D8595 /* InstanceActionsTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F41B1A922FC534F00EE4AD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,6 +444,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3F15969523326D58000277C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F41B1AC22FC534F00EE4AD4 /* cloudstart */;
+			targetProxy = 3F15969423326D58000277C4 /* PBXContainerItemProxy */;
+		};
 		3F6E595C23278F0500503261 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3F41B1AC22FC534F00EE4AD4 /* cloudstart */;
@@ -392,6 +476,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3F15969623326D58000277C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 329X3PY7LJ;
+				INFOPLIST_FILE = "cloudstart-ui-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-ui-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cloudstart;
+			};
+			name = Debug;
+		};
+		3F15969723326D58000277C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 329X3PY7LJ;
+				INFOPLIST_FILE = "cloudstart-ui-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-ui-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cloudstart;
+			};
+			name = Release;
+		};
 		3F41B1BD22FC534F00EE4AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -595,6 +717,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F15969823326D58000277C4 /* Build configuration list for PBXNativeTarget "cloudstart-ui-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F15969623326D58000277C4 /* Debug */,
+				3F15969723326D58000277C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F41B1A822FC534F00EE4AD4 /* Build configuration list for PBXProject "cloudstart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

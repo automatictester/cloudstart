@@ -66,6 +66,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="status" destination="Q5V-bp-tVf" id="bic-2S-Hhj"/>
+                        <outlet property="tableView" destination="71j-mO-aLY" id="skG-a2-WgS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdQ-57-RvN" userLabel="First Responder" sceneMemberID="firstResponder"/>
