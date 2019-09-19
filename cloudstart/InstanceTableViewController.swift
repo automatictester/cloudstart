@@ -97,8 +97,8 @@ class InstanceTableViewController: UITableViewController {
     
     func requestInitialTableLoad() {
         updateStatusBeforeRefresh()
-        AwsLambda.authenticate()
-        AwsLambda.invokeGetInstancesApi()
+        AwsLambdaProxy.authenticate()
+        AwsLambdaProxy.invokeGetInstancesApi()
     }
     
     func enableTableRefresh() {
@@ -123,7 +123,7 @@ class InstanceTableViewController: UITableViewController {
     
     // handle notification
     @objc func instanceStateChanged(notification: Notification) {
-        AwsLambda.invokeGetInstancesApi()
+        AwsLambdaProxy.invokeGetInstancesApi()
     }
     
     func refreshData(_ notification: Notification) {
@@ -162,7 +162,7 @@ class InstanceTableViewController: UITableViewController {
     // handle table refresh (pull down)
     @objc func refreshInstanceList() {
         updateStatusBeforeRefresh()
-        AwsLambda.invokeGetInstancesApi()
+        AwsLambdaProxy.invokeGetInstancesApi()
         refreshControl?.endRefreshing()
     }
     

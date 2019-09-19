@@ -5,7 +5,7 @@ struct AwsLambda {
     
     private init() {}
     
-    static func authenticate() {
+    static func authenticate() {        
         let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
         let serviceConfiguration = AWSServiceConfiguration(region: AWSRegionType.EUWest2, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration

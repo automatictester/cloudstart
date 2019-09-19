@@ -27,7 +27,7 @@ class InstanceListTest: XCTestCase {
         let cell = table.getCellByInstanceId(instanceId)
         
         XCTAssertTrue(cell.staticTexts[instanceId].exists)
-        XCTAssertTrue(cell.staticTexts["Bamboo Server - t3.medium - stopped"].exists)
+        XCTAssertTrue(cell.staticTexts["Bamboo Server - t3.medium - running"].exists)
     }
     
     func testCloudStartTestExists() {
@@ -35,6 +35,6 @@ class InstanceListTest: XCTestCase {
         let cell = table.getCellByInstanceId(instanceId)
         
         XCTAssertTrue(cell.staticTexts[instanceId].exists)
-        XCTAssertTrue(cell.staticTexts["CloudStart Test - t2.micro - stopped"].exists)
+        XCTAssertTrue(cell.staticTexts["CloudStart Test - t2.micro - terminated"].exists)
     }
 }

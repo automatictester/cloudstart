@@ -27,6 +27,8 @@
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
+		3F47ADBA2333CBE500FB8819 /* AwsLambdaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */; };
+		3F47ADBC2333CC9A00FB8819 /* AwsLambdaMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E595823278F0500503261 /* ActionFactoryTest.swift */; };
 		3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59662327A15E00503261 /* AlertControllerFactory.swift */; };
@@ -79,6 +81,8 @@
 		3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F41B1BA22FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaProxy.swift; sourceTree = "<group>"; };
+		3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaMock.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E595823278F0500503261 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactoryTest.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		3F41B1AF22FC534F00EE4AD4 /* cloudstart */ = {
 			isa = PBXGroup;
 			children = (
+				3F47ADB82333CBCD00FB8819 /* Aws */,
 				3F358E212325106200E2CE1C /* StateHandler */,
 				3F358E172324F27600E2CE1C /* CoreData */,
 				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
@@ -197,13 +202,22 @@
 				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
 				3FF6A738232407A5008E1455 /* Instance.swift */,
 				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
-				3F0EEF56231088A900BFC51D /* AwsLambda.swift */,
 				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
 				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
 				3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 			);
 			path = cloudstart;
+			sourceTree = "<group>";
+		};
+		3F47ADB82333CBCD00FB8819 /* Aws */ = {
+			isa = PBXGroup;
+			children = (
+				3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */,
+				3F0EEF56231088A900BFC51D /* AwsLambda.swift */,
+				3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */,
+			);
+			path = Aws;
 			sourceTree = "<group>";
 		};
 		3F6E595723278F0500503261 /* cloudstart-tests */ = {
@@ -418,6 +432,8 @@
 				3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */,
 				3F0EEF57231088A900BFC51D /* AwsLambda.swift in Sources */,
 				3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */,
+				3F47ADBC2333CC9A00FB8819 /* AwsLambdaMock.swift in Sources */,
+				3F47ADBA2333CBE500FB8819 /* AwsLambdaProxy.swift in Sources */,
 				3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */,
 				3F358E1A2324F57000E2CE1C /* StateHandler.swift in Sources */,
 				3F358E162324DCFA00E2CE1C /* ActionFactory.swift in Sources */,
@@ -487,6 +503,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D MOCK_AWS";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-ui-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -506,6 +523,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D MOCK_AWS";
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-ui-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
