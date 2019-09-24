@@ -5,6 +5,12 @@
       location = "group:cloudstart.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:.travis.yml">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

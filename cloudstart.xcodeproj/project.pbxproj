@@ -85,7 +85,6 @@
 		3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaProxy.swift; sourceTree = "<group>"; };
 		3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaMock.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		3F598E25233A600C00DB6B6C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E595823278F0500503261 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactoryTest.swift; sourceTree = "<group>"; };
 		3F6E595A23278F0500503261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 		3F41B1A422FC534F00EE4AD4 = {
 			isa = PBXGroup;
 			children = (
-				3F598E25233A600C00DB6B6C /* .travis.yml */,
 				3F41B1AF22FC534F00EE4AD4 /* cloudstart */,
 				3F6E595723278F0500503261 /* cloudstart-tests */,
 				3F15969023326D58000277C4 /* cloudstart-ui-tests */,
