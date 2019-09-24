@@ -57,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12AE97D1DE3B943A48310F52 /* Pods-cloudstart.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.testing.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.testing.xcconfig"; sourceTree = "<group>"; };
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
 		3F0EEF56231088A900BFC51D /* AwsLambda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambda.swift; sourceTree = "<group>"; };
 		3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-ui-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +85,7 @@
 		3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaProxy.swift; sourceTree = "<group>"; };
 		3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaMock.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		3F598E25233A600C00DB6B6C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E595823278F0500503261 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactoryTest.swift; sourceTree = "<group>"; };
 		3F6E595A23278F0500503261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */,
 				49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */,
+				12AE97D1DE3B943A48310F52 /* Pods-cloudstart.testing.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 		3F41B1A422FC534F00EE4AD4 = {
 			isa = PBXGroup;
 			children = (
+				3F598E25233A600C00DB6B6C /* .travis.yml */,
 				3F41B1AF22FC534F00EE4AD4 /* cloudstart */,
 				3F6E595723278F0500503261 /* cloudstart-tests */,
 				3F15969023326D58000277C4 /* cloudstart-ui-tests */,
@@ -732,6 +736,130 @@
 			};
 			name = Release;
 		};
+		3FD5EB0B233A86C600006069 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Testing;
+		};
+		3FD5EB0C233A86C600006069 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12AE97D1DE3B943A48310F52 /* Pods-cloudstart.testing.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 329X3PY7LJ;
+				INFOPLIST_FILE = cloudstart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.automatictester.cloudstart;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = MOCK_AWS;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Testing;
+		};
+		3FD5EB0D233A86C600006069 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 329X3PY7LJ;
+				INFOPLIST_FILE = "cloudstart-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cloudstart.app/cloudstart";
+			};
+			name = Testing;
+		};
+		3FD5EB0E233A86C600006069 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 329X3PY7LJ;
+				INFOPLIST_FILE = "cloudstart-ui-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-D MOCK_AWS";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.automatictester.cloudstart-ui-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cloudstart;
+			};
+			name = Testing;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -739,6 +867,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F15969623326D58000277C4 /* Debug */,
+				3FD5EB0E233A86C600006069 /* Testing */,
 				3F15969723326D58000277C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -748,6 +877,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F41B1BD22FC534F00EE4AD4 /* Debug */,
+				3FD5EB0B233A86C600006069 /* Testing */,
 				3F41B1BE22FC534F00EE4AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -757,6 +887,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F41B1C022FC534F00EE4AD4 /* Debug */,
+				3FD5EB0C233A86C600006069 /* Testing */,
 				3F41B1C122FC534F00EE4AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -766,6 +897,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F6E595D23278F0500503261 /* Debug */,
+				3FD5EB0D233A86C600006069 /* Testing */,
 				3F6E595E23278F0500503261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
