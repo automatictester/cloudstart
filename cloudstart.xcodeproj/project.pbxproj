@@ -21,7 +21,6 @@
 		3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */; };
 		3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1D232504E000E2CE1C /* DefaultHandler.swift */; };
 		3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */; };
-		3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */ = {isa = PBXBuildFile; fileRef = 3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */; };
 		3F3C1F21232FCB77007CA4F7 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
@@ -354,7 +353,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F3C1F1F232FC9EB007CA4F7 /* awsconfiguration-template.json in Resources */,
 				3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */,
 				3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */,
 				3F4D867822FC9929009FC750 /* logo.png in Resources */,
