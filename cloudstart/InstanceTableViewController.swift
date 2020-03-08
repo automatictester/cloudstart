@@ -55,7 +55,7 @@ class InstanceTableViewController: UITableViewController {
         do {
             let coreDataItems = try context.fetch(fetchRequest)
             let tempInstances = fromNSManagedObjectToInstanceArray(coreDataItems)
-            instances = tempInstances.sorted(by: { $0.getInstanceId() > $1.getInstanceId() })
+            instances = sortInstances(tempInstances)
             refreshTable()
             print("CoreData loaded: \(coreDataItems.count)")
         } catch {
@@ -130,9 +130,16 @@ class InstanceTableViewController: UITableViewController {
         let notificationData = notification.userInfo!
         let tempInstances = notificationData["instances"] as! [Instance]
         print("New data received: \(tempInstances.count)")
-        instances = tempInstances.sorted(by: { $0.getInstanceId() > $1.getInstanceId() })
+        instances = sortInstances(tempInstances)
         flushCoreData()
         saveCoreData()
+    }
+    
+    // TODO: refactor to separate class and replace UI tests with unit tests
+    func sortInstances(_ instances: [Instance]) -> [Instance] {
+        return instances.sorted { i1, i2 in
+            return (i1.getState(), i1.getName()) < (i2.getState(), i2.getName())
+        }
     }
     
     func refreshTable() {

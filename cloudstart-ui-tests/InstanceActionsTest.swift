@@ -11,7 +11,7 @@ class InstanceActionsTest: XCTestCase {
     }
     
     func testStoppedInstanceActions() {
-        let cell = table.getCellByInstanceId("i-0ebd41b671a9dfaeb")
+        let cell = table.getCellByInstanceId("i-008d41b671a9dfaeb")
         cell.tap()
         
         XCTAssertEqual(actions.actionCount(), 3)

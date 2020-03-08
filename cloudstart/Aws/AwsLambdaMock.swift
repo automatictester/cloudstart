@@ -12,7 +12,7 @@ struct AwsLambdaMock {
     
     static func invokeGetInstancesApi() {
         let instanceA = [
-            "instanceId": "i-0ebd41b671a9dfaeb",
+            "instanceId": "i-008d41b671a9dfaeb",
             "instanceType": "t2.micro",
             "name": "Jenkins Master",
             "state": "stopped"
@@ -32,10 +32,18 @@ struct AwsLambdaMock {
             "state": "terminated"
         ]
         
+        let instanceD = [
+            "instanceId": "i-001ab8fd7dd3ac84c",
+            "instanceType": "t2.medium",
+            "name": "ABC Instance",
+            "state": "terminated"
+        ]
+        
         var instances = [NSDictionary]()
         instances.append(instanceA as NSDictionary)
         instances.append(instanceB as NSDictionary)
         instances.append(instanceC as NSDictionary)
+        instances.append(instanceD as NSDictionary)
         
         let response: NSDictionary = ["instances": instances]
         
