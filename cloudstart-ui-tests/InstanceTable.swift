@@ -8,10 +8,6 @@ struct InstanceTable {
         return table.cells.element(matching: .cell, identifier: instanceId)
     }
     
-    func getCellById(_ id: Int) -> XCUIElement {
-        return table.cells.element(boundBy: id)
-    }
-    
     func instanceCount() -> Int {
         return table.cells.count
     }

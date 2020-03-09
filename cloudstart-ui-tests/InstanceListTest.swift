@@ -11,7 +11,7 @@ class InstanceListTest: XCTestCase {
     
     func testInstanceCount() {
         let instanceCount = table.instanceCount()
-        XCTAssertEqual(instanceCount, 4)
+        XCTAssertEqual(instanceCount, 3)
     }
     
     func testJenkinsMasterExists() {
@@ -36,20 +36,5 @@ class InstanceListTest: XCTestCase {
         
         XCTAssertTrue(cell.staticTexts[instanceId].exists)
         XCTAssertTrue(cell.staticTexts["CloudStart Test - t2.micro - terminated"].exists)
-    }
-    
-    func testAbcInstanceExists() {
-        let instanceId = "i-001ab8fd7dd3ac84c"
-        let cell = table.getCellByInstanceId(instanceId)
-        
-        XCTAssertTrue(cell.staticTexts[instanceId].exists)
-        XCTAssertTrue(cell.staticTexts["ABC Instance - t2.medium - terminated"].exists)
-    }
-    
-    func testSorting() {
-        XCTAssertTrue(table.getCellById(0).staticTexts["Bamboo Server - t3.medium - running"].exists)
-        XCTAssertTrue(table.getCellById(1).staticTexts["Jenkins Master - t2.micro - stopped"].exists)
-        XCTAssertTrue(table.getCellById(2).staticTexts["ABC Instance - t2.medium - terminated"].exists)
-        XCTAssertTrue(table.getCellById(3).staticTexts["CloudStart Test - t2.micro - terminated"].exists)
     }
 }
