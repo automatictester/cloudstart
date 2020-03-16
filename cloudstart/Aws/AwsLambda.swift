@@ -37,12 +37,18 @@ struct AwsLambda {
                     }
                     return nil
                 } else if let response = task.result as? NSDictionary {
-                    let instanceId = response.value(forKey: "instanceId")!
-                    let action = response.value(forKey: "action")!
+                    let instanceId = response.value(forKey: "instanceId")! as! String
+                    let action = response.value(forKey: "action")! as! String
                     let status = response.value(forKey: "status")!
                     let message = response.value(forKey: "message")!
+                    
                     print("instanceId: \(instanceId), action: \(action), status: \(status), message: \(message)")
                     NotificationCenter.default.post(name: Notification.Name("InstanceStateChanged"), object: nil)
+                    
+                    let supportedActioNotifications: Set = ["start", "stop", "terminate"]
+                    if (supportedActioNotifications.contains(action)) {
+                        InstanceStateChangeNotifier.notify(instanceId: instanceId, action: action)
+                    }
                 }
                 return nil
             }

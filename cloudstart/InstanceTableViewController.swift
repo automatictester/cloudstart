@@ -5,8 +5,17 @@ import UIKit
 class InstanceTableViewController: UITableViewController {
     
     @IBOutlet weak var status: UIBarButtonItem!
-    
     var instances = [Instance]()
+    let userNotificationCenter = UNUserNotificationCenter.current()
+    
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert)
+        userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
+            if let error = error {
+                print("Error processing notification authorization: ", error)
+            }
+        }
+    }
     
     var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "LocalDataStore")
@@ -78,6 +87,7 @@ class InstanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestNotificationAuthorization()
         setStatusFont()
         registerForInstanceListUpdatedNotification()
         registerForInstanceStateChangedNotification()
