@@ -202,11 +202,11 @@ class InstanceTableViewController: UITableViewController {
         cell!.textLabel!.text = instanceId
         cell!.detailTextLabel!.text = "\(instanceName) - \(instanceType) - \(instanceState)"
         if (instanceState == "terminated") {
-            cell!.textLabel?.textColor = UIColor.lightGray
-            cell!.detailTextLabel?.textColor = UIColor.lightGray
+            cell!.textLabel?.textColor = UIColor.secondaryLabel
+            cell!.detailTextLabel?.textColor = UIColor.secondaryLabel
         } else {
-            cell!.textLabel?.textColor = UIColor.black
-            cell!.detailTextLabel?.textColor = UIColor.black
+            cell!.textLabel?.textColor = UIColor.label
+            cell!.detailTextLabel?.textColor = UIColor.label
         }
         cell!.accessibilityIdentifier = instanceId
         
