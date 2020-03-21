@@ -4,9 +4,16 @@ import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
-    @IBOutlet weak var status: UIBarButtonItem!
     var instances = [Instance]()
     let userNotificationCenter = UNUserNotificationCenter.current()
+    var lambdaError: String?
+    
+    @IBOutlet weak var status: UIBarButtonItem!
+    @IBOutlet weak var error: UIBarButtonItem!
+    
+    @IBAction func ErrorOnTap(_ sender: Any) {
+        showErrorPopup(lambdaError!)
+    }
     
     func requestNotificationAuthorization() {
         let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert)
@@ -88,17 +95,26 @@ class InstanceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestNotificationAuthorization()
-        setStatusFont()
-        registerForInstanceListUpdatedNotification()
-        registerForInstanceStateChangedNotification()
-        requestInitialTableLoad()
+        registerForNotifications()
+        setToolbarFont()
         enableTableRefresh()
         loadCoreData()
+        requestInitialTableLoad()
         self.tableView.accessibilityIdentifier = "instanceTable"
+    }
+    
+    func registerForNotifications() {
+        registerForInstanceListUpdatedNotification()
+        registerForInstanceListUpdateFailedNotification()
+        registerForInstanceStateChangedNotification()
     }
     
     func registerForInstanceListUpdatedNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdated), name: Notification.Name("InstanceListUpdated"), object: nil)
+    }
+    
+    func registerForInstanceListUpdateFailedNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(instanceListUpdateFailed), name: Notification.Name("InstanceListUpdateFailed"), object: nil)
     }
     
     func registerForInstanceStateChangedNotification() {
@@ -133,6 +149,14 @@ class InstanceTableViewController: UITableViewController {
         refreshData(notification)
         refreshTable()
         updateStatusAfterRefresh()
+        cleanLambdaInvocationError()
+    }
+    
+    // handle notification
+    @objc func instanceListUpdateFailed(notification: Notification) {
+        updateStatus("Update failed")
+        updateError("Error")
+        lambdaError = notification.userInfo!["errorMessage"] as? String
     }
     
     // handle notification
@@ -171,6 +195,24 @@ class InstanceTableViewController: UITableViewController {
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let text = "Last updated: \(dateFormatterGet.string(from: lastUpdatedDate))"
         updateStatus(text)
+    }
+    
+    func updateError(_ text: String) {
+        DispatchQueue.main.async {
+            self.error.title = text
+        }
+    }
+    
+    func cleanLambdaInvocationError() {
+        error.title = " "
+        lambdaError = nil
+    }
+    
+    func showErrorPopup(_ message: String) {
+        let uppercasedMessage = message.firstUppercased
+        let alert = UIAlertController(title: "Error", message: uppercasedMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     
     // handle table refresh (pull down)
