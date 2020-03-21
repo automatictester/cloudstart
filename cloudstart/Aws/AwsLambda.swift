@@ -69,7 +69,10 @@ struct AwsLambda {
             .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
                 if let error = task.error as NSError? {
                     if (error.domain == AWSLambdaInvokerErrorDomain) && (AWSLambdaInvokerErrorType.functionError == AWSLambdaInvokerErrorType(rawValue: error.code)) {
-                        print("Function error: \(error.userInfo[AWSLambdaInvokerErrorMessageKey]!)")
+                        let errorMessage = error.userInfo[AWSLambdaInvokerErrorMessageKey]!
+                        print("Function error: \(errorMessage)")
+                        let notificationData = ["errorMessage": errorMessage]
+                        NotificationCenter.default.post(name: Notification.Name("InstanceListUpdateFailed"), object: nil, userInfo: notificationData)
                     } else {
                         print("Error: \(error)")
                     }

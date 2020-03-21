@@ -28,6 +28,12 @@
                             <items>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="OhW-gA-I88"/>
                                 <barButtonItem id="Q5V-bp-tVf"/>
+                                <barButtonItem title=" " id="yE8-jw-Hk2" userLabel="Error">
+                                    <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="ErrorOnTap:" destination="MLa-c6-qzx" id="djt-yz-gst"/>
+                                    </connections>
+                                </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="H6K-oo-jYp"/>
                             </items>
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -62,6 +68,7 @@
                         </attributedString>
                     </refreshControl>
                     <connections>
+                        <outlet property="error" destination="yE8-jw-Hk2" id="2Tz-9l-iGa"/>
                         <outlet property="status" destination="Q5V-bp-tVf" id="bic-2S-Hhj"/>
                         <outlet property="tableView" destination="71j-mO-aLY" id="skG-a2-WgS"/>
                     </connections>

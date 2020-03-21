@@ -34,6 +34,7 @@
 		3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */; };
 		3F821AEC24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */; };
 		3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF1231034A4008891E2 /* awsconfiguration.json */; };
+		3FD3E1A92426716500169F7D /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1A82426716500169F7D /* StringProtocol.swift */; };
 		3FE3D996232A9D92003E76AE /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */; };
 		3FF649832416AB60007963F6 /* InstanceListSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649822416AB60007963F6 /* InstanceListSorter.swift */; };
 		3FF649852416AC25007963F6 /* InstanceListSorterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */; };
@@ -94,6 +95,7 @@
 		3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertControllerFactoryTest.swift; path = StateHandler/AlertControllerFactoryTest.swift; sourceTree = "<group>"; };
 		3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceStateChangeNotifier.swift; sourceTree = "<group>"; };
 		3FD1FDF1231034A4008891E2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		3FD3E1A82426716500169F7D /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		3FF649822416AB60007963F6 /* InstanceListSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorter.swift; sourceTree = "<group>"; };
 		3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorterTest.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				3FF649822416AB60007963F6 /* InstanceListSorter.swift */,
 				3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
+				3FD3E1A82426716500169F7D /* StringProtocol.swift */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */,
 				3F358E1A2324F57000E2CE1C /* StateHandler.swift in Sources */,
 				3F358E162324DCFA00E2CE1C /* ActionFactory.swift in Sources */,
+				3FD3E1A92426716500169F7D /* StringProtocol.swift in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
 				3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */,

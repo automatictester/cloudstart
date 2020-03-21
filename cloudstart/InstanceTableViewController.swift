@@ -117,8 +117,12 @@ class InstanceTableViewController: UITableViewController {
         self.refreshControl = refreshControl
     }
     
-    func setStatusFont() {
+    func setToolbarFont() {
         status.setTitleTextAttributes(
+            [NSAttributedString.Key.font : UIFont(name: "Helvetica", size: 14)!],
+            for: .normal
+        )
+        error.setTitleTextAttributes(
             [NSAttributedString.Key.font : UIFont(name: "Helvetica", size: 14)!],
             for: .normal
         )
