@@ -1,9 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
  
-platform :ios, '12.4'
+platform :ios, '13.3'
 use_frameworks!
 
-awsSdkVersion = '2.10.2'
+awsSdkVersion = '2.12.7'
 
 target :'cloudstart' do
   pod 'AWSMobileClient', awsSdkVersion
