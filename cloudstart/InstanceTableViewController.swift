@@ -199,8 +199,8 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func showErrorPopup(_ message: String) {
-        let uppercasedMessage = message.firstUppercased
-        let alert = UIAlertController(title: "Error", message: uppercasedMessage, preferredStyle: .alert)
+        let formattedMessage = message.firstUppercased
+        let alert = UIAlertController(title: "Error", message: formattedMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }

@@ -1,10 +1,8 @@
 import XCTest
-import cloudstart
 
-class StringProtocol: XCTestCase {
-
+class StringProtocolTest: XCTestCase {
+    
     func testFirstUppercased() {
-        let input = "cannot retrieve list of EC2 instances"
-        XCTAssertEqual(input.firstUppercased(), "Cannot retrieve list of EC2 instances")
+        XCTAssertEqual("cannot retrieve list of EC2 instances".firstUppercased, "Cannot retrieve list of EC2 instances")
     }
 }
