@@ -69,7 +69,7 @@ struct AwsLambda {
             .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
                 if let error = task.error as NSError? {
                     if (error.domain == AWSLambdaInvokerErrorDomain) && (AWSLambdaInvokerErrorType.functionError == AWSLambdaInvokerErrorType(rawValue: error.code)) {
-                        print("Function error: \(error.userInfo[AWSLambdaInvokerFunctionErrorKey]!)")
+                        print("Function error: \(error.userInfo[AWSLambdaInvokerErrorMessageKey]!)")
                     } else {
                         print("Error: \(error)")
                     }
