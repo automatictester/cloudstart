@@ -5,7 +5,6 @@ import UIKit
 class InstanceTableViewController: UITableViewController {
     
     var instances = [Instance]()
-    let userNotificationCenter = UNUserNotificationCenter.current()
     var lambdaError: String?
     
     @IBOutlet weak var status: UIBarButtonItem!
@@ -13,15 +12,6 @@ class InstanceTableViewController: UITableViewController {
     
     @IBAction func ErrorOnTap(_ sender: Any) {
         showErrorPopup(lambdaError!)
-    }
-    
-    func requestNotificationAuthorization() {
-        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert)
-        userNotificationCenter.requestAuthorization(options: authOptions) { (success, error) in
-            if let error = error {
-                print("Error processing notification authorization: ", error)
-            }
-        }
     }
     
     var persistentContainer: NSPersistentContainer = {
@@ -94,7 +84,7 @@ class InstanceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestNotificationAuthorization()
+        NotificationAuthorizer.requestAuthorization()
         registerForNotifications()
         setToolbarFont()
         enableTableRefresh()
