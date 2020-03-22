@@ -6,6 +6,7 @@ class InstanceTableViewController: UITableViewController {
     
     var instances = [Instance]()
     var lambdaError: String?
+    let networkMonitor = NetworkMonitor()
     
     @IBOutlet weak var status: UIBarButtonItem!
     @IBOutlet weak var error: UIBarButtonItem!
@@ -112,9 +113,13 @@ class InstanceTableViewController: UITableViewController {
     }
     
     func requestInitialTableLoad() {
-        updateStatusBeforeRefresh()
-        AwsLambdaProxy.authenticate()
-        AwsLambdaProxy.invokeGetInstancesApi()
+        if (networkMonitor.connected) {
+            updateStatusBeforeRefresh()
+            AwsLambdaProxy.authenticate()
+            AwsLambdaProxy.invokeGetInstancesApi()
+        } else {
+            errorOutOnNoNetwork()
+        }
     }
     
     func enableTableRefresh() {
@@ -152,6 +157,11 @@ class InstanceTableViewController: UITableViewController {
     // handle notification
     @objc func instanceStateChanged(notification: Notification) {
         AwsLambdaProxy.invokeGetInstancesApi()
+    }
+    
+    func errorOutOnNoNetwork() {
+        let notificationData = ["errorMessage": "No network connection"]
+        NotificationCenter.default.post(name: Notification.Name("InstanceListUpdateFailed"), object: nil, userInfo: notificationData)
     }
     
     func refreshData(_ notification: Notification) {
@@ -207,9 +217,14 @@ class InstanceTableViewController: UITableViewController {
     
     // handle table refresh (pull down)
     @objc func refreshInstanceList() {
-        updateStatusBeforeRefresh()
-        AwsLambdaProxy.invokeGetInstancesApi()
-        refreshControl?.endRefreshing()
+        if (networkMonitor.connected) {
+            updateStatusBeforeRefresh()
+            AwsLambdaProxy.invokeGetInstancesApi()
+            refreshControl?.endRefreshing()
+        } else {
+            errorOutOnNoNetwork()
+            refreshControl?.endRefreshing()
+        }
     }
     
     // set number of sections

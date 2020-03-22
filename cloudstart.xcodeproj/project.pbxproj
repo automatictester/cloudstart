@@ -29,6 +29,7 @@
 		3F47ADBA2333CBE500FB8819 /* AwsLambdaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */; };
 		3F47ADBC2333CC9A00FB8819 /* AwsLambdaMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
+		3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E425524275E79002806C4 /* NetworkMonitor.swift */; };
 		3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E595823278F0500503261 /* ActionFactoryTest.swift */; };
 		3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59662327A15E00503261 /* AlertControllerFactory.swift */; };
 		3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */; };
@@ -90,6 +91,7 @@
 		3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaProxy.swift; sourceTree = "<group>"; };
 		3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaMock.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		3F6E425524275E79002806C4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E595823278F0500503261 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactoryTest.swift; sourceTree = "<group>"; };
 		3F6E595A23278F0500503261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -220,9 +222,10 @@
 				3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */,
 				3FF649822416AB60007963F6 /* InstanceListSorter.swift */,
 				3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */,
-				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 				3FD3E1A82426716500169F7D /* StringProtocol.swift */,
 				3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */,
+				3F6E425524275E79002806C4 /* NetworkMonitor.swift */,
+				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 			);
 			path = cloudstart;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				3FD3E1A92426716500169F7D /* StringProtocol.swift in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
+				3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */,
 				3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */,
 				3F821AEC24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift in Sources */,
 				3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */,
