@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */; };
 		3F0EEF57231088A900BFC51D /* AwsLambda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EEF56231088A900BFC51D /* AwsLambda.swift */; };
+		3F14A7CA242BBA2B00AB746B /* NotificationSenderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A7C9242BBA2B00AB746B /* NotificationSenderTest.swift */; };
+		3F14A7CC242BC88C00AB746B /* AwsEc2Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */; };
 		3F27A3C923328A53004D8595 /* InstanceListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3C823328A53004D8595 /* InstanceListTest.swift */; };
 		3F27A3CB23328FA4004D8595 /* InstanceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CA23328FA4004D8595 /* InstanceTable.swift */; };
 		3F27A3CD23329057004D8595 /* InstanceActionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CC23329057004D8595 /* InstanceActionsTest.swift */; };
@@ -21,28 +23,37 @@
 		3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */; };
 		3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1D232504E000E2CE1C /* DefaultHandler.swift */; };
 		3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */; };
-		3F3C1F21232FCB77007CA4F7 /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */; };
+		3F3C1F21232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C1F20232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift */; };
 		3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */; };
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
-		3F47ADBA2333CBE500FB8819 /* AwsLambdaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */; };
-		3F47ADBC2333CC9A00FB8819 /* AwsLambdaMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */; };
+		3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsProxy.swift */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E425524275E79002806C4 /* NetworkMonitor.swift */; };
 		3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E595823278F0500503261 /* ActionFactoryTest.swift */; };
 		3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59662327A15E00503261 /* AlertControllerFactory.swift */; };
 		3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */; };
 		3F821AEC24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */; };
+		3FA33168242B45710068AFEB /* CSAWSEC2InstanceStateName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33167242B45710068AFEB /* CSAWSEC2InstanceStateName.swift */; };
+		3FA3316A242B499C0068AFEB /* CSAWSEC2InstanceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33169242B499C0068AFEB /* CSAWSEC2InstanceType.swift */; };
+		3FA3316F242B5C0A0068AFEB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3316E242B5C0A0068AFEB /* AppConfig.swift */; };
+		3FA33171242B5DE20068AFEB /* AwsEc2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33170242B5DE20068AFEB /* AwsEc2.swift */; };
+		3FA33175242B92C90068AFEB /* InstanceStateNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33174242B92C90068AFEB /* InstanceStateNameConverter.swift */; };
+		3FA33177242B93AA0068AFEB /* InstanceTypeNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33176242B93AA0068AFEB /* InstanceTypeNameConverter.swift */; };
+		3FA33179242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33178242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift */; };
+		3FA3317D242BAF190068AFEB /* InstanceStateNameConverterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3317C242BAF190068AFEB /* InstanceStateNameConverterTest.swift */; };
+		3FA3317F242BB0430068AFEB /* InstanceTypeNameConverterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3317E242BB0430068AFEB /* InstanceTypeNameConverterTest.swift */; };
+		3FA3318A242BB5B00068AFEB /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33189242BB5B00068AFEB /* NotificationSender.swift */; };
 		3FD1FDF2231034A4008891E2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD1FDF1231034A4008891E2 /* awsconfiguration.json */; };
 		3FD3E1A92426716500169F7D /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1A82426716500169F7D /* StringProtocol.swift */; };
 		3FD3E1AB2426831A00169F7D /* NotificationAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */; };
 		3FD3E1AF2426860300169F7D /* StringProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */; };
-		3FE3D996232A9D92003E76AE /* NSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */; };
 		3FF649832416AB60007963F6 /* InstanceListSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649822416AB60007963F6 /* InstanceListSorter.swift */; };
 		3FF649852416AC25007963F6 /* InstanceListSorterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */; };
 		3FF6A73D232407A5008E1455 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A738232407A5008E1455 /* Instance.swift */; };
 		67A23C884A0394B065560487 /* Pods_cloudstart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */; };
+		9D4B3E509137B5F766F5DB85 /* Pods_cloudstart_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83436D8DDE8642011F1706F /* Pods_cloudstart_tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +75,11 @@
 
 /* Begin PBXFileReference section */
 		12AE97D1DE3B943A48310F52 /* Pods-cloudstart.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.testing.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.testing.xcconfig"; sourceTree = "<group>"; };
+		36A0F5E6242C9882F57724CA /* Pods-cloudstart-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart-tests.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
 		3F0EEF56231088A900BFC51D /* AwsLambda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambda.swift; sourceTree = "<group>"; };
+		3F14A7C9242BBA2B00AB746B /* NotificationSenderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderTest.swift; sourceTree = "<group>"; };
+		3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2Mock.swift; sourceTree = "<group>"; };
 		3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-ui-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F15969323326D58000277C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F27A3C823328A53004D8595 /* InstanceListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceListTest.swift; sourceTree = "<group>"; };
@@ -80,35 +94,47 @@
 		3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoppedStateHandler.swift; sourceTree = "<group>"; };
 		3F358E1D232504E000E2CE1C /* DefaultHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHandler.swift; sourceTree = "<group>"; };
 		3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningStateHandler.swift; sourceTree = "<group>"; };
-		3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "awsconfiguration-template.json"; sourceTree = "<group>"; };
-		3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
+		3F3C1F20232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeInstancesResponseConverterTest.swift; sourceTree = "<group>"; };
 		3F41B1AD22FC534F00EE4AD4 /* cloudstart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudstart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F41B1B522FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F41B1BA22FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaProxy.swift; sourceTree = "<group>"; };
-		3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsLambdaMock.swift; sourceTree = "<group>"; };
+		3F47ADB92333CBE500FB8819 /* AwsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsProxy.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F6E425524275E79002806C4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E595823278F0500503261 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionFactoryTest.swift; sourceTree = "<group>"; };
 		3F6E595A23278F0500503261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F6E59662327A15E00503261 /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
-		3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertControllerFactoryTest.swift; path = StateHandler/AlertControllerFactoryTest.swift; sourceTree = "<group>"; };
+		3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryTest.swift; sourceTree = "<group>"; };
 		3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceStateChangeNotifier.swift; sourceTree = "<group>"; };
+		3FA33167242B45710068AFEB /* CSAWSEC2InstanceStateName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAWSEC2InstanceStateName.swift; sourceTree = "<group>"; };
+		3FA33169242B499C0068AFEB /* CSAWSEC2InstanceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAWSEC2InstanceType.swift; sourceTree = "<group>"; };
+		3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = aws_credentials.xcconfig; path = ../aws_credentials.xcconfig; sourceTree = "<group>"; };
+		3FA3316E242B5C0A0068AFEB /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		3FA33170242B5DE20068AFEB /* AwsEc2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2.swift; sourceTree = "<group>"; };
+		3FA33172242B60F60068AFEB /* aws_credentials_template.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = aws_credentials_template.xcconfig; sourceTree = "<group>"; };
+		3FA33174242B92C90068AFEB /* InstanceStateNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceStateNameConverter.swift; sourceTree = "<group>"; };
+		3FA33176242B93AA0068AFEB /* InstanceTypeNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTypeNameConverter.swift; sourceTree = "<group>"; };
+		3FA33178242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescribeInstancesResponseConverter.swift; sourceTree = "<group>"; };
+		3FA3317C242BAF190068AFEB /* InstanceStateNameConverterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceStateNameConverterTest.swift; sourceTree = "<group>"; };
+		3FA3317E242BB0430068AFEB /* InstanceTypeNameConverterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTypeNameConverterTest.swift; sourceTree = "<group>"; };
+		3FA33189242BB5B00068AFEB /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		3FD1FDF1231034A4008891E2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3FD3E1A82426716500169F7D /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuthorizer.swift; sourceTree = "<group>"; };
 		3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolTest.swift; sourceTree = "<group>"; };
-		3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtension.swift; sourceTree = "<group>"; };
 		3FF649822416AB60007963F6 /* InstanceListSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorter.swift; sourceTree = "<group>"; };
 		3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorterTest.swift; sourceTree = "<group>"; };
 		3FF6A738232407A5008E1455 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
 		49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.release.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.release.xcconfig"; sourceTree = "<group>"; };
+		A83436D8DDE8642011F1706F /* Pods_cloudstart_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudstart_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart/Pods-cloudstart.debug.xcconfig"; sourceTree = "<group>"; };
+		D1F42549CCC562C196A292AB /* Pods-cloudstart-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart-tests.release.xcconfig"; path = "Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests.release.xcconfig"; sourceTree = "<group>"; };
 		D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudstart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62891964FB9875EFC54EC77 /* Pods-cloudstart-tests.testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart-tests.testing.xcconfig"; path = "Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests.testing.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4B3E509137B5F766F5DB85 /* Pods_cloudstart_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +170,19 @@
 				CB97E2D0D9D6815E492FC608 /* Pods-cloudstart.debug.xcconfig */,
 				49F80C14502D47075EFF64DB /* Pods-cloudstart.release.xcconfig */,
 				12AE97D1DE3B943A48310F52 /* Pods-cloudstart.testing.xcconfig */,
+				36A0F5E6242C9882F57724CA /* Pods-cloudstart-tests.debug.xcconfig */,
+				F62891964FB9875EFC54EC77 /* Pods-cloudstart-tests.testing.xcconfig */,
+				D1F42549CCC562C196A292AB /* Pods-cloudstart-tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3F14A7C8242BBA0900AB746B /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				3F14A7C9242BBA2B00AB746B /* NotificationSenderTest.swift */,
+			);
+			path = LocalNotification;
 			sourceTree = "<group>";
 		};
 		3F15969023326D58000277C4 /* cloudstart-ui-tests */ = {
@@ -176,7 +214,6 @@
 				3F358E1B2324FD4100E2CE1C /* StoppedStateHandler.swift */,
 				3F358E1D232504E000E2CE1C /* DefaultHandler.swift */,
 				3F358E1F23250B0500E2CE1C /* RunningStateHandler.swift */,
-				3F6E59662327A15E00503261 /* AlertControllerFactory.swift */,
 			);
 			name = StateHandler;
 			sourceTree = "<group>";
@@ -207,24 +244,17 @@
 			isa = PBXGroup;
 			children = (
 				3F47ADB82333CBCD00FB8819 /* Aws */,
-				3F358E212325106200E2CE1C /* StateHandler */,
+				3FA3316D242B52B50068AFEB /* Config */,
 				3F358E172324F27600E2CE1C /* CoreData */,
+				3FA33183242BB1EA0068AFEB /* Extension */,
+				3FA3318B242BB6070068AFEB /* LocalNotification */,
+				3FA33182242BB1AC0068AFEB /* Model */,
+				3FA33185242BB24F0068AFEB /* UserNotification */,
+				3F358E212325106200E2CE1C /* StateHandler */,
+				3FA33181242BB1550068AFEB /* StoryBoard */,
+				3FA33180242BB1150068AFEB /* UI */,
+				3FA33187242BB4920068AFEB /* Util */,
 				3FD1FDF1231034A4008891E2 /* awsconfiguration.json */,
-				3F3C1F1E232FC9EB007CA4F7 /* awsconfiguration-template.json */,
-				3F4D867722FC9929009FC750 /* logo.png */,
-				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
-				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
-				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
-				3FF6A738232407A5008E1455 /* Instance.swift */,
-				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
-				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
-				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
-				3FE3D995232A9D92003E76AE /* NSDictionaryExtension.swift */,
-				3FF649822416AB60007963F6 /* InstanceListSorter.swift */,
-				3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */,
-				3FD3E1A82426716500169F7D /* StringProtocol.swift */,
-				3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */,
-				3F6E425524275E79002806C4 /* NetworkMonitor.swift */,
 				3F41B1BC22FC534F00EE4AD4 /* Info.plist */,
 			);
 			path = cloudstart;
@@ -233,9 +263,12 @@
 		3F47ADB82333CBCD00FB8819 /* Aws */ = {
 			isa = PBXGroup;
 			children = (
-				3F47ADB92333CBE500FB8819 /* AwsLambdaProxy.swift */,
+				3FA33173242B929C0068AFEB /* Converter */,
+				3FA33166242B45370068AFEB /* Enum */,
+				3FA33170242B5DE20068AFEB /* AwsEc2.swift */,
+				3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */,
+				3F47ADB92333CBE500FB8819 /* AwsProxy.swift */,
 				3F0EEF56231088A900BFC51D /* AwsLambda.swift */,
-				3F47ADBB2333CC9A00FB8819 /* AwsLambdaMock.swift */,
 			);
 			path = Aws;
 			sourceTree = "<group>";
@@ -243,20 +276,157 @@
 		3F6E595723278F0500503261 /* cloudstart-tests */ = {
 			isa = PBXGroup;
 			children = (
-				3F6E595823278F0500503261 /* ActionFactoryTest.swift */,
-				3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */,
-				3F3C1F20232FCB77007CA4F7 /* NSDictionaryExtension.swift */,
-				3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */,
-				3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */,
+				3F14A7C8242BBA0900AB746B /* LocalNotification */,
+				3FA3317A242BAC110068AFEB /* Aws */,
+				3FA33186242BB2F90068AFEB /* UI */,
+				3FA33188242BB4BC0068AFEB /* Util */,
 				3F6E595A23278F0500503261 /* Info.plist */,
 			);
 			path = "cloudstart-tests";
+			sourceTree = "<group>";
+		};
+		3FA33166242B45370068AFEB /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				3FA33167242B45710068AFEB /* CSAWSEC2InstanceStateName.swift */,
+				3FA33169242B499C0068AFEB /* CSAWSEC2InstanceType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		3FA3316D242B52B50068AFEB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3FA33172242B60F60068AFEB /* aws_credentials_template.xcconfig */,
+				3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */,
+				3FA3316E242B5C0A0068AFEB /* AppConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		3FA33173242B929C0068AFEB /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				3FA33178242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift */,
+				3FA33174242B92C90068AFEB /* InstanceStateNameConverter.swift */,
+				3FA33176242B93AA0068AFEB /* InstanceTypeNameConverter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		3FA3317A242BAC110068AFEB /* Aws */ = {
+			isa = PBXGroup;
+			children = (
+				3FA33184242BB20A0068AFEB /* Extension */,
+				3FA3317B242BAC1B0068AFEB /* Converter */,
+			);
+			path = Aws;
+			sourceTree = "<group>";
+		};
+		3FA3317B242BAC1B0068AFEB /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				3F3C1F20232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift */,
+				3FA3317C242BAF190068AFEB /* InstanceStateNameConverterTest.swift */,
+				3FA3317E242BB0430068AFEB /* InstanceTypeNameConverterTest.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		3FA33180242BB1150068AFEB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F358E152324DCFA00E2CE1C /* ActionFactory.swift */,
+				3F6E59662327A15E00503261 /* AlertControllerFactory.swift */,
+				3F41B1B022FC534F00EE4AD4 /* AppDelegate.swift */,
+				3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */,
+				3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */,
+				3F4D867722FC9929009FC750 /* logo.png */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3FA33181242BB1550068AFEB /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */,
+				3F41B1B422FC534F00EE4AD4 /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		3FA33182242BB1AC0068AFEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FF6A738232407A5008E1455 /* Instance.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3FA33183242BB1EA0068AFEB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3E1A82426716500169F7D /* StringProtocol.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3FA33184242BB20A0068AFEB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3FA33185242BB24F0068AFEB /* UserNotification */ = {
+			isa = PBXGroup;
+			children = (
+				3F821AEB24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift */,
+				3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */,
+			);
+			path = UserNotification;
+			sourceTree = "<group>";
+		};
+		3FA33186242BB2F90068AFEB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3F6E595823278F0500503261 /* ActionFactoryTest.swift */,
+				3F6E59682327A5AB00503261 /* AlertControllerFactoryTest.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3FA33187242BB4920068AFEB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3FF649822416AB60007963F6 /* InstanceListSorter.swift */,
+				3F6E425524275E79002806C4 /* NetworkMonitor.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		3FA33188242BB4BC0068AFEB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		3FA3318B242BB6070068AFEB /* LocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				3FA33189242BB5B00068AFEB /* NotificationSender.swift */,
+			);
+			path = LocalNotification;
 			sourceTree = "<group>";
 		};
 		C5731022B6A627CE92275168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D93BE4C034E166A39D4AED05 /* Pods_cloudstart.framework */,
+				A83436D8DDE8642011F1706F /* Pods_cloudstart_tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -305,9 +475,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F6E595F23278F0500503261 /* Build configuration list for PBXNativeTarget "cloudstart-tests" */;
 			buildPhases = (
+				04AB3CCCAAFCFE3C988DB1DC /* [CP] Check Pods Manifest.lock */,
 				3F6E595223278F0500503261 /* Sources */,
 				3F6E595323278F0500503261 /* Frameworks */,
 				3F6E595423278F0500503261 /* Resources */,
+				1FF53B7E935A0984A5600F3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -392,6 +564,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04AB3CCCAAFCFE3C988DB1DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cloudstart-tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FF53B7E935A0984A5600F3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6E71108BA7C3BCFD0D72DFB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,25 +661,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F41B1B122FC534F00EE4AD4 /* AppDelegate.swift in Sources */,
+				3FA33177242B93AA0068AFEB /* InstanceTypeNameConverter.swift in Sources */,
 				3F288CA92314473800DFD4D2 /* LocalDataStore.xcdatamodeld in Sources */,
 				3F0EEF57231088A900BFC51D /* AwsLambda.swift in Sources */,
 				3FD3E1AB2426831A00169F7D /* NotificationAuthorizer.swift in Sources */,
+				3FA33168242B45710068AFEB /* CSAWSEC2InstanceStateName.swift in Sources */,
 				3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */,
-				3F47ADBC2333CC9A00FB8819 /* AwsLambdaMock.swift in Sources */,
-				3F47ADBA2333CBE500FB8819 /* AwsLambdaProxy.swift in Sources */,
+				3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */,
 				3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */,
+				3FA3316F242B5C0A0068AFEB /* AppConfig.swift in Sources */,
 				3F358E1A2324F57000E2CE1C /* StateHandler.swift in Sources */,
 				3F358E162324DCFA00E2CE1C /* ActionFactory.swift in Sources */,
 				3FD3E1A92426716500169F7D /* StringProtocol.swift in Sources */,
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
+				3FA33175242B92C90068AFEB /* InstanceStateNameConverter.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
+				3FA33171242B5DE20068AFEB /* AwsEc2.swift in Sources */,
 				3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */,
+				3FA33179242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift in Sources */,
 				3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */,
 				3F821AEC24200C7D00ECC5B6 /* InstanceStateChangeNotifier.swift in Sources */,
 				3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */,
+				3FA3318A242BB5B00068AFEB /* NotificationSender.swift in Sources */,
 				3FF6A73D232407A5008E1455 /* Instance.swift in Sources */,
-				3FE3D996232A9D92003E76AE /* NSDictionaryExtension.swift in Sources */,
+				3F14A7CC242BC88C00AB746B /* AwsEc2Mock.swift in Sources */,
 				3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */,
+				3FA3316A242B499C0068AFEB /* CSAWSEC2InstanceType.swift in Sources */,
 				3FF649832416AB60007963F6 /* InstanceListSorter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,10 +696,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6E59692327A5AB00503261 /* AlertControllerFactoryTest.swift in Sources */,
-				3F3C1F21232FCB77007CA4F7 /* NSDictionaryExtension.swift in Sources */,
+				3F3C1F21232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift in Sources */,
+				3FA3317D242BAF190068AFEB /* InstanceStateNameConverterTest.swift in Sources */,
 				3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */,
 				3FF649852416AC25007963F6 /* InstanceListSorterTest.swift in Sources */,
+				3FA3317F242BB0430068AFEB /* InstanceTypeNameConverterTest.swift in Sources */,
 				3FD3E1AF2426860300169F7D /* StringProtocolTest.swift in Sources */,
+				3F14A7CA242BBA2B00AB746B /* NotificationSenderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +783,7 @@
 		};
 		3F41B1BD22FC534F00EE4AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -625,6 +847,7 @@
 		};
 		3F41B1BE22FC534F00EE4AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -722,6 +945,7 @@
 		};
 		3F6E595D23278F0500503261 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36A0F5E6242C9882F57724CA /* Pods-cloudstart-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -742,6 +966,7 @@
 		};
 		3F6E595E23278F0500503261 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1F42549CCC562C196A292AB /* Pods-cloudstart-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -762,6 +987,7 @@
 		};
 		3FD5EB0B233A86C600006069 /* Testing */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -846,6 +1072,7 @@
 		};
 		3FD5EB0D233A86C600006069 /* Testing */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62891964FB9875EFC54EC77 /* Pods-cloudstart-tests.testing.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

@@ -8,11 +8,11 @@ struct AwsLambda {
     private init() {}
     
     static func authenticate() {        
-        let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
+        let credentialsProvider = AWSMobileClient.default().getCredentialsProvider()
         let serviceConfiguration = AWSServiceConfiguration(region: AWSRegionType.EUWest2, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
         
-        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+        AWSMobileClient.default().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: \(error.localizedDescription)")
             } else if let state = userState {
@@ -48,7 +48,7 @@ struct AwsLambda {
                         let message = response.value(forKey: "message")!
                         
                         print("instanceId: \(instanceId), action: \(action), status: \(status), message: \(message)")
-                        NotificationCenter.default.post(name: Notification.Name("InstanceStateChanged"), object: nil)
+                        NotificationSender().send(notificationName: "InstanceStateChanged")
                         
                         let supportedActioNotifications: Set = ["start", "stop", "terminate"]
                         if (supportedActioNotifications.contains(action)) {
@@ -60,30 +60,6 @@ struct AwsLambda {
                 }
             )
         }
-    }
-    
-    static func invokeGetInstancesApi() {
-        let lambdaInvoker = AWSLambdaInvoker.default()
-        
-        lambdaInvoker.invokeFunction("instancesGet", jsonObject: [:])
-            .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
-                if let error = task.error as NSError? {
-                    if (error.domain == AWSLambdaInvokerErrorDomain) && (AWSLambdaInvokerErrorType.functionError == AWSLambdaInvokerErrorType(rawValue: error.code)) {
-                        let errorMessage = error.userInfo[AWSLambdaInvokerErrorMessageKey]!
-                        print("Function error: \(errorMessage)")
-                        let notificationData = ["errorMessage": errorMessage]
-                        NotificationCenter.default.post(name: Notification.Name("InstanceListUpdateFailed"), object: nil, userInfo: notificationData)
-                    } else {
-                        print("Error: \(error)")
-                    }
-                    return nil
-                } else if let response = task.result as? NSDictionary {
-                    let notificationData = ["instances": response.toInstanceArray()]
-                    NotificationCenter.default.post(name: Notification.Name("InstanceListUpdated"), object: nil, userInfo: notificationData)
-                }
-                return nil
-            }
-        )
     }
     
     static func endChangeInstanceStateTask() {

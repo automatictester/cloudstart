@@ -4,7 +4,7 @@ struct AwsLambdaProxy {
     
     static func authenticate() {
         #if MOCK_AWS
-        AwsLambdaMock.authenticate()
+        AwsEc2Mock.authenticate()
         #else
         AwsLambda.authenticate()
         #endif
@@ -12,7 +12,7 @@ struct AwsLambdaProxy {
     
     static func invokeChangeInstanceStateApi(instanceId: String, action: String) {
         #if MOCK_AWS
-        AwsLambdaMock.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
+        AwsEc2Mock.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
         #else
         AwsLambda.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
         #endif
@@ -20,9 +20,9 @@ struct AwsLambdaProxy {
     
     static func invokeGetInstancesApi() {
         #if MOCK_AWS
-        AwsLambdaMock.invokeGetInstancesApi()
+        AwsEc2Mock.getInstances()
         #else
-        AwsLambda.invokeGetInstancesApi()
+        AwsEc2.getInstances()
         #endif
     }
 }

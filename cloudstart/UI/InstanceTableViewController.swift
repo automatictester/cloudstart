@@ -161,7 +161,7 @@ class InstanceTableViewController: UITableViewController {
     
     func errorOutOnNoNetwork() {
         let notificationData = ["errorMessage": "No network connection"]
-        NotificationCenter.default.post(name: Notification.Name("InstanceListUpdateFailed"), object: nil, userInfo: notificationData)
+        NotificationSender().send(notificationName: "InstanceListUpdateFailed", userInfo: notificationData)
     }
     
     func refreshData(_ notification: Notification) {

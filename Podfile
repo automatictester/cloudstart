@@ -8,4 +8,9 @@ awsSdkVersion = '2.12.7'
 target :'cloudstart' do
   pod 'AWSMobileClient', awsSdkVersion
   pod 'AWSLambda', awsSdkVersion
+  pod 'AWSEC2', awsSdkVersion
+end
+
+target :'cloudstart-tests' do
+  pod 'AWSEC2', awsSdkVersion
 end
