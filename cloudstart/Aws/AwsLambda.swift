@@ -46,12 +46,12 @@ struct AwsLambda {
                         let action = response.value(forKey: "action")! as! String
                         let status = response.value(forKey: "status")!
                         let message = response.value(forKey: "message")!
-                        
+
                         print("instanceId: \(instanceId), action: \(action), status: \(status), message: \(message)")
-                        NotificationSender().send(notificationName: "InstanceStateChanged")
                         
                         let supportedActioNotifications: Set = ["start", "stop", "terminate"]
                         if (supportedActioNotifications.contains(action)) {
+                            NotificationSender().send(notificationName: "InstanceStateChanged")
                             InstanceStateChangeNotifier.notify(instanceId: instanceId, action: action)
                         }
                         endChangeInstanceStateTask()

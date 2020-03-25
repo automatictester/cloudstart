@@ -1,4 +1,6 @@
-struct AwsLambdaProxy {
+struct AwsProxy {
+    
+    private static let ec2 = AwsEc2()
     
     private init() {}
     
@@ -10,19 +12,19 @@ struct AwsLambdaProxy {
         #endif
     }
     
-    static func invokeChangeInstanceStateApi(instanceId: String, action: String) {
+    static func changeInstanceState(instanceId: String, action: String) {
         #if MOCK_AWS
         AwsEc2Mock.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
         #else
-        AwsLambda.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
+        ec2.changeInstanceState(instanceId: instanceId, action: action)
         #endif
     }
     
-    static func invokeGetInstancesApi() {
+    static func getInstances() {
         #if MOCK_AWS
         AwsEc2Mock.getInstances()
         #else
-        AwsEc2.getInstances()
+        ec2.getInstances()
         #endif
     }
 }

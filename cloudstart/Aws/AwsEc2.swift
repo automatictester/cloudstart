@@ -2,15 +2,30 @@ import AWSEC2
 
 struct AwsEc2 {
     
-    private init() {}
+    private let region = "eu-west-2"
+    private var client: AWSEC2?
     
-    static func getInstances() {
+    init() {
         let serviceConfig = getServiceConfig()
-        AWSEC2.register(with: serviceConfig, forKey: "eu-west-2")
-        let request: AWSEC2DescribeInstancesRequest = AWSEC2DescribeInstancesRequest()
-        let ec2 = AWSEC2(forKey: "eu-west-2")
+        AWSEC2.register(with: serviceConfig, forKey: region)
+        client = AWSEC2(forKey: region)
+    }
+    
+    func changeInstanceState(instanceId: String, action: String) {
+        switch action {
+        case "reboot":
+            let request = AWSEC2RebootInstancesRequest()!
+            request.instanceIds = [instanceId]
+            client!.rebootInstances(request) // TODO: .continueWith(block: ...
+        default:
+            print("Unknown action: \(action)")
+        }
         
-        ec2.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+    }
+    
+    func getInstances() {
+        let request = AWSEC2DescribeInstancesRequest()!        
+        client!.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
             if let error = task.error as NSError? {
                 let errorDetails = error.userInfo[AWSResponseObjectErrorUserInfoKey] as! Dictionary<String, String>
                 let errorMessage = errorDetails["Message"]!
@@ -25,7 +40,7 @@ struct AwsEc2 {
         })
     }
     
-    private static func getServiceConfig() -> AWSServiceConfiguration {
+    private func getServiceConfig() -> AWSServiceConfiguration {
         let credentialProvider: AWSStaticCredentialsProvider = AWSStaticCredentialsProvider(
             accessKey: AppConfig.accessKey, secretKey: AppConfig.secretKey
         )

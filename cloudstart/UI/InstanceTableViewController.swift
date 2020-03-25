@@ -115,8 +115,8 @@ class InstanceTableViewController: UITableViewController {
     func requestInitialTableLoad() {
         if (networkMonitor.connected) {
             updateStatusBeforeRefresh()
-            AwsLambdaProxy.authenticate()
-            AwsLambdaProxy.invokeGetInstancesApi()
+            AwsProxy.authenticate()
+            AwsProxy.getInstances()
         } else {
             errorOutOnNoNetwork()
         }
@@ -156,7 +156,7 @@ class InstanceTableViewController: UITableViewController {
     
     // handle notification
     @objc func instanceStateChanged(notification: Notification) {
-        AwsLambdaProxy.invokeGetInstancesApi()
+        AwsProxy.getInstances()
     }
     
     func errorOutOnNoNetwork() {
@@ -219,7 +219,7 @@ class InstanceTableViewController: UITableViewController {
     @objc func refreshInstanceList() {
         if (networkMonitor.connected) {
             updateStatusBeforeRefresh()
-            AwsLambdaProxy.invokeGetInstancesApi()
+            AwsProxy.getInstances()
             refreshControl?.endRefreshing()
         } else {
             errorOutOnNoNetwork()

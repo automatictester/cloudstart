@@ -60,7 +60,7 @@ public struct ActionFactory {
     }
     
     private func invokeApi(instanceId: String, action: String) {
-        AwsLambdaProxy.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)
+        AwsProxy.changeInstanceState(instanceId: instanceId, action: action)
     }
     
     private func deselectRow(_ at: IndexPath) {
