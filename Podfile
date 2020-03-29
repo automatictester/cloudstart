@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
  
-platform :ios, '13.3'
+platform :ios, '13.0'
 use_frameworks!
 
 awsSdkVersion = '2.12.7'
