@@ -2,17 +2,38 @@ import AWSEC2
 
 class AwsEc2 {
     
-    private let region = "eu-west-2"
     private var client: AWSEC2?
     private var backgroundTaskId: UIBackgroundTaskIdentifier?
     
-    init() {
-        let serviceConfig = getServiceConfig()
-        AWSEC2.register(with: serviceConfig, forKey: region)
-        client = AWSEC2(forKey: region)
+    func lazyInit() {
+        if client == nil {
+            let serviceConfig = getServiceConfig()
+            let region = "eu-west-2"
+            AWSEC2.register(with: serviceConfig, forKey: region)
+            client = AWSEC2(forKey: region)
+        }
+    }
+    
+    func getInstances() {
+        lazyInit()
+        let request = AWSEC2DescribeInstancesRequest()!
+        client!.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+            if let error = task.error as NSError? {
+                let errorDetails = error.userInfo[AWSResponseObjectErrorUserInfoKey] as! Dictionary<String, String>
+                let errorMessage = errorDetails["Message"]!
+                print("Error: \(errorMessage)")
+                let notificationData = ["errorMessage": errorMessage]
+                NotificationSender().send(notificationName: "InstanceListUpdateFailed", userInfo: notificationData)
+            } else if let response = task.result?.dictionaryValue as! Dictionary<String, Array<AWSEC2Reservation>>? {
+                let notificationData = ["instances": DescribeInstancesResponseConverter.toInstanceArray(response)]
+                print("Get instances: \(notificationData)")
+                NotificationSender().send(notificationName: "InstanceListUpdated", userInfo: notificationData)
+            }
+        })
     }
     
     func changeInstanceState(instanceId: String, action: String) {
+        lazyInit()
         DispatchQueue.main.async {
             self.backgroundTaskId = UIApplication.shared.beginBackgroundTask() { self.endChangeInstanceStateTask() }
             switch action {
@@ -113,23 +134,6 @@ class AwsEc2 {
                 print("No handler configured, returning")
                 self.endChangeInstanceStateTask()
                 return
-            }
-        })
-    }
-    
-    func getInstances() {
-        let request = AWSEC2DescribeInstancesRequest()!        
-        client!.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
-            if let error = task.error as NSError? {
-                let errorDetails = error.userInfo[AWSResponseObjectErrorUserInfoKey] as! Dictionary<String, String>
-                let errorMessage = errorDetails["Message"]!
-                print("Error: \(errorMessage)")
-                let notificationData = ["errorMessage": errorMessage]
-                NotificationSender().send(notificationName: "InstanceListUpdateFailed", userInfo: notificationData)
-            } else if let response = task.result?.dictionaryValue as! Dictionary<String, Array<AWSEC2Reservation>>? {
-                let notificationData = ["instances": DescribeInstancesResponseConverter.toInstanceArray(response)]
-                print("Get instances: \(notificationData)")
-                NotificationSender().send(notificationName: "InstanceListUpdated", userInfo: notificationData)
             }
         })
     }

@@ -27,7 +27,7 @@
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
-		3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsProxy.swift */; };
+		3F47ADBA2333CBE500FB8819 /* AwsEc2Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E425524275E79002806C4 /* NetworkMonitor.swift */; };
 		3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E595823278F0500503261 /* ActionFactoryTest.swift */; };
@@ -100,7 +100,7 @@
 		3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F41B1BA22FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F47ADB92333CBE500FB8819 /* AwsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsProxy.swift; sourceTree = "<group>"; };
+		3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2Proxy.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F6E425524275E79002806C4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,7 +266,7 @@
 				3FA33166242B45370068AFEB /* Enum */,
 				3FA33170242B5DE20068AFEB /* AwsEc2.swift */,
 				3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */,
-				3F47ADB92333CBE500FB8819 /* AwsProxy.swift */,
+				3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */,
 			);
 			path = Aws;
 			sourceTree = "<group>";
@@ -295,9 +295,9 @@
 		3FA3316D242B52B50068AFEB /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				3FA3316E242B5C0A0068AFEB /* AppConfig.swift */,
 				3FA33172242B60F60068AFEB /* aws_credentials_template.xcconfig */,
 				3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */,
-				3FA3316E242B5C0A0068AFEB /* AppConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -665,7 +665,7 @@
 				3FD3E1AB2426831A00169F7D /* NotificationAuthorizer.swift in Sources */,
 				3FA33168242B45710068AFEB /* AwsEc2InstanceStateName.swift in Sources */,
 				3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */,
-				3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */,
+				3F47ADBA2333CBE500FB8819 /* AwsEc2Proxy.swift in Sources */,
 				3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */,
 				3FA3316F242B5C0A0068AFEB /* AppConfig.swift in Sources */,
 				3FE32A9E2430BA91004FD678 /* ActionToInstanceStateConverter.swift in Sources */,
