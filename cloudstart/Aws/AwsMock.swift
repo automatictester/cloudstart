@@ -1,8 +1,6 @@
-struct AwsEc2Mock {
+class AwsMock {
     
-    private init() {}
-    
-    static func getInstances() {
+    func getInstances() {
         
         let instanceA = Instance(
             instanceId: "i-008d41b671a9dfaeb", instanceType: "t2.micro", state: "stopped", name: "Jenkins Master"
@@ -23,7 +21,7 @@ struct AwsEc2Mock {
         NotificationSender().send(notificationName: "InstanceListUpdated", userInfo: notificationData)
     }
     
-    static func invokeChangeInstanceStateApi(instanceId: String, action: String) {
+    func invokeChangeInstanceStateApi(instanceId: String, action: String) {
         NotificationSender().send(notificationName: "InstanceStateChanged")
     }
 }

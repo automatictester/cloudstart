@@ -1,23 +1,20 @@
 import AWSEC2
+import AWSLambda
 
-class AwsEc2 {
+class Aws {
     
-    private var client: AWSEC2?
     private var backgroundTaskId: UIBackgroundTaskIdentifier?
     
     func lazyInit() {
-        if client == nil {
-            let serviceConfig = getServiceConfig()
-            let region = "eu-west-2"
-            AWSEC2.register(with: serviceConfig, forKey: region)
-            client = AWSEC2(forKey: region)
+        if AWSServiceManager.default().defaultServiceConfiguration == nil {
+            AWSServiceManager.default().defaultServiceConfiguration = getServiceConfig()
         }
     }
     
     func getInstances() {
         lazyInit()
         let request = AWSEC2DescribeInstancesRequest()!
-        client!.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+        AWSEC2.default().describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
             if let error = task.error as NSError? {
                 let errorDetails = error.userInfo[AWSResponseObjectErrorUserInfoKey] as! Dictionary<String, String>
                 let errorMessage = errorDetails["Message"]!
@@ -40,7 +37,7 @@ class AwsEc2 {
             case "reboot":
                 let request = AWSEC2RebootInstancesRequest()!
                 request.instanceIds = [instanceId]
-                self.client!.rebootInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+                AWSEC2.default().rebootInstances(request).continueWith(block: {(task: AWSTask) -> Void in
                     if let error = task.error as NSError? {
                         self.handleChangeInstanceStateError(error)
                     } else {
@@ -51,7 +48,7 @@ class AwsEc2 {
             case "start":
                 let request = AWSEC2StartInstancesRequest()!
                 request.instanceIds = [instanceId]
-                self.client!.startInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+                AWSEC2.default().startInstances(request).continueWith(block: {(task: AWSTask) -> Void in
                     if let error = task.error as NSError? {
                         self.handleChangeInstanceStateError(error)
                     } else {
@@ -62,7 +59,7 @@ class AwsEc2 {
             case "stop":
                 let request = AWSEC2StopInstancesRequest()!
                 request.instanceIds = [instanceId]
-                self.client!.stopInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+                AWSEC2.default().stopInstances(request).continueWith(block: {(task: AWSTask) -> Void in
                     if let error = task.error as NSError? {
                         self.handleChangeInstanceStateError(error)
                     } else {
@@ -73,7 +70,7 @@ class AwsEc2 {
             case "terminate":
                 let request = AWSEC2TerminateInstancesRequest()!
                 request.instanceIds = [instanceId]
-                self.client!.terminateInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+                AWSEC2.default().terminateInstances(request).continueWith(block: {(task: AWSTask) -> Void in
                     if let error = task.error as NSError? {
                         self.handleChangeInstanceStateError(error)
                     } else {
@@ -98,7 +95,7 @@ class AwsEc2 {
             return
         }
         let nextIteration = iteration + 1
-        client!.describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
+        AWSEC2.default().describeInstances(request).continueWith(block: {(task: AWSTask) -> Void in
             if let error = task.error as NSError? {
                 let errorDetails = error.userInfo[AWSResponseObjectErrorUserInfoKey] as! Dictionary<String, String>
                 let errorMessage = errorDetails["Message"]!
@@ -120,7 +117,13 @@ class AwsEc2 {
                         print("Instance '\(instanceId)' reached its expected final state '\(finalState)'")
                         NotificationSender().send(notificationName: "InstanceStateChanged")
                         InstanceStateChangeNotifier.notifyFinal(instanceId: instanceId, action: action)
-                        self.endChangeInstanceStateTask()
+                        if action == "stop" || action == "terminate" {
+                            self.invokeUpdateDns(instanceId: instanceId, action: "delete")
+                        } else if action == "start" {
+                            self.invokeUpdateDns(instanceId: instanceId, action: "upsert")
+                        } else {
+                            self.endChangeInstanceStateTask()
+                        }
                         return
                     } else {
                         if iteration < maxIterations {
@@ -136,6 +139,37 @@ class AwsEc2 {
                 return
             }
         })
+    }
+    
+    private func invokeUpdateDns(instanceId: String, action: String) {
+        let lambdaInvoker = AWSLambdaInvoker.default()
+        let request = getLambdaInvokeRequest(instanceId: instanceId, action: action)
+        lambdaInvoker.invoke(request).continueWith( block: { (task: AWSTask) -> Void in
+            if let error = task.error as NSError? {
+                if error.domain == AWSLambdaInvokerErrorDomain {
+                    print("Lambda function execution error: \(error.userInfo[AWSLambdaInvokerErrorMessageKey]!)")
+                } else {
+                    print("Service error: \(error.userInfo["Message"]!)")
+                }
+            } else {
+                print("Successful DNS update")
+            }
+            self.endChangeInstanceStateTask()
+        })
+    }
+    
+    private func getLambdaInvokeRequest(instanceId: String, action: String) -> AWSLambdaInvokerInvocationRequest {
+        let payload = [
+            "instanceId": instanceId,
+            "action": action
+        ]
+        
+        let request = AWSLambdaInvokerInvocationRequest()!
+        request.functionName = "updateDns"
+        request.invocationType = .requestResponse
+        request.payload = payload
+        
+        return request
     }
     
     private func handleChangeInstanceStateError(_ error: NSError) {

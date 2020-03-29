@@ -7,6 +7,7 @@ awsSdkVersion = '2.12.7'
 
 target :'cloudstart' do
   pod 'AWSEC2', awsSdkVersion
+  pod 'AWSLambda', awsSdkVersion
 end
 
 target :'cloudstart-tests' do

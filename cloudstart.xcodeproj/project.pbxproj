@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */; };
 		3F14A7CA242BBA2B00AB746B /* NotificationSenderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A7C9242BBA2B00AB746B /* NotificationSenderTest.swift */; };
-		3F14A7CC242BC88C00AB746B /* AwsEc2Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */; };
+		3F14A7CC242BC88C00AB746B /* AwsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14A7CB242BC88C00AB746B /* AwsMock.swift */; };
 		3F27A3C923328A53004D8595 /* InstanceListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3C823328A53004D8595 /* InstanceListTest.swift */; };
 		3F27A3CB23328FA4004D8595 /* InstanceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CA23328FA4004D8595 /* InstanceTable.swift */; };
 		3F27A3CD23329057004D8595 /* InstanceActionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A3CC23329057004D8595 /* InstanceActionsTest.swift */; };
@@ -27,7 +27,7 @@
 		3F41B1B622FC534F00EE4AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B422FC534F00EE4AD4 /* Main.storyboard */; };
 		3F41B1B822FC534F00EE4AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */; };
 		3F41B1BB22FC534F00EE4AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F41B1B922FC534F00EE4AD4 /* LaunchScreen.storyboard */; };
-		3F47ADBA2333CBE500FB8819 /* AwsEc2Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */; };
+		3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47ADB92333CBE500FB8819 /* AwsProxy.swift */; };
 		3F4D867822FC9929009FC750 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F4D867722FC9929009FC750 /* logo.png */; };
 		3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E425524275E79002806C4 /* NetworkMonitor.swift */; };
 		3F6E595923278F0500503261 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E595823278F0500503261 /* ActionFactoryTest.swift */; };
@@ -37,7 +37,7 @@
 		3FA33168242B45710068AFEB /* AwsEc2InstanceStateName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33167242B45710068AFEB /* AwsEc2InstanceStateName.swift */; };
 		3FA3316A242B499C0068AFEB /* AwsEc2InstanceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33169242B499C0068AFEB /* AwsEc2InstanceType.swift */; };
 		3FA3316F242B5C0A0068AFEB /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3316E242B5C0A0068AFEB /* AppConfig.swift */; };
-		3FA33171242B5DE20068AFEB /* AwsEc2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33170242B5DE20068AFEB /* AwsEc2.swift */; };
+		3FA33171242B5DE20068AFEB /* Aws.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33170242B5DE20068AFEB /* Aws.swift */; };
 		3FA33175242B92C90068AFEB /* InstanceStateNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33174242B92C90068AFEB /* InstanceStateNameConverter.swift */; };
 		3FA33177242B93AA0068AFEB /* InstanceTypeNameConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33176242B93AA0068AFEB /* InstanceTypeNameConverter.swift */; };
 		3FA33179242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA33178242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift */; };
@@ -78,7 +78,7 @@
 		36A0F5E6242C9882F57724CA /* Pods-cloudstart-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudstart-tests.debug.xcconfig"; path = "Target Support Files/Pods-cloudstart-tests/Pods-cloudstart-tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F00675C23055A2700EEC4E1 /* InstanceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTableViewController.swift; sourceTree = "<group>"; };
 		3F14A7C9242BBA2B00AB746B /* NotificationSenderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderTest.swift; sourceTree = "<group>"; };
-		3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2Mock.swift; sourceTree = "<group>"; };
+		3F14A7CB242BC88C00AB746B /* AwsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsMock.swift; sourceTree = "<group>"; };
 		3F15968F23326D58000277C4 /* cloudstart-ui-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-ui-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F15969323326D58000277C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F27A3C823328A53004D8595 /* InstanceListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceListTest.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		3F41B1B722FC534F00EE4AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F41B1BA22FC534F00EE4AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F41B1BC22FC534F00EE4AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2Proxy.swift; sourceTree = "<group>"; };
+		3F47ADB92333CBE500FB8819 /* AwsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsProxy.swift; sourceTree = "<group>"; };
 		3F4D867722FC9929009FC750 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3F6E425524275E79002806C4 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		3F6E595623278F0500503261 /* cloudstart-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cloudstart-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +113,7 @@
 		3FA33169242B499C0068AFEB /* AwsEc2InstanceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2InstanceType.swift; sourceTree = "<group>"; };
 		3FA3316B242B4C3C0068AFEB /* aws_credentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = aws_credentials.xcconfig; path = ../aws_credentials.xcconfig; sourceTree = "<group>"; };
 		3FA3316E242B5C0A0068AFEB /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		3FA33170242B5DE20068AFEB /* AwsEc2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwsEc2.swift; sourceTree = "<group>"; };
+		3FA33170242B5DE20068AFEB /* Aws.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aws.swift; sourceTree = "<group>"; };
 		3FA33172242B60F60068AFEB /* aws_credentials_template.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = aws_credentials_template.xcconfig; sourceTree = "<group>"; };
 		3FA33174242B92C90068AFEB /* InstanceStateNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceStateNameConverter.swift; sourceTree = "<group>"; };
 		3FA33176242B93AA0068AFEB /* InstanceTypeNameConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceTypeNameConverter.swift; sourceTree = "<group>"; };
@@ -264,9 +264,9 @@
 			children = (
 				3FA33173242B929C0068AFEB /* Converter */,
 				3FA33166242B45370068AFEB /* Enum */,
-				3FA33170242B5DE20068AFEB /* AwsEc2.swift */,
-				3F14A7CB242BC88C00AB746B /* AwsEc2Mock.swift */,
-				3F47ADB92333CBE500FB8819 /* AwsEc2Proxy.swift */,
+				3FA33170242B5DE20068AFEB /* Aws.swift */,
+				3F14A7CB242BC88C00AB746B /* AwsMock.swift */,
+				3F47ADB92333CBE500FB8819 /* AwsProxy.swift */,
 			);
 			path = Aws;
 			sourceTree = "<group>";
@@ -665,7 +665,7 @@
 				3FD3E1AB2426831A00169F7D /* NotificationAuthorizer.swift in Sources */,
 				3FA33168242B45710068AFEB /* AwsEc2InstanceStateName.swift in Sources */,
 				3F358E2023250B0500E2CE1C /* RunningStateHandler.swift in Sources */,
-				3F47ADBA2333CBE500FB8819 /* AwsEc2Proxy.swift in Sources */,
+				3F47ADBA2333CBE500FB8819 /* AwsProxy.swift in Sources */,
 				3F358E1E232504E000E2CE1C /* DefaultHandler.swift in Sources */,
 				3FA3316F242B5C0A0068AFEB /* AppConfig.swift in Sources */,
 				3FE32A9E2430BA91004FD678 /* ActionToInstanceStateConverter.swift in Sources */,
@@ -675,7 +675,7 @@
 				3F00675D23055A2700EEC4E1 /* InstanceTableViewController.swift in Sources */,
 				3FA33175242B92C90068AFEB /* InstanceStateNameConverter.swift in Sources */,
 				3F288CAD2314577D00DFD4D2 /* LocalDataStore+CoreDataClass.swift in Sources */,
-				3FA33171242B5DE20068AFEB /* AwsEc2.swift in Sources */,
+				3FA33171242B5DE20068AFEB /* Aws.swift in Sources */,
 				3F6E425624275E79002806C4 /* NetworkMonitor.swift in Sources */,
 				3FA33179242BA95E0068AFEB /* DescribeInstancesResponseConverter.swift in Sources */,
 				3F6E59672327A15E00503261 /* AlertControllerFactory.swift in Sources */,
@@ -683,7 +683,7 @@
 				3F358E1C2324FD4100E2CE1C /* StoppedStateHandler.swift in Sources */,
 				3FA3318A242BB5B00068AFEB /* NotificationSender.swift in Sources */,
 				3FF6A73D232407A5008E1455 /* Instance.swift in Sources */,
-				3F14A7CC242BC88C00AB746B /* AwsEc2Mock.swift in Sources */,
+				3F14A7CC242BC88C00AB746B /* AwsMock.swift in Sources */,
 				3F288CAC2314577D00DFD4D2 /* LocalDataStore+CoreDataProperties.swift in Sources */,
 				3FA3316A242B499C0068AFEB /* AwsEc2InstanceType.swift in Sources */,
 				3FF649832416AB60007963F6 /* InstanceListSorter.swift in Sources */,

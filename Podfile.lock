@@ -2,19 +2,24 @@ PODS:
   - AWSCore (2.12.7)
   - AWSEC2 (2.12.7):
     - AWSCore (= 2.12.7)
+  - AWSLambda (2.12.7):
+    - AWSCore (= 2.12.7)
 
 DEPENDENCIES:
   - AWSEC2 (= 2.12.7)
+  - AWSLambda (= 2.12.7)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AWSCore
     - AWSEC2
+    - AWSLambda
 
 SPEC CHECKSUMS:
   AWSCore: 2f0f88ae94a63a198274d683c7d0e18709d7090b
   AWSEC2: 4e37b45db13c4cb829f1bf29fd71050ec3c3e88f
+  AWSLambda: 46b763172227d6e74f54f0fbad34cf67dd74ce4f
 
-PODFILE CHECKSUM: ed220079d6c4fc5e6670745c5d6071cc0c4abf5c
+PODFILE CHECKSUM: 81bdcdc144ccdc5496c12a47f8fe69ed519c94eb
 
 COCOAPODS: 1.9.1
