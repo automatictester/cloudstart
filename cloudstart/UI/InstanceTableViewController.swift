@@ -1,18 +1,17 @@
-import AWSAuthCore
 import CoreData
 import UIKit
 
 class InstanceTableViewController: UITableViewController {
     
     var instances = [Instance]()
-    var lambdaError: String?
+    var awsErrorMessage: String?
     let networkMonitor = NetworkMonitor()
     
     @IBOutlet weak var status: UIBarButtonItem!
     @IBOutlet weak var error: UIBarButtonItem!
     
     @IBAction func ErrorOnTap(_ sender: Any) {
-        showErrorPopup(lambdaError!)
+        showErrorPopup(awsErrorMessage!)
     }
     
     var persistentContainer: NSPersistentContainer = {
@@ -115,7 +114,6 @@ class InstanceTableViewController: UITableViewController {
     func requestInitialTableLoad() {
         if (networkMonitor.connected) {
             updateStatusBeforeRefresh()
-            AwsProxy.authenticate()
             AwsProxy.getInstances()
         } else {
             errorOutOnNoNetwork()
@@ -151,7 +149,7 @@ class InstanceTableViewController: UITableViewController {
     @objc func instanceListUpdateFailed(notification: Notification) {
         updateStatus("Update failed")
         updateError("Error")
-        lambdaError = notification.userInfo!["errorMessage"] as? String
+        awsErrorMessage = notification.userInfo!["errorMessage"] as? String
     }
     
     // handle notification
@@ -205,7 +203,7 @@ class InstanceTableViewController: UITableViewController {
     
     func cleanLambdaInvocationError() {
         error.title = " "
-        lambdaError = nil
+        awsErrorMessage = nil
     }
     
     func showErrorPopup(_ message: String) {

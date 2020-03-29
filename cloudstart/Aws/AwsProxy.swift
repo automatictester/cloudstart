@@ -4,14 +4,6 @@ struct AwsProxy {
     
     private init() {}
     
-    static func authenticate() {
-        #if MOCK_AWS
-        AwsEc2Mock.authenticate()
-        #else
-        AwsLambda.authenticate()
-        #endif
-    }
-    
     static func changeInstanceState(instanceId: String, action: String) {
         #if MOCK_AWS
         AwsEc2Mock.invokeChangeInstanceStateApi(instanceId: instanceId, action: action)

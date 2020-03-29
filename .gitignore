@@ -68,7 +68,6 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # AWS
-awsconfiguration.json
 aws_credentials.xcconfig
 
 # AppCode

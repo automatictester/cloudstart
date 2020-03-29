@@ -23,13 +23,13 @@ public struct DescribeInstancesResponseConverter {
     
     private static func getInstanceType(_ instance: AWSEC2Instance) -> String {
         let instanceTypeId = instance.instanceType.rawValue
-        let instanceTypeRaw = String(describing: CSAWSEC2InstanceType.byId[instanceTypeId])
+        let instanceTypeRaw = String(describing: AwsEc2InstanceType.byId[instanceTypeId])
         return InstanceTypeNameConverter.from(instanceTypeRaw)
     }
     
     private static func getInstanceState(_ instance: AWSEC2Instance) -> String {
         let stateId = instance.state!.name.rawValue
-        let stateRaw = String(describing: CSAWSEC2InstanceStateName.byId[stateId])
+        let stateRaw = String(describing: AwsEc2InstanceStateName.byId[stateId])
         return InstanceStateNameConverter.from(stateRaw)
     }
     

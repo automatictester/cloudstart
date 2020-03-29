@@ -10,10 +10,10 @@ class NetworkMonitor {
         monitor.pathUpdateHandler = { pathUpdateHandler in
             if pathUpdateHandler.status == .satisfied {
                 self.connected = true
-                print("network connected")
+                print("Network connected")
             } else {
                 self.connected = false
-                print("network disconnected")
+                print("Network disconnected")
             }
         }
         monitor.start(queue: queue)

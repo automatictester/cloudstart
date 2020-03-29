@@ -2,8 +2,6 @@ struct AwsEc2Mock {
     
     private init() {}
     
-    static func authenticate() {}
-    
     static func getInstances() {
         
         let instanceA = Instance(

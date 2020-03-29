@@ -1,4 +1,3 @@
-import AWSMobileClient
 import UIKit
 
 @UIApplicationMain

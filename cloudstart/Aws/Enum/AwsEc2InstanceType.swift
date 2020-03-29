@@ -1,4 +1,4 @@
-enum CSAWSEC2InstanceType: String, CaseIterable {
+enum AwsEc2InstanceType: String, CaseIterable {
     
     case unknown,
     t1_micro,
@@ -273,7 +273,7 @@ enum CSAWSEC2InstanceType: String, CaseIterable {
     inf1_6xlarge,
     inf1_24xlarge
     
-    static var byId: [CSAWSEC2InstanceType] {
+    static var byId: [AwsEc2InstanceType] {
         return self.allCases
     }
 }
