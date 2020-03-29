@@ -48,6 +48,7 @@
 		3FD3E1AB2426831A00169F7D /* NotificationAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */; };
 		3FD3E1AF2426860300169F7D /* StringProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */; };
 		3FE32A9E2430BA91004FD678 /* ActionToInstanceStateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE32A9D2430BA91004FD678 /* ActionToInstanceStateConverter.swift */; };
+		3FE32AA02430DF01004FD678 /* ActionToInstanceStateConverterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE32A9F2430DF01004FD678 /* ActionToInstanceStateConverterTest.swift */; };
 		3FF649832416AB60007963F6 /* InstanceListSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649822416AB60007963F6 /* InstanceListSorter.swift */; };
 		3FF649852416AC25007963F6 /* InstanceListSorterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */; };
 		3FF6A73D232407A5008E1455 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6A738232407A5008E1455 /* Instance.swift */; };
@@ -124,6 +125,7 @@
 		3FD3E1AA2426831A00169F7D /* NotificationAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuthorizer.swift; sourceTree = "<group>"; };
 		3FD3E1AE2426860300169F7D /* StringProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolTest.swift; sourceTree = "<group>"; };
 		3FE32A9D2430BA91004FD678 /* ActionToInstanceStateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionToInstanceStateConverter.swift; sourceTree = "<group>"; };
+		3FE32A9F2430DF01004FD678 /* ActionToInstanceStateConverterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionToInstanceStateConverterTest.swift; sourceTree = "<group>"; };
 		3FF649822416AB60007963F6 /* InstanceListSorter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorter.swift; sourceTree = "<group>"; };
 		3FF649842416AC25007963F6 /* InstanceListSorterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceListSorterTest.swift; sourceTree = "<group>"; };
 		3FF6A738232407A5008E1455 /* Instance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
@@ -314,8 +316,8 @@
 		3FA3317A242BAC110068AFEB /* Aws */ = {
 			isa = PBXGroup;
 			children = (
-				3FA33184242BB20A0068AFEB /* Extension */,
 				3FA3317B242BAC1B0068AFEB /* Converter */,
+				3FA33184242BB20A0068AFEB /* Extension */,
 			);
 			path = Aws;
 			sourceTree = "<group>";
@@ -323,6 +325,7 @@
 		3FA3317B242BAC1B0068AFEB /* Converter */ = {
 			isa = PBXGroup;
 			children = (
+				3FE32A9F2430DF01004FD678 /* ActionToInstanceStateConverterTest.swift */,
 				3F3C1F20232FCB77007CA4F7 /* DescribeInstancesResponseConverterTest.swift */,
 				3FA3317C242BAF190068AFEB /* InstanceStateNameConverterTest.swift */,
 				3FA3317E242BB0430068AFEB /* InstanceTypeNameConverterTest.swift */,
@@ -698,6 +701,7 @@
 				3FF649852416AC25007963F6 /* InstanceListSorterTest.swift in Sources */,
 				3FA3317F242BB0430068AFEB /* InstanceTypeNameConverterTest.swift in Sources */,
 				3FD3E1AF2426860300169F7D /* StringProtocolTest.swift in Sources */,
+				3FE32AA02430DF01004FD678 /* ActionToInstanceStateConverterTest.swift in Sources */,
 				3F14A7CA242BBA2B00AB746B /* NotificationSenderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
