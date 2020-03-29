@@ -1,6 +1,7 @@
 os: osx
 osx_image: xcode11
 language: swift
+before_install: touch cloudstart/aws_credentials.xcconfig
 xcode_workspace: cloudstart.xcworkspace
 xcode_scheme: cloudstart
 xcode_destination: platform=iOS Simulator,OS=13.0,name=iPhone 11 Pro
