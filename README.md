@@ -12,5 +12,5 @@ Native iOS app for managing Amazon EC2 instances.
 See AWS backend components [here](https://github.com/automatictester/cloudstart-backend).
 
 ### More
-- Config file `awsconfiguration.json` is not included for security reasons.
+- Config file `aws_credentials.xcconfig` is not included for security reasons.
 - This app has not been generalised, although feel free to reuse and adapt bits and pieces as you see fit.
