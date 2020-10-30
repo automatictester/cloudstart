@@ -1,7 +1,6 @@
 # CloudStart
 
 [![Build Status](https://travis-ci.com/automatictester/cloudstart.svg?branch=master)](https://travis-ci.com/automatictester/cloudstart)
-[![Join the chat at https://gitter.im/automatictester/cloudstart](https://badges.gitter.im/automatictester/cloudstart.svg)](https://gitter.im/automatictester/cloudstart?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### About
 Native iOS app for managing Amazon EC2 instances.
